@@ -25,9 +25,7 @@ export default function ImpressumPage() {
               <p className="mt-3 leading-7">
                 {siteConfig.legalCompanyName}
                 <br />
-                {siteConfig.address.streetAddress}
-                <br />
-                {siteConfig.address.postalCode} {siteConfig.address.addressLocality}
+                {siteConfig.addressLine}
                 <br />
                 Vertretungsberechtigt: Christoph Pfad
               </p>

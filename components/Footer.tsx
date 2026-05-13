@@ -66,7 +66,7 @@ export function Footer() {
             </li>
             <li className="flex gap-2">
               <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span>31633 Leese</span>
+              <span>{siteConfig.addressLine}</span>
             </li>
           </ul>
           <h2 className="mt-8 text-sm font-semibold uppercase tracking-wide text-slate-400">Rechtliches</h2>

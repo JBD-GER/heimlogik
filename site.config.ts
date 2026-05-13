@@ -16,6 +16,7 @@ export const siteConfig = {
     addressCountry: "DE",
     streetAddress: "Großer Kamp 5a",
   },
+  addressLine: "Großer Kamp 5a, 31633 Leese",
   whatsappNumber: "",
   siteUrl: "https://www.heimlogik.de",
   logo: {

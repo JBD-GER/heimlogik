@@ -26,9 +26,7 @@ export default function DatenschutzPage() {
               <p className="mt-3 leading-7">
                 {siteConfig.legalCompanyName}
                 <br />
-                {siteConfig.address.streetAddress}
-                <br />
-                {siteConfig.address.postalCode} {siteConfig.address.addressLocality}
+                {siteConfig.addressLine}
                 <br />
                 E-Mail: {siteConfig.email}
               </p>
