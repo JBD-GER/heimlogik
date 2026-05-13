@@ -36,7 +36,7 @@ export default function HomePage() {
         text="Heimlogik plant, integriert und programmiert intelligente Gebäudetechnik für Häuser, Neubauten, Sanierungen und hochwertige Immobilien - verständlich, durchdacht und auf Ihren Alltag abgestimmt."
         bullets={[
           "Smart-Home-Planung und Systemintegration",
-          "KNX-/Loxone-/Matter-kompatible Lösungen möglich",
+          "KNX-, Home Assistant- und Matter-kompatible Lösungen möglich",
           "Licht, Beschattung, Heizung, Sicherheit und Energie",
           "Smarte Heizkörperthermostate als schneller Einstieg",
           "Umsetzung mit qualifizierten Elektriker-Partnern",

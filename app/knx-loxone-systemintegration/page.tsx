@@ -1,16 +1,5 @@
-import type { Metadata } from "next";
-import { LandingPage } from "@/components/LandingPage";
-import { servicePages } from "@/lib/content";
-
-const content = servicePages["/knx-loxone-systemintegration"];
-
-export const metadata: Metadata = {
-  title: content.metaTitle,
-  description: content.metaDescription,
-  alternates: { canonical: content.path },
-  openGraph: { title: content.metaTitle, description: content.metaDescription, url: content.path },
-};
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <LandingPage content={content} />;
+  redirect("/knx-home-assistant-systemintegration");
 }

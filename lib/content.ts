@@ -78,7 +78,7 @@ export const navItems = [
   { href: "/leistungen", label: "Leistungen" },
   { href: "/smart-home-planung", label: "Smart-Home Planung" },
   { href: "/smart-home-installation", label: "Installation" },
-  { href: "/knx-loxone-systemintegration", label: "KNX & Loxone" },
+  { href: "/knx-home-assistant-systemintegration", label: "KNX & Home Assistant" },
   { href: "/smart-home-nachruesten", label: "Nachrüstung" },
   { href: "/energiemanagement-heizung", label: "Energie & Heizung" },
   { href: "/licht-rollladen-beschattung", label: "Licht & Rollläden" },
@@ -185,9 +185,9 @@ export const serviceCards = [
   },
   {
     icon: Network,
-    title: "KNX & Loxone Systemintegration",
-    text: "KNX-/Loxone-kompatible Lösungen für Neubau, Sanierung und hochwertige Immobilien.",
-    href: "/knx-loxone-systemintegration",
+    title: "KNX & Home Assistant Systemintegration",
+    text: "KNX- und Home Assistant-kompatible Lösungen für Neubau, Sanierung und hochwertige Immobilien.",
+    href: "/knx-home-assistant-systemintegration",
   },
   {
     icon: PlugZap,
@@ -244,7 +244,7 @@ const globalServiceFaqs: FaqItem[] = [
   {
     question: "Welche Systeme nutzt Heimlogik?",
     answer:
-      "Die Systemauswahl hängt von Objekt, Budget, gewünschter Bedienung und Erweiterungsbedarf ab. KNX-/Loxone-/Matter-kompatible Lösungen sind möglich, wenn sie zum Projekt passen.",
+      "Die Systemauswahl hängt von Objekt, Budget, gewünschter Bedienung und Erweiterungsbedarf ab. KNX-, Home Assistant- und Matter-kompatible Lösungen sind möglich, wenn sie zum Projekt passen.",
   },
   {
     question: "Was kostet ein Smart-Home-Projekt?",
@@ -295,9 +295,9 @@ export const servicePages: Record<string, PageContent> = {
       },
       {
         title: "Systemauswahl ohne Hersteller-Scheuklappen",
-        text: "KNX, Loxone, Matter, Funklösungen oder Mischsysteme können je nach Objekt sinnvoll sein. Entscheidend sind Stabilität, Erweiterbarkeit und Bedienbarkeit.",
+        text: "KNX, Home Assistant, Matter, Funklösungen oder Mischsysteme können je nach Objekt sinnvoll sein. Entscheidend sind Stabilität, Erweiterbarkeit und Bedienbarkeit.",
         links: [
-          { label: "KNX & Loxone", href: "/knx-loxone-systemintegration" },
+          { label: "KNX & Home Assistant", href: "/knx-home-assistant-systemintegration" },
           { label: "Smart Home nachrüsten", href: "/smart-home-nachruesten" },
           { label: "Energiemanagement", href: "/energiemanagement-heizung" },
         ],
@@ -312,7 +312,7 @@ export const servicePages: Record<string, PageContent> = {
     faqs: [
       { question: "Wann lohnt sich eine Smart-Home Planung?", answer: "Immer dann, wenn mehrere Gewerke, Räume oder Funktionen zusammenspielen sollen. Besonders wichtig ist sie bei Neubau, Sanierung und hochwertigen Bestandsimmobilien." },
       { question: "Kann Heimlogik vorhandene Pläne prüfen?", answer: "Ja. Vorhandene Elektro-, Grundriss- oder Funktionspläne können als Grundlage dienen, um Bedienlogik, Systeme und offene Punkte zu prüfen." },
-      { question: "Muss ich mich vorher für KNX oder Loxone entscheiden?", answer: "Nein. Die Systementscheidung sollte aus Objekt, Funktionen, Budget und Erweiterungswunsch entstehen." },
+      { question: "Muss ich mich vorher für KNX oder Home Assistant entscheiden?", answer: "Nein. Die Systementscheidung sollte aus Objekt, Funktionen, Budget und Erweiterungswunsch entstehen." },
       ...globalServiceFaqs,
     ],
   },
@@ -374,13 +374,13 @@ export const servicePages: Record<string, PageContent> = {
       ...globalServiceFaqs,
     ],
   },
-  "/knx-loxone-systemintegration": {
-    path: "/knx-loxone-systemintegration",
-    metaTitle: "KNX & Loxone Systemintegrator | Heimlogik",
+  "/knx-home-assistant-systemintegration": {
+    path: "/knx-home-assistant-systemintegration",
+    metaTitle: "KNX & Home Assistant Systemintegrator | Heimlogik",
     metaDescription:
-      "KNX- und Loxone-kompatible Smart-Home-Planung für Neubau, Sanierung und Premium-Immobilien in Wunstorf, Isernhagen und Hannover.",
-    h1: "KNX & Loxone Systemintegration für anspruchsvolle Smart-Home-Projekte",
-    kicker: "KNX Planung, Loxone Smart Home und Gebäudeautomation",
+      "KNX- und Home Assistant-kompatible Smart-Home-Planung für Neubau, Sanierung und Premium-Immobilien in Wunstorf, Isernhagen und Hannover.",
+    h1: "KNX & Home Assistant Systemintegration für anspruchsvolle Smart-Home-Projekte",
+    kicker: "KNX Planung, Home Assistant Smart Home und Gebäudeautomation",
     heroText:
       "Heimlogik plant, koordiniert und programmiert hochwertige Smart-Home- und Gebäudeautomationslösungen - von Licht und Beschattung bis Energie, Sicherheit und Visualisierung.",
     heroBullets: [
@@ -388,18 +388,18 @@ export const servicePages: Record<string, PageContent> = {
       "Licht, Beschattung, Heizung, Sicherheit, Zutritt und Energie",
       "Umsetzung fester Elektroarbeiten über qualifizierte Partner",
     ],
-    primaryCta: "KNX-/Loxone-Projekt besprechen",
+    primaryCta: "KNX- und Home Assistant-Projekt besprechen",
     secondaryCta: "Leistungen ansehen",
     secondaryHref: "/leistungen",
     imageSrc: "/images/bild_Mitarbeiter_zwei.png",
-    imageAlt: "KNX und Loxone Systemintegration für hochwertiges Smart Home",
+    imageAlt: "KNX und Home Assistant Systemintegration für hochwertiges Smart Home",
     icon: Network,
-    serviceName: "KNX & Loxone Systemintegration",
+    serviceName: "KNX & Home Assistant Systemintegration",
     serviceType: "Smart Home Systemintegration",
     sections: [
       {
-        title: "Warum KNX oder Loxone für Premium-Projekte?",
-        text: "Bei Neubau, Sanierung, Villa und Gewerbe zählt nicht das einzelne Gerät, sondern ein robustes Gesamtsystem. Heimlogik prüft, ob KNX, Loxone oder ein anderes bewährtes System fachlich sinnvoll ist.",
+        title: "Warum KNX oder Home Assistant für Premium-Projekte?",
+        text: "Bei Neubau, Sanierung, Villa und Gewerbe zählt nicht das einzelne Gerät, sondern ein robustes Gesamtsystem. Heimlogik prüft, ob KNX, Home Assistant oder ein anderes bewährtes System fachlich sinnvoll ist.",
         items: ["stabile Gebäudelogik", "zentrale Visualisierung", "erweiterbare Funktionen", "klare Bedienkonzepte"],
       },
       {
@@ -420,7 +420,7 @@ export const servicePages: Record<string, PageContent> = {
     boundary: siteConfig.electricianPartnerText,
     faqs: [
       { question: "Ist Heimlogik KNX-zertifizierter Partner?", answer: "Eine solche Zertifizierung wird hier nicht behauptet. Heimlogik plant und integriert KNX-kompatible Lösungen, wenn sie zum Projekt passen." },
-      { question: "Ist Loxone für mein Haus sinnvoll?", answer: "Das hängt von gewünschten Funktionen, Budget, Objektstruktur und späteren Erweiterungen ab. Wir prüfen die Systemwahl vor der Empfehlung." },
+      { question: "Ist Home Assistant für mein Haus sinnvoll?", answer: "Das hängt von gewünschten Funktionen, Budget, Objektstruktur und späteren Erweiterungen ab. Wir prüfen die Systemwahl vor der Empfehlung." },
       { question: "Wer installiert Aktoren und feste Leitungen?", answer: siteConfig.electricianPartnerText },
       ...globalServiceFaqs,
     ],
@@ -607,8 +607,8 @@ export const servicePages: Record<string, PageContent> = {
     heroText:
       "Heimlogik macht aus Licht, Rollläden und Beschattung ein intelligentes System: komfortabel bedienbar, automatisiert und passend zu Ihrem Alltag.",
     primaryCta: "Licht- und Beschattungsprojekt prüfen lassen",
-    secondaryCta: "KNX & Loxone ansehen",
-    secondaryHref: "/knx-loxone-systemintegration",
+    secondaryCta: "KNX & Home Assistant ansehen",
+    secondaryHref: "/knx-home-assistant-systemintegration",
     imageSrc: "/images/bild_Mitarbeiter_zwei.png",
     imageAlt: "Lichtsteuerung und Beschattung im modernen Wohnzimmer",
     icon: Blinds,
@@ -732,7 +732,7 @@ export const homeFaqs: FaqItem[] = [
   { question: "Was macht ein Smart-Home-Systemintegrator?", answer: "Ein Systemintegrator sorgt dafür, dass Licht, Beschattung, Heizung, Sicherheit, Energie, Apps und Visualisierung logisch zusammenspielen." },
   { question: "Ist Heimlogik ein Elektrofachbetrieb?", answer: "Nein. Heimlogik plant, integriert, programmiert und betreut Smart-Home-Systeme. Elektroarbeiten erfolgen in Zusammenarbeit mit qualifizierten Elektriker-Partnern." },
   { question: "Arbeiten Sie mit Elektrikern zusammen?", answer: "Ja. Feste Elektroarbeiten, Unterputzinstallationen, Sicherungskasten, Verteilungen und 230V-Anschlüsse gehören in die Hände qualifizierter Fachbetriebe." },
-  { question: "Welche Systeme nutzen Sie?", answer: "Wir wählen Systeme nach Objekt und Ziel. KNX-/Loxone-/Matter-kompatible Lösungen sind möglich, werden aber nicht pauschal als beste Lösung verkauft." },
+  { question: "Welche Systeme nutzen Sie?", answer: "Wir wählen Systeme nach Objekt und Ziel. KNX-, Home Assistant- und Matter-kompatible Lösungen sind möglich, werden aber nicht pauschal als beste Lösung verkauft." },
   { question: "Eignet sich Smart Home für Neubau und Sanierung?", answer: "Ja. Im Neubau kann besonders sauber geplant werden, bei Sanierungen prüfen wir bauliche Möglichkeiten und sinnvolle Ausbaustufen." },
   { question: "Kann man Smart Home nachrüsten?", answer: "Ja, viele Funktionen lassen sich funkbasiert nachrüsten. Wir prüfen vorher Stabilität, WLAN, Stromversorgung und technische Grenzen." },
   { question: "Was kostet ein Smart-Home-Projekt?", answer: "Die Kosten hängen von Objekt, System, gewünschtem Funktionsumfang und baulichen Voraussetzungen ab. Nach dem Projekt-Check erhalten Sie ein transparentes Angebot." },
@@ -742,7 +742,7 @@ export const homeFaqs: FaqItem[] = [
 export const generalFaqs: FaqItem[] = [
   ...homeFaqs,
   { question: "Was ist der Unterschied zwischen Heimlogik und einem Elektriker?", answer: "Elektrohandwerk und Systemintegration ergänzen sich. Der Elektriker installiert Leitungen und Komponenten. Heimlogik plant und programmiert die Logik, Szenen, Schnittstellen und Bedienung." },
-  { question: "Ist KNX oder Loxone besser?", answer: "Das lässt sich nicht pauschal sagen. Entscheidend sind Objekt, Funktionen, Budget, Bedienwunsch und Erweiterungsbedarf." },
+  { question: "Ist KNX oder Home Assistant besser?", answer: "Das lässt sich nicht pauschal sagen. Entscheidend sind Objekt, Funktionen, Budget, Bedienwunsch und Erweiterungsbedarf." },
   { question: "Eignet sich Smart Home für Altbau?", answer: "Ja, wenn die Lösung realistisch geplant wird. Funklösungen, smarte Thermostate, Sensorik und Netzwerk sind häufig gute Einstiege." },
   { question: "Kann ich mit smarten Heizkörperthermostaten starten?", answer: "Ja. Für viele Wohnungen, Häuser und Ferienwohnungen sind smarte Heizkörperthermostate ein sinnvoller Einstieg." },
   { question: "Funktioniert Smart Home auch in Ferienwohnungen?", answer: "Ja. Besonders WLAN, Zutritt, smarte Heizung, Sensorik und Gästeanleitungen können Betreuung und Betrieb vereinfachen." },
@@ -751,13 +751,13 @@ export const generalFaqs: FaqItem[] = [
 
 export const localPages: Record<string, PageContent> = {
   "/smart-home-nienburg": localPage("Nienburg", "Smart Home Nienburg", "Smart Home Nienburg | Heimlogik", "Smart Home in Nienburg planen, nachrüsten und integrieren lassen: Heimlogik verbindet Licht, Heizung, Sicherheit, Energie und Bedienung.", "Smart Home in Nienburg - geplant, integriert und verständlich eingerichtet", "Heimlogik betreut Smart-Home-Projekte im Nienburger (Weser) - von der ersten Beratung über die Systemauswahl bis zur Programmierung und Einweisung."),
-  "/smart-home-leese": localPage("Leese", "Smart Home Leese", "Smart Home Leese | Heimlogik", "Smart Home in Leese und Umgebung: Planung, Nachrüstung, smarte Thermostate, KNX-/Loxone-kompatible Integration und Support.", "Smart Home in Leese - regional geplant und sauber eingerichtet", "Heimlogik sitzt in 31633 Leese und betreut Projekte direkt vor Ort sowie im Nienburger (Weser)."),
+  "/smart-home-leese": localPage("Leese", "Smart Home Leese", "Smart Home Leese | Heimlogik", "Smart Home in Leese und Umgebung: Planung, Nachrüstung, smarte Thermostate, KNX- und Home Assistant-kompatible Integration und Support.", "Smart Home in Leese - regional geplant und sauber eingerichtet", "Heimlogik sitzt in 31633 Leese und betreut Projekte direkt vor Ort sowie im Nienburger (Weser)."),
   "/smart-home-stolzenau": localPage("Stolzenau", "Smart Home Stolzenau", "Smart Home Stolzenau | Heimlogik", "Smart Home in Stolzenau planen und nachrüsten lassen: Heizung, Licht, Sicherheit, Zutritt und Ferienwohnungslösungen mit Heimlogik.", "Smart Home in Stolzenau für Haus, Sanierung und Ferienwohnung", "Für Eigentümer und Vermieter in Stolzenau plant Heimlogik Smart-Home-Lösungen, die nicht nach Bastellösung aussehen, sondern im Alltag funktionieren."),
-  "/smart-home-wunstorf": localPage("Wunstorf", "Smart Home Wunstorf", "Smart Home Wunstorf | Heimlogik", "Smart Home in Wunstorf: Heimlogik plant und integriert smarte Heizung, Licht, Sicherheit, KNX-/Loxone-kompatible Systeme und Nachrüstung.", "Smart Home in Wunstorf - Systemintegration statt Technikchaos", "In Wunstorf begleitet Heimlogik anspruchsvolle Smart-Home-Projekte für Neubau, Sanierung, Einfamilienhaus und hochwertige Bestandsimmobilien."),
+  "/smart-home-wunstorf": localPage("Wunstorf", "Smart Home Wunstorf", "Smart Home Wunstorf | Heimlogik", "Smart Home in Wunstorf: Heimlogik plant und integriert smarte Heizung, Licht, Sicherheit, KNX- und Home Assistant-kompatible Systeme und Nachrüstung.", "Smart Home in Wunstorf - Systemintegration statt Technikchaos", "In Wunstorf begleitet Heimlogik anspruchsvolle Smart-Home-Projekte für Neubau, Sanierung, Einfamilienhaus und hochwertige Bestandsimmobilien."),
   "/smart-home-hannover": localPage("Hannover", "Smart Home Hannover", "Smart Home Hannover | Heimlogik", "Smart Home in Hannover planen und integrieren lassen: Heimlogik verbindet Heizung, Licht, Sicherheit, Energie und Bedienung zu einem klaren System.", "Smart Home in Hannover - hochwertige Systemintegration", "In Hannover plant Heimlogik Smart-Home-Lösungen für Eigentümer, Neubauten, Sanierungen und hochwertige Bestandsimmobilien."),
-  "/smart-home-isernhagen": localPage("Isernhagen", "Smart Home Isernhagen", "Smart Home Isernhagen | Heimlogik", "Smart Home in Isernhagen: Heimlogik plant und integriert smarte Heizung, Licht, Sicherheit, KNX-/Loxone-kompatible Systeme und Nachrüstung.", "Smart Home in Isernhagen - sauber geplant und verständlich bedienbar", "In Isernhagen begleitet Heimlogik Smart-Home-Projekte mit Fokus auf Komfort, Energieeffizienz, Sicherheit und einfache Bedienung."),
+  "/smart-home-isernhagen": localPage("Isernhagen", "Smart Home Isernhagen", "Smart Home Isernhagen | Heimlogik", "Smart Home in Isernhagen: Heimlogik plant und integriert smarte Heizung, Licht, Sicherheit, KNX- und Home Assistant-kompatible Systeme und Nachrüstung.", "Smart Home in Isernhagen - sauber geplant und verständlich bedienbar", "In Isernhagen begleitet Heimlogik Smart-Home-Projekte mit Fokus auf Komfort, Energieeffizienz, Sicherheit und einfache Bedienung."),
   "/smart-home-neustadt-am-ruebenberge": localPage("Neustadt am Rübenberge", "Smart Home Neustadt am Rübenberge", "Smart Home Neustadt am Rübenberge | Heimlogik", "Smart Home in Neustadt am Rübenberge: Planung, Nachrüstung, smarte Heizkörperthermostate, Sicherheit, Licht und Energie mit Heimlogik.", "Smart Home in Neustadt am Rübenberge - klar geplant, verständlich bedienbar", "Rund um Hannover, Isernhagen, Wunstorf und Nienburger (Weser) betreut Heimlogik Projekte mit Fokus auf Bedienbarkeit, Systemlogik und saubere Umsetzung."),
-  "/smart-home-hannover-west": localPage("Hannover West", "Smart Home Hannover West", "Smart Home Hannover West | Heimlogik", "Smart Home in Hannover West und Region Hannover: Heimlogik plant Systemintegration, Nachrüstung, KNX-/Loxone-kompatible Lösungen und smarte Heizung.", "Smart Home in Hannover West - hochwertige Systemintegration", "Für Hannover West und die westliche Region Hannover plant Heimlogik Smart-Home-Lösungen für anspruchsvolle Eigentümer, Neubauten und Sanierungen."),
+  "/smart-home-hannover-west": localPage("Hannover West", "Smart Home Hannover West", "Smart Home Hannover West | Heimlogik", "Smart Home in Hannover West und Region Hannover: Heimlogik plant Systemintegration, Nachrüstung, KNX- und Home Assistant-kompatible Lösungen und smarte Heizung.", "Smart Home in Hannover West - hochwertige Systemintegration", "Für Hannover West und die westliche Region Hannover plant Heimlogik Smart-Home-Lösungen für anspruchsvolle Eigentümer, Neubauten und Sanierungen."),
 };
 
 function localPage(
@@ -778,7 +778,7 @@ function localPage(
     heroBullets: [
       `Smart-Home-Beratung und Planung in ${city}`,
       "Nachrüstung, smarte Heizung, Licht und Sensorik",
-      "KNX-/Loxone-/Matter-kompatible Lösungen möglich",
+      "KNX-, Home Assistant- und Matter-kompatible Lösungen möglich",
       "Elektroarbeiten über qualifizierte Partner",
     ],
     primaryCta: `Smart-Home-Projekt in ${city} anfragen`,
@@ -796,11 +796,11 @@ function localPage(
       },
       {
         title: "Passende Leistungen vor Ort",
-        items: ["Smart Home nachrüsten", "Smarte Heizkörperthermostate", "KNX & Loxone Systemintegration", "Licht & Rollläden", "Energiemanagement & Heizung", "Sicherheit & Zutritt"],
+        items: ["Smart Home nachrüsten", "Smarte Heizkörperthermostate", "KNX & Home Assistant Systemintegration", "Licht & Rollläden", "Energiemanagement & Heizung", "Sicherheit & Zutritt"],
         links: [
           { label: "Smart Home nachrüsten", href: "/smart-home-nachruesten" },
           { label: "Smarte Heizkörperthermostate", href: "/smarte-heizkoerperthermostate" },
-          { label: "KNX & Loxone", href: "/knx-loxone-systemintegration" },
+          { label: "KNX & Home Assistant", href: "/knx-home-assistant-systemintegration" },
           { label: "Licht & Rollläden", href: "/licht-rollladen-beschattung" },
           { label: "Energiemanagement", href: "/energiemanagement-heizung" },
           { label: "Sicherheit & Zutritt", href: "/smart-home-sicherheit-zutritt" },
@@ -834,7 +834,7 @@ export const footerServices = [
   ["Smart-Home Planung", "/smart-home-planung"],
   ["Smart Home nachrüsten", "/smart-home-nachruesten"],
   ["Smarte Heizkörperthermostate installieren lassen", "/smarte-heizkoerperthermostate"],
-  ["KNX & Loxone Systemintegration", "/knx-loxone-systemintegration"],
+  ["KNX & Home Assistant Systemintegration", "/knx-home-assistant-systemintegration"],
   ["Licht & Rollläden", "/licht-rollladen-beschattung"],
   ["Energiemanagement & Heizung", "/energiemanagement-heizung"],
   ["Sicherheit & Zutritt", "/smart-home-sicherheit-zutritt"],

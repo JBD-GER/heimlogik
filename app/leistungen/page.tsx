@@ -53,7 +53,7 @@ export default function LeistungenPage() {
           {[
             ["Smart-Home-Planung", "Wir übersetzen Wünsche, Grundrisse und technische Möglichkeiten in ein klares Smart-Home-Konzept.", "/smart-home-planung"],
             ["Smart Home Installation", "Wir richten Komponenten, Apps, Gateways, Räume, Szenen und Nutzerrechte sauber ein und übergeben das System verständlich.", "/smart-home-installation"],
-            ["Systemintegration", "Wir verbinden Licht, Beschattung, Heizung, Sicherheit, Energie und Bedienung zu einem funktionierenden Gesamtsystem.", "/knx-loxone-systemintegration"],
+            ["Systemintegration", "Wir verbinden Licht, Beschattung, Heizung, Sicherheit, Energie und Bedienung zu einem funktionierenden Gesamtsystem.", "/knx-home-assistant-systemintegration"],
           ].map(([title, text, href]) => (
             <article key={title} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-xl font-bold text-ink">{title}</h2>

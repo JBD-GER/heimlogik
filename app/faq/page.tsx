@@ -8,7 +8,7 @@ import { generalFaqs } from "@/lib/content";
 export const metadata: Metadata = {
   title: "FAQ Smart Home Planung & Installation",
   description:
-    "Antworten zu Smart-Home-Systemintegration, Elektroarbeiten, KNX, Loxone, Nachrüstung, Kosten, Support, Thermostaten und Sicherheit.",
+    "Antworten zu Smart-Home-Systemintegration, Elektroarbeiten, KNX, Home Assistant, Nachrüstung, Kosten, Support, Thermostaten und Sicherheit.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "FAQ Smart Home Planung & Installation | Heimlogik",

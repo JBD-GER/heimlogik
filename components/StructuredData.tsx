@@ -20,7 +20,7 @@ export function LocalBusinessSchema() {
       "Smart Home Installation im rechtlich zulässigen Rahmen",
       "Smart Home Systemintegration",
       "Gebäudeautomation",
-      "KNX-/Loxone-kompatible Lösungen",
+      "KNX- und Home Assistant-kompatible Lösungen",
       "Lichtsteuerung",
       "Beschattung",
       "smarte Heizkörperthermostate",

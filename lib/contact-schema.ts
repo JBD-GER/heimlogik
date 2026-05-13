@@ -12,7 +12,7 @@ export const contactSchema = z.object({
     [
       "Smart Home Planung",
       "Smart Home Installation",
-      "KNX/Loxone",
+      "KNX/Home Assistant",
       "Nachrüstung",
       "smarte Thermostate",
       "Heizung/Energie",

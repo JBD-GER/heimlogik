@@ -4,7 +4,7 @@
 
 - `/` Startseite
 - `/leistungen`
-- `/knx-loxone-systemintegration`
+- `/knx-home-assistant-systemintegration`
 - `/smart-home-nachruesten`
 - `/smarte-heizkoerperthermostate`
 - `/energiemanagement-heizung`
@@ -34,7 +34,7 @@ Legacy-Weiterleitungen:
 
 - `/`: Smart Home Installateur Nienburg, Smart Home Systemintegrator Region Hannover, Smart Home installieren lassen
 - `/leistungen`: Smart Home Leistungen, Smart Home Planung, Smart Home Installation, Smart Home Systemintegration
-- `/knx-loxone-systemintegration`: KNX Systemintegrator, KNX Planung, KNX Programmierung, Loxone Smart Home
+- `/knx-home-assistant-systemintegration`: KNX Systemintegrator, KNX Planung, KNX Programmierung, Home Assistant Smart Home
 - `/smart-home-nachruesten`: Smart Home nachrüsten, Smart Home Bestand, Matter Smart Home, Smart Home ohne Umbau
 - `/smarte-heizkoerperthermostate`: smarte Heizkörperthermostate installieren lassen, Heizungssteuerung per App, smarte Thermostate installieren
 - `/energiemanagement-heizung`: Energiemanagement Smart Home, smarte Heizungssteuerung, PV Energiemanagement, Wallbox Energiemanagement
@@ -59,7 +59,7 @@ Alle Haupt- und Landingpages haben einen eigenen Hero mit lokalem Bezug, sichtba
 ## 6. CTA-Texte je Seite
 
 - Standard: Projekt-Check vereinbaren, Beratung anfragen, 05761 8429666
-- KNX/Loxone: KNX-/Loxone-Projekt besprechen
+- KNX/Home Assistant: KNX- und Home Assistant-Projekt besprechen
 - Nachrüstung: Nachrüst-Check vereinbaren
 - Thermostate: Thermostat-Check anfragen
 - Energie: Energiemanagement-Beratung anfragen
@@ -75,7 +75,7 @@ Alle Haupt- und Landingpages haben einen eigenen Hero mit lokalem Bezug, sichtba
 - Thermostat-Seite verlinkt auf Energiemanagement, Nachrüstung, Ferienwohnung und Sicherheit.
 - Energiemanagement verlinkt prominent auf die Thermostat-Seite.
 - Ferienwohnung verlinkt auf Thermostate, Sicherheit und Energiemanagement.
-- KNX/Loxone verlinkt auf Licht/Beschattung, Energiemanagement und Gewerbe.
+- KNX/Home Assistant verlinkt auf Licht/Beschattung, Energiemanagement und Gewerbe.
 - Lokale Seiten verlinken auf passende Leistungsseiten.
 - Footer enthält Leistungslinks, Servicegebiet und Rechtliches.
 
@@ -106,7 +106,7 @@ Priorität 1:
 Priorität 2:
 
 - `/licht-rollladen-beschattung`
-- `/knx-loxone-systemintegration`
+- `/knx-home-assistant-systemintegration`
 - `/smart-home-sicherheit-zutritt`
 
 Priorität 3:

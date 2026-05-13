@@ -14,7 +14,7 @@ const propertyOptions = ["Wohnung", "Haus", "Ferienwohnung", "Mietwohnung", "Gew
 const serviceOptions = [
   "Smart Home Planung",
   "Smart Home Installation",
-  "KNX/Loxone",
+  "KNX/Home Assistant",
   "Nachrüstung",
   "smarte Thermostate",
   "Heizung/Energie",
