@@ -7,8 +7,8 @@ export const siteConfig = {
   email: "smart@heimlogik.de",
   city: "Leese",
   serviceArea:
-    "Hannover, Isernhagen, Wunstorf, Landkreis Weser",
-  serviceRadius: "Hannover, Isernhagen, Wunstorf & Landkreis Weser",
+    "Hannover, Isernhagen, Wunstorf, Nienburger (Weser)",
+  serviceRadius: "Hannover, Isernhagen, Wunstorf & Nienburger (Weser)",
   address: {
     "@type": "PostalAddress",
     postalCode: "31633",
@@ -32,7 +32,8 @@ export const siteConfig = {
   electricianPartnerText:
     "Elektroarbeiten erfolgen in Zusammenarbeit mit qualifizierten Elektriker-Partnern.",
   tracking: {
-    googleAdsId: "",
+    googleAdsConversionId: "AW-18159642295",
+    googleAdsConversionLabel: "90bcCKXko6wcELfNmNND",
   },
 } as const;
 

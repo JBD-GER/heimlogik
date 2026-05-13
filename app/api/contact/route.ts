@@ -56,7 +56,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     message: "Vielen Dank. Ihre Anfrage wurde gesendet.",
-    redirectTo: "/danke",
+    redirectTo: "/danke?lead=1",
   });
 }
 

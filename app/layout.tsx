@@ -5,6 +5,7 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { TrackingManager } from "@/components/TrackingManager";
 import { TrackingPlaceholders } from "@/components/TrackingPlaceholders";
 import { siteConfig } from "@/site.config";
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body className={`${inter.className} min-h-screen bg-paper antialiased`}>
         <TrackingPlaceholders />
+        <TrackingManager />
         <Header />
         <main>{children}</main>
         <Footer />

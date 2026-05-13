@@ -52,9 +52,12 @@ export default function DatenschutzPage() {
               </div>
             </section>
             <section>
-              <h2 className="text-xl font-bold text-ink">Google Ads Tracking</h2>
+              <h2 className="text-xl font-bold text-ink">Google Ads Conversion-Tracking</h2>
               <p className="mt-3 leading-7">
-                Wenn Sie Marketing-Cookies zustimmen, kann Google Ads Tracking eingesetzt werden, um die Wirksamkeit von Anzeigen zu messen und relevante Werbung auszuspielen. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei können Nutzungsdaten, Geräteinformationen, Referrer, ungefähre Standortdaten und Interaktionen mit Anzeigen verarbeitet werden. Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung, die Sie jederzeit über die Cookie-Einstellungen widerrufen können.
+                Wenn Sie Marketing-Cookies zustimmen, kann Google Ads Conversion-Tracking eingesetzt werden, um die Wirksamkeit von Anzeigen und Formularanfragen zu messen. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei können Nutzungsdaten, Geräteinformationen, Referrer, ungefähre Standortdaten und Interaktionen mit Anzeigen verarbeitet werden.
+              </p>
+              <p className="mt-3 leading-7">
+                Der Google Consent Mode v2 ist so eingerichtet, dass Marketing- und Analyse-Speicher standardmäßig abgelehnt sind und erst nach Ihrer Einwilligung aktualisiert werden. Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung, die Sie jederzeit über die Cookie-Einstellungen widerrufen können.
               </p>
             </section>
             <section>
