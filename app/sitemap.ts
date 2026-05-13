@@ -10,6 +10,7 @@ const staticRoutes = [
   "/kontakt",
   "/faq",
   "/ueber-uns",
+  "/fachpartner",
   "/impressum",
   "/datenschutz",
 ];

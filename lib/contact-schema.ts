@@ -20,6 +20,7 @@ export const contactSchema = z.object({
       "Sicherheit/Zutritt",
       "Ferienwohnung",
       "Gewerbe",
+      "Fachpartner",
       "Komplettprojekt",
     ],
     { required_error: "Bitte wählen Sie eine Leistung." },

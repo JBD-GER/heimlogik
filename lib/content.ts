@@ -84,6 +84,7 @@ export const navItems = [
   { href: "/licht-rollladen-beschattung", label: "Licht & Rollläden" },
   { href: "/smart-home-sicherheit-zutritt", label: "Sicherheit" },
   { href: "/ferienwohnung-smart-home", label: "Ferienwohnungen" },
+  { href: "/fachpartner", label: "Für Fachpartner" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -840,6 +841,7 @@ export const footerServices = [
   ["Sicherheit & Zutritt", "/smart-home-sicherheit-zutritt"],
   ["Ferienwohnung Smart Home", "/ferienwohnung-smart-home"],
   ["Gebäudeautomation Gewerbe", "/gebaeudeautomation-gewerbe"],
+  ["Für Fachpartner", "/fachpartner"],
 ];
 
 export const serviceAreaLinks = [

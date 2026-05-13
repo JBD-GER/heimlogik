@@ -22,6 +22,7 @@ const serviceOptions = [
   "Sicherheit/Zutritt",
   "Ferienwohnung",
   "Gewerbe",
+  "Fachpartner",
   "Komplettprojekt",
 ];
 
