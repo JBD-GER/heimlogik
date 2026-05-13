@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       "Smart Home Planung und Systemintegration für Isernhagen, Wunstorf und Hannover.",
     url: "/",
-    images: ["/images/heimlogik-smart-home-hero.png"],
+    images: ["/images/bild_Mitarbeiter.png"],
   },
 };
 
@@ -43,7 +43,7 @@ export default function HomePage() {
           "Regional in Isernhagen, Wunstorf und Hannover",
         ]}
         icon={PlugZap}
-        imageSrc="/images/heimlogik-smart-home-hero.png"
+        imageSrc="/images/bild_Mitarbeiter.png"
         imageAlt="Smart Home Steuerung in einem Einfamilienhaus in Hannover"
         primaryCta="Projekt-Check vereinbaren"
         secondaryCta="Leistungen ansehen"
