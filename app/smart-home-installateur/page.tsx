@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
-import { Cable, CheckCircle2, ClipboardCheck, Euro, Settings2, ShieldCheck, Star } from "lucide-react";
+import { Cable, CheckCircle2, ClipboardCheck, Euro, MessageSquareQuote, Settings2, ShieldCheck } from "lucide-react";
 import { AdsLeadForm } from "@/components/AdsLeadForm";
 import { DynamicAdsHeadline } from "@/components/DynamicAdsHeadline";
 import { siteConfig } from "@/site.config";
@@ -59,20 +59,20 @@ const trustItems = [
   "Regionaler Ansprechpartner für anspruchsvolle Neubau- und Sanierungsprojekte",
 ];
 
-const trustStatements = [
+const projectVoices = [
   [
-    "Planungssicherheit im Neubau",
-    "Ein gutes Smart-Home-Konzept nimmt Bauherren früh die Unsicherheit: Welche Kabel werden gebraucht? Welche Funktionen sind sinnvoll? Und was muss der Elektriker konkret vorbereiten?",
+    "Wir wollten kein Haus voller einzelner Apps.",
+    "Uns war wichtig, dass Licht, Beschattung, Heizung und Zutritt später zusammen funktionieren. Durch die frühe Planung war klar, welche Leitungen gebraucht werden und was der Elektriker vorbereiten muss.",
     "Neubau / Einfamilienhaus",
   ],
   [
-    "Klarheit in der Sanierung",
-    "Bei Bestandsimmobilien zählt nicht die größtmögliche Technik, sondern die passende Lösung. Heimlogik prüft, was zuverlässig nachrüstbar ist und wie die Bedienung einfach bleibt.",
+    "Endlich eine Lösung, die zum Bestand passt.",
+    "Bei der Sanierung war nicht alles neu verkabelbar. Entscheidend war deshalb, welche Funktionen zuverlässig nachrüstbar sind und wo eine kabelgebundene Lösung langfristig mehr Sinn ergibt.",
     "Sanierung / Bestand",
   ],
   [
-    "Saubere Schnittstelle zu Fachpartnern",
-    "Elektriker, Architekt und Gewerke profitieren von klaren Funktionswünschen, abgestimmten Leitungswegen und einer Programmierung, die nicht erst am Ende improvisiert wird.",
+    "Die Abstimmung auf der Baustelle wurde deutlich einfacher.",
+    "Mit einem klaren Funktions- und Kabelkonzept konnten Elektriker und weitere Gewerke sauber weiterarbeiten. Die Programmierung wurde nicht erst am Ende improvisiert.",
     "Partner / Gewerk",
   ],
 ];
@@ -200,21 +200,17 @@ export default function SmartHomeInstallateurLandingPage() {
       <section className="section-pad">
         <div className="container-page">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent">Vertrauen</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Vertrauen entsteht, wenn Planung auf der Baustelle verständlich wird</h2>
+            <p className="text-sm font-semibold uppercase tracking-wide text-accent">Projektstimmen</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">So sprechen Bauherren und Fachpartner über gute Smart-Home-Planung</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Gute Smart-Home-Planung zeigt sich nicht in der Anzahl der Geräte, sondern in weniger Abstimmungsaufwand, klaren Entscheidungen und einem System, das nach der Übergabe im Alltag funktioniert.
+              Gute Planung zeigt sich nicht in der Anzahl der Geräte, sondern in weniger Abstimmungsaufwand, klaren Entscheidungen und einem System, das nach der Übergabe im Alltag funktioniert.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {trustStatements.map(([title, text, project]) => (
+            {projectVoices.map(([title, text, project]) => (
               <article key={title} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="flex gap-1 text-accent" aria-hidden="true">
-                  {[0, 1, 2, 3, 4].map((item) => (
-                    <Star key={item} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <h3 className="mt-4 font-bold text-ink">{title}</h3>
+                <MessageSquareQuote className="h-6 w-6 text-accent" aria-hidden="true" />
+                <h3 className="mt-5 font-bold text-ink">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-slate-500">{project}</p>
               </article>
