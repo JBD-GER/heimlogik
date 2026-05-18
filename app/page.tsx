@@ -37,7 +37,7 @@ export default function HomePage() {
         bullets={[
           "Smart-Home-Planung und Systemintegration",
           "KNX-, Home Assistant- und Matter-kompatible Lösungen möglich",
-          "Licht, Beschattung, Heizung, Sicherheit und Energie",
+          "Licht, Beschattung, Heizung, Audio, TV, Sicherheit und Energie",
           "Smarte Heizkörperthermostate als schneller Einstieg",
           "Umsetzung mit qualifizierten Elektriker-Partnern",
           "Regional in Isernhagen, Wunstorf und Hannover",
@@ -57,7 +57,7 @@ export default function HomePage() {
           <article className="rounded-md border border-slate-200 bg-paper p-7">
             <h2 className="text-2xl font-bold text-ink">Viele Smart-Home-Projekte scheitern nicht an der Technik, sondern an fehlender Planung.</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Einzelne Geräte sind schnell gekauft. Wirklich komfortabel wird Smart Home aber erst, wenn Licht, Beschattung, Heizung, Sicherheit, Netzwerk und Bedienung logisch zusammenspielen.
+              Einzelne Geräte sind schnell gekauft. Wirklich komfortabel wird Smart Home aber erst, wenn Licht, Beschattung, Heizung, Audio, TV, Sicherheit, Netzwerk und Bedienung logisch zusammenspielen.
             </p>
           </article>
           <article className="rounded-md border border-green-100 bg-green-50 p-7">

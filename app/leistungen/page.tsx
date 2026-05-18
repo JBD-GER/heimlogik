@@ -9,7 +9,7 @@ import { serviceCards } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Smart Home Leistungen",
   description:
-    "Smart-Home-Planung, Installation, Systemintegration, Heizung, Licht, Sicherheit, Energie und Ferienwohnungslösungen mit Heimlogik.",
+    "Smart-Home-Planung, Installation, Systemintegration, Heizung, Licht, Audio, TV, Sicherheit, Energie und Ferienwohnungslösungen mit Heimlogik.",
   alternates: { canonical: "/leistungen" },
   openGraph: {
     title: "Smart Home Leistungen | Heimlogik",
@@ -23,7 +23,7 @@ export default function LeistungenPage() {
     <>
       <ServiceSchema
         name="Smart-Home-Leistungen von Heimlogik"
-        description="Smart-Home-Planung, Installation, Systemintegration, Heizung, Licht, Sicherheit, Energie und Ferienwohnungslösungen."
+        description="Smart-Home-Planung, Installation, Systemintegration, Heizung, Licht, Audio, TV, Sicherheit, Energie und Ferienwohnungslösungen."
         path="/leistungen"
         serviceType="Smart Home Planung und Systemintegration"
       />
@@ -34,7 +34,7 @@ export default function LeistungenPage() {
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Leistungen</p>
             <h1 className="mt-3 text-4xl font-bold tracking-normal text-ink sm:text-5xl">Smart-Home-Leistungen von Heimlogik</h1>
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Von der ersten Idee bis zur funktionierenden Bedienung: Heimlogik plant, integriert und betreut Smart-Home-Lösungen für Häuser, Wohnungen, Neubauten, Sanierungen und Ferienimmobilien.
+              Von der ersten Idee bis zur funktionierenden Bedienung: Heimlogik plant, integriert und betreut Smart-Home-Lösungen für Häuser, Wohnungen, Neubauten, Sanierungen und Ferienimmobilien - inklusive HiFi, Audio, TV und Beschallungssystemen.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold text-slate-800">
               <a href="/kontakt" className="rounded-md bg-accent px-4 py-3 text-ink">Leistung besprechen</a>
@@ -53,7 +53,7 @@ export default function LeistungenPage() {
           {[
             ["Smart-Home-Planung", "Wir übersetzen Wünsche, Grundrisse und technische Möglichkeiten in ein klares Smart-Home-Konzept.", "/smart-home-planung"],
             ["Smart Home Installation", "Wir richten Komponenten, Apps, Gateways, Räume, Szenen und Nutzerrechte sauber ein und übergeben das System verständlich.", "/smart-home-installation"],
-            ["Systemintegration", "Wir verbinden Licht, Beschattung, Heizung, Sicherheit, Energie und Bedienung zu einem funktionierenden Gesamtsystem.", "/knx-home-assistant-systemintegration"],
+            ["Systemintegration", "Wir verbinden Licht, Beschattung, Heizung, Audio, TV, Sicherheit, Energie und Bedienung zu einem funktionierenden Gesamtsystem.", "/knx-home-assistant-systemintegration"],
           ].map(([title, text, href]) => (
             <article key={title} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-xl font-bold text-ink">{title}</h2>
