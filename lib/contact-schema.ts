@@ -5,13 +5,16 @@ export const contactSchema = z.object({
   phone: z.string().min(5, "Bitte geben Sie eine Telefonnummer ein."),
   email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
   location: z.string().min(2, "Bitte geben Sie Ort oder PLZ ein."),
-  propertyType: z.enum(["Wohnung", "Haus", "Ferienwohnung", "Mietwohnung", "Gewerbe", "Neubau", "Sanierung"], {
+  propertyType: z.enum(["Wohnung", "Haus", "Ferienwohnung", "Mietwohnung", "Gewerbe", "Neubau", "Sanierung", "Nachrüstung", "Bestandsimmobilie"], {
     required_error: "Bitte wählen Sie den Immobilientyp.",
   }),
   service: z.enum(
     [
+      "Beratung & Budgetierung",
       "Smart Home Planung",
       "Smart Home Installation",
+      "Kabelkonzept",
+      "Programmierung/Inbetriebnahme",
       "KNX/Home Assistant",
       "Nachrüstung",
       "smarte Thermostate",

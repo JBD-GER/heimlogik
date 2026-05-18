@@ -1,6 +1,6 @@
 export const siteConfig = {
   companyName: "Heimlogik",
-  legalCompanyName: "Bauelemente Pfad UG",
+  legalCompanyName: "Flaaq Holding GmbH",
   claim: "Smart Home Planung & Installation",
   alternativeClaim: "Planung. Integration. Programmierung. Betreuung.",
   phone: "05761 8429666",

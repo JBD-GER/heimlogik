@@ -67,7 +67,7 @@ const fieldLabels: Array<[keyof ContactData, string]> = [
   ["phone", "Telefon"],
   ["email", "E-Mail"],
   ["location", "Ort / PLZ"],
-  ["propertyType", "Immobilientyp"],
+  ["propertyType", "Projektart / Immobilientyp"],
   ["service", "Gewünschte Leistung"],
   ["rooms", "Anzahl Räume"],
   ["radiators", "Anzahl Heizkörper"],
