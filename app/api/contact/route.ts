@@ -69,6 +69,8 @@ const fieldLabels: Array<[keyof ContactData, string]> = [
   ["location", "Ort / PLZ"],
   ["propertyType", "Projektart / Immobilientyp"],
   ["service", "Gewünschte Leistung"],
+  ["projectStage", "Planungsstand"],
+  ["budgetRange", "Budgetrahmen"],
   ["rooms", "Anzahl Räume"],
   ["radiators", "Anzahl Heizkörper"],
   ["thermostatsPresent", "Thermostate vorhanden"],

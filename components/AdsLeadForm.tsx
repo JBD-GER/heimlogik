@@ -7,6 +7,8 @@ import { Send } from "lucide-react";
 type FormState = "idle" | "loading" | "success" | "error";
 
 const projectTypes = ["Neubau", "Sanierung", "Nachrüstung", "Bestandsimmobilie"];
+const projectStages = ["Erste Idee", "Planung läuft", "Grundriss / Elektroplan vorhanden", "Rohbau startet bald", "Umsetzung läuft bereits"];
+const budgetRanges = ["noch offen", "bis 10.000 EUR", "10.000 - 25.000 EUR", "25.000 - 50.000 EUR", "über 50.000 EUR"];
 const services = [
   "Beratung & Budgetierung",
   "Smart Home Planung",
@@ -65,6 +67,8 @@ export function AdsLeadForm() {
         <Field label="Postleitzahl / Ort" name="location" error={errors.location} required />
         <Select label="Projektart" name="propertyType" error={errors.propertyType} required options={projectTypes} />
         <Select label="Wobei brauchen Sie Unterstützung?" name="service" error={errors.service} required options={services} />
+        <Select label="Planungsstand optional" name="projectStage" error={errors.projectStage} options={projectStages} />
+        <Select label="Budgetrahmen optional" name="budgetRange" error={errors.budgetRange} options={budgetRanges} />
         <Field label="Anzahl Räume optional" name="rooms" error={errors.rooms} />
         <Field label="Anzahl Heizkörper optional" name="radiators" error={errors.radiators} />
         <div className="hidden">

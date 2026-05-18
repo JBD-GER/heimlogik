@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
-import { Cable, CheckCircle2, ClipboardCheck, Settings2, ShieldCheck, Star } from "lucide-react";
+import { Cable, CheckCircle2, ClipboardCheck, Euro, Settings2, ShieldCheck, Star } from "lucide-react";
 import { AdsLeadForm } from "@/components/AdsLeadForm";
 import { DynamicAdsHeadline } from "@/components/DynamicAdsHeadline";
 import { siteConfig } from "@/site.config";
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
 
 const problemItems = [
   [
-    "Kabel fehlen dort, wo später Funktionen gebraucht werden",
-    "Beschattung, Präsenzmelder, Türkommunikation, Netzwerk, Wallbox oder zentrale Steuerung lassen sich nur eingeschränkt nachrüsten, wenn das Kabelkonzept nicht früh steht.",
+    "Kabel und Dosen werden zu spät geplant",
+    "Wenn Beschattung, Präsenzmelder, Türkommunikation, Netzwerk, Wallbox oder zentrale Steuerung erst nach dem Rohbau geklärt werden, bleiben oft nur teure Kompromisse.",
   ],
   [
-    "Systeme sprechen nicht sauber miteinander",
-    "Licht, Heizung, PV, Audio, Sicherheit und Zutritt landen schnell in einzelnen Apps, statt als verlässliches Gesamtsystem zusammenzuarbeiten.",
+    "Einzelne Systeme werden nicht als Gesamtlösung gedacht",
+    "Licht, Heizung, PV, Audio, Sicherheit und Zutritt landen schnell in getrennten Apps, statt als verständliches System zusammenzuarbeiten.",
   ],
   [
-    "Programmierung wird zum Dauerproblem",
-    "Szenen, Automationen, Nutzerrechte und Visualisierung brauchen Struktur. Ohne Fachplanung entsteht Technik, die niemand gern bedient.",
+    "Die Programmierung wird zum Frustfaktor",
+    "Szenen, Automationen, Nutzerrechte und Visualisierung brauchen ein klares Konzept. Ohne Fachplanung entsteht Technik, die im Alltag niemand gern nutzt.",
   ],
 ];
 
@@ -38,7 +38,7 @@ const serviceSteps = [
   {
     icon: ClipboardCheck,
     title: "1. Beratung & Budgetierung",
-    text: "Wir klären, welche Funktionen wirklich sinnvoll sind, welche Qualitätsstufe zu Ihrem Projekt passt und welches Budget realistisch ist.",
+    text: "Wir klären, welche Funktionen zu Ihrem Alltag passen, welche Qualitätsstufe sinnvoll ist und welcher Budgetrahmen für Planung, Technik und Umsetzung realistisch ist.",
   },
   {
     icon: Cable,
@@ -48,15 +48,33 @@ const serviceSteps = [
   {
     icon: Settings2,
     title: "3. Inbetriebnahme & Programmierung",
-    text: "Wir richten Szenen, Automationen, Visualisierung, Nutzerrechte und Bedienung ein, damit Ihr Smart Home im Alltag einfach funktioniert.",
+    text: "Wir richten Szenen, Automationen, Visualisierung, Nutzerrechte und Bedienung so ein, dass Ihr Smart Home nach der Übergabe ruhig, logisch und zuverlässig funktioniert.",
   },
 ];
 
 const trustItems = [
   "Herstellerunabhängige Beratung statt Produktverkauf",
   "Planung, Programmierung und Koordination aus einer Hand",
-  "Elektroarbeiten mit qualifizierten Elektriker-Partnern",
-  "Regionaler Ansprechpartner für anspruchsvolle Projekte",
+  "Klare Schnittstelle zu Elektriker, Architekt und Fachgewerken",
+  "Regionaler Ansprechpartner für anspruchsvolle Neubau- und Sanierungsprojekte",
+];
+
+const reviewPlaceholders = [
+  [
+    "Bauherrenstimme einfügen",
+    "Hier sollte eine echte Bewertung stehen, die Planungssicherheit, klare Kommunikation und die Abstimmung mit dem Elektriker hervorhebt.",
+    "Neubau / Einfamilienhaus",
+  ],
+  [
+    "Sanierungsstimme einfügen",
+    "Hier sollte eine echte Bewertung stehen, die die saubere Systemauswahl, Nachrüstbarkeit und verständliche Bedienung beschreibt.",
+    "Sanierung / Bestand",
+  ],
+  [
+    "Fachpartnerstimme einfügen",
+    "Hier sollte eine echte Bewertung von Elektriker, Architekt oder Gewerk stehen, die die Zusammenarbeit und klare Planung betont.",
+    "Partner / Gewerk",
+  ],
 ];
 
 export default function SmartHomeInstallateurLandingPage() {
@@ -74,10 +92,10 @@ export default function SmartHomeInstallateurLandingPage() {
               <DynamicAdsHeadline />
             </Suspense>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-              Viele Smart-Home-Projekte scheitern nicht an der Technik, sondern an zu später Planung: fehlende Kabel, inkompatible Systeme und Programmierung, die nach der Übergabe niemand gern nutzt. Heimlogik sorgt dafür, dass Ihr Smart Home vor dem Rohbau sauber durchdacht ist.
+              Heimlogik ist Ihr Fachpartner für Smart-Home-Planung, Kabelkonzept, Inbetriebnahme und Programmierung. Keine DIY-Bastellösung, kein Produktverkauf: Wir sorgen dafür, dass Ihr Smart Home vor dem Rohbau sauber durchdacht und später zuverlässig bedienbar ist.
             </p>
             <ul className="mt-6 grid max-w-2xl gap-2 text-sm leading-6 text-slate-200 sm:grid-cols-2">
-              {["herstellerunabhängige Systemauswahl", "Planung, Programmierung und Koordination aus einer Hand", "zukunftssicheres Kabel- und Funktionskonzept"].map((item) => (
+              {["herstellerunabhängige Systemauswahl", "Planung & Programmierung aus einer Hand", "zukunftssicheres Kabel- und Funktionskonzept"].map((item) => (
                 <li key={item} className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                   <span>{item}</span>
@@ -116,9 +134,9 @@ export default function SmartHomeInstallateurLandingPage() {
         <div className="container-page">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Das Problem</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Warum smarte Elektroplanung im Neubau oft zu spät auffällt</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Warum Smart Home im Neubau oft scheitert, obwohl die Technik eigentlich gut ist</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Smart Home ist kein Gerätekauf, sondern eine Planungsentscheidung. Wenn Funktionen, Leitungen und Schnittstellen erst nach Rohbau oder Sanierung geklärt werden, wird es schnell teuer, eingeschränkt oder unnötig kompliziert.
+              Smart Home ist kein Gerätekauf, sondern eine Planungsentscheidung. Wenn die smarte Elektroplanung nebenbei vom Standardablauf erledigt oder später selbst zusammengesteckt wird, entstehen genau die Probleme, die Bauherren vermeiden wollten.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -137,9 +155,9 @@ export default function SmartHomeInstallateurLandingPage() {
         <div className="container-page">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Unsere Dienstleistung</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Das Heimlogik Sorglos-Paket für Ihr Smart Home</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Das Heimlogik Sorglos-Paket: geplant, programmiert und sauber übergeben</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Wir übersetzen Ihre Wohnwünsche in eine technische Planung, die Elektriker, Architekt und Fachgewerke verstehen und die später zuverlässig bedienbar ist.
+              Wir übersetzen Ihre Wohnwünsche in eine technische Planung, die Elektriker, Architekt und Fachgewerke verstehen und die später zuverlässig bedienbar ist. Sie behalten die Verantwortung nicht allein, sondern bekommen einen fachlichen Ansprechpartner für die Logik des Hauses.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -163,9 +181,9 @@ export default function SmartHomeInstallateurLandingPage() {
         <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Vertrauen</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Geplant für Menschen, die ihr Bauprojekt nicht dem Zufall überlassen</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Für Bauherren, die ihr Projekt nicht dem Zufall überlassen</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Heimlogik schafft Klarheit, bevor Gewerke starten, Produkte bestellt werden oder später kostspielige Kompromisse entstehen.
+              Heimlogik schafft Klarheit, bevor Gewerke starten, Produkte bestellt werden oder später kostspielige Kompromisse entstehen. Wir denken nicht in einzelnen Geräten, sondern in Funktionen, Schnittstellen und Bedienbarkeit.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -183,14 +201,13 @@ export default function SmartHomeInstallateurLandingPage() {
         <div className="container-page">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Kundenstimmen</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Das sagen Bauherren, Sanierer und Fachpartner über die Zusammenarbeit</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Vertrauen entsteht, wenn Planung auf der Baustelle verständlich wird</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Echte Rezensionen sollten hier konkrete Projektergebnisse zeigen: weniger Abstimmungsaufwand, klare Entscheidungen und ein Smart Home, das nach der Übergabe im Alltag funktioniert.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              ["Kundenstimme Neubau", "Platzhalter für eine konkrete Rezension zu Planungssicherheit, sauberer Abstimmung mit Elektriker und verständlicher Bedienung."],
-              ["Kundenstimme Sanierung", "Platzhalter für eine konkrete Rezension zu Systemauswahl, Nachrüstbarkeit und professioneller Programmierung."],
-              ["Stimme eines Fachpartners", "Platzhalter für eine konkrete Rezension zur Zusammenarbeit mit Elektriker, Architekt oder anderem Gewerk."],
-            ].map(([title, text]) => (
+            {reviewPlaceholders.map(([title, text, project]) => (
               <article key={title} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex gap-1 text-accent" aria-hidden="true">
                   {[0, 1, 2, 3, 4].map((item) => (
@@ -199,6 +216,7 @@ export default function SmartHomeInstallateurLandingPage() {
                 </div>
                 <h3 className="mt-4 font-bold text-ink">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-slate-500">{project}</p>
               </article>
             ))}
           </div>
@@ -211,16 +229,20 @@ export default function SmartHomeInstallateurLandingPage() {
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Kostenloses Erstgespräch</p>
             <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Lassen Sie Ihr Smart Home prüfen, bevor wichtige Bauentscheidungen fallen</h2>
             <p className="mt-4 leading-7 text-slate-600">
-              Beschreiben Sie kurz Projektart, Standort und aktuellen Planungsstand. Wir melden uns mit einer realistischen Einschätzung und klären, welcher nächste Schritt für Ihr Projekt sinnvoll ist.
+              Beschreiben Sie kurz Projektart, Standort und aktuellen Planungsstand. Wir melden uns mit einer realistischen Einschätzung, ob ein Erstgespräch, eine Planprüfung oder ein konkretes Kabel- und Funktionskonzept der richtige nächste Schritt ist.
             </p>
             <ul className="mt-6 grid gap-3 text-sm text-slate-700">
-              {["Name, E-Mail und Telefon für die Rückmeldung", "Projektart: Neubau, Sanierung, Nachrüstung oder Bestand", "Postleitzahl, gewünschte Leistung und kurze Projektbeschreibung"].map((item) => (
+              {["Name, E-Mail und Telefon für die Rückmeldung", "Projektart: Neubau, Sanierung, Nachrüstung oder Bestand", "Postleitzahl, Planungsstand, Budgetrahmen und kurze Projektbeschreibung"].map((item) => (
                 <li key={item} className="flex gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
+            <div className="mt-6 flex gap-3 rounded-md border border-green-100 bg-green-50 p-4 text-sm leading-6 text-slate-700">
+              <Euro className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+              <p>Das Erstgespräch ist unverbindlich. Ziel ist eine klare Einschätzung, ob Heimlogik für Ihr Projekt der passende Fachpartner ist.</p>
+            </div>
           </div>
           <AdsLeadForm />
         </div>

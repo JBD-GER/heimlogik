@@ -30,6 +30,8 @@ export const contactSchema = z.object({
   ),
   rooms: z.string().optional(),
   radiators: z.string().optional(),
+  projectStage: z.enum(["Erste Idee", "Planung läuft", "Grundriss / Elektroplan vorhanden", "Rohbau startet bald", "Umsetzung läuft bereits"]).optional().or(z.literal("")),
+  budgetRange: z.enum(["noch offen", "bis 10.000 EUR", "10.000 - 25.000 EUR", "25.000 - 50.000 EUR", "über 50.000 EUR"]).optional().or(z.literal("")),
   thermostatsPresent: z.enum(["Ja", "Nein", "Teilweise"]).optional().or(z.literal("")),
   preferredSystem: z.enum(["Homematic IP", "Bosch Smart Home", "FRITZ!DECT", "tado", "Eve", "Matter", "anderes", "noch offen"]).optional().or(z.literal("")),
   wifiIssues: z.enum(["Ja", "Nein", "unsicher"]).optional().or(z.literal("")),
