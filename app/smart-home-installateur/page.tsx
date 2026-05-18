@@ -74,7 +74,7 @@ export default function SmartHomeInstallateurLandingPage() {
               <DynamicAdsHeadline />
             </Suspense>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-              Heimlogik begleitet Bauherren und Sanierer als Fachpartner für Planung, Kabelkonzept, Inbetriebnahme und Programmierung. Herstellerunabhängig, strukturiert und auf Ihr Bauprojekt abgestimmt.
+              Viele Smart-Home-Projekte scheitern nicht an der Technik, sondern an zu später Planung: fehlende Kabel, inkompatible Systeme und Programmierung, die nach der Übergabe niemand gern nutzt. Heimlogik sorgt dafür, dass Ihr Smart Home vor dem Rohbau sauber durchdacht ist.
             </p>
             <ul className="mt-6 grid max-w-2xl gap-2 text-sm leading-6 text-slate-200 sm:grid-cols-2">
               {["herstellerunabhängige Systemauswahl", "Planung, Programmierung und Koordination aus einer Hand", "zukunftssicheres Kabel- und Funktionskonzept"].map((item) => (
