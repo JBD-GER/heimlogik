@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
 import { Cable, CheckCircle2, ClipboardCheck, Settings2, ShieldCheck, Star } from "lucide-react";
 import { AdsLeadForm } from "@/components/AdsLeadForm";
+import { DynamicAdsHeadline } from "@/components/DynamicAdsHeadline";
 import { siteConfig } from "@/site.config";
 
 export const metadata: Metadata = {
@@ -68,9 +70,9 @@ export default function SmartHomeInstallateurLandingPage() {
               <ShieldCheck className="h-4 w-4 text-accent" aria-hidden="true" />
               Smart Home Fachpartner für Neubau & Sanierung
             </div>
-            <h1 className="max-w-3xl text-3xl font-bold tracking-normal sm:text-4xl lg:text-5xl">
-              Smart Home professionell planen lassen, bevor auf der Baustelle teure Fehler entstehen
-            </h1>
+            <Suspense fallback={<h1 className="max-w-3xl text-3xl font-bold tracking-normal sm:text-4xl lg:text-5xl">Smart Home professionell planen lassen, bevor auf der Baustelle teure Fehler entstehen</h1>}>
+              <DynamicAdsHeadline />
+            </Suspense>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
               Heimlogik begleitet Bauherren und Sanierer als Fachpartner für Planung, Kabelkonzept, Inbetriebnahme und Programmierung. Herstellerunabhängig, strukturiert und auf Ihr Bauprojekt abgestimmt.
             </p>
