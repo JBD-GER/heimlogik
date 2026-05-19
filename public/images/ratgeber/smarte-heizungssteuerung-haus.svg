@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smarte Heizungssteuerung im Haus</title>
+  <desc id="desc">Mehrere Räume mit smarten Thermostaten, Temperatursensoren, Fensterkontakten, zentraler Steuerung, Zeitplänen und Komfortanzeige.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smarte Heizungssteuerung im Haus</text>
+  <rect x="190" y="180" width="710" height="430" fill="#fff" stroke="#0b1220" stroke-width="6"/>
+  <path d="M190 395h710M430 180v430M670 180v430" stroke="#0b1220" stroke-width="5"/>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="242" y="318" width="120" height="44" rx="22"/>
+    <rect x="492" y="318" width="120" height="44" rx="22"/>
+    <rect x="732" y="318" width="120" height="44" rx="22"/>
+    <rect x="242" y="532" width="120" height="44" rx="22"/>
+    <rect x="492" y="532" width="120" height="44" rx="22"/>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <circle cx="302" cy="250" r="26"/>
+    <circle cx="552" cy="250" r="26"/>
+    <circle cx="792" cy="250" r="26"/>
+    <circle cx="552" cy="465" r="26"/>
+  </g>
+  <g fill="#fff" stroke="#0b1220" stroke-width="4">
+    <rect x="960" y="218" width="190" height="150" rx="16"/>
+    <rect x="960" y="430" width="190" height="120" rx="16"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none">
+    <path d="M900 335c45-22 60-38 60-42"/>
+    <path d="M900 525c45-18 60-28 60-35"/>
+    <path d="M900 335C740 382 590 390 302 340"/>
+    <path d="M900 525C740 560 575 552 302 554"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="302" y="346" font-size="16" font-weight="700">Thermostat</text>
+    <text x="552" y="346" font-size="16" font-weight="700">Thermostat</text>
+    <text x="792" y="346" font-size="16" font-weight="700">Thermostat</text>
+    <text x="302" y="559" font-size="16" font-weight="700">Thermostat</text>
+    <text x="552" y="559" font-size="16" font-weight="700">Thermostat</text>
+    <text x="302" y="256" font-size="15">21°</text>
+    <text x="552" y="256" font-size="15">19°</text>
+    <text x="792" y="256" font-size="15">20°</text>
+    <text x="1055" y="270" font-size="19" font-weight="700">Zentrale</text>
+    <text x="1055" y="300" font-size="15">Home Assistant</text>
+    <text x="1055" y="332" font-size="15">Zeitpläne</text>
+    <text x="1055" y="474" font-size="19" font-weight="700">Energie</text>
+    <text x="1055" y="506" font-size="15">Komfort sichtbar</text>
+    <text x="545" y="668" font-size="18" font-weight="700">Heizung wird mit Sensoren, Fenstern und Alltagsszenen zusammengedacht</text>
+  </g>
+  <g stroke="#0b1220" stroke-width="4">
+    <path d="M230 205h70M470 205h70M710 205h70" />
+    <path d="M230 420h70M470 420h70" />
+  </g>
+</svg>

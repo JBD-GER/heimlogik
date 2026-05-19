@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Multiroom Audio im Smart Home</title>
+  <desc id="desc">Einfamilienhaus mit Wohnzimmer, Küche, Bad, Terrasse, Technikraum, Funklautsprechern und kabelgebundenen Audiozonen.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Multiroom Audio im Smart Home</text>
+  <path d="M210 330 640 150l430 180" fill="none" stroke="#0b1220" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="270" y="330" width="740" height="270" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M455 330v270M660 330v270M825 330v270" stroke="#0b1220" stroke-width="4"/>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="362" y="365" font-size="16" font-weight="700">Wohnen / TV</text>
+    <text x="558" y="365" font-size="16" font-weight="700">Küche</text>
+    <text x="742" y="365" font-size="16" font-weight="700">Bad</text>
+    <text x="918" y="365" font-size="16" font-weight="700">Terrasse</text>
+  </g>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="320" y="420" width="84" height="48" rx="10"/>
+    <circle cx="538" cy="438" r="28"/>
+    <circle cx="742" cy="438" r="24"/>
+    <rect x="884" y="420" width="70" height="46" rx="12"/>
+    <rect x="884" y="502" width="70" height="46" rx="12"/>
+  </g>
+  <g stroke="#06b6d4" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M535 438c-60 60-125 58-173 30"/>
+    <path d="M742 438c62 24 103 42 142 76"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" fill="none">
+    <path d="M346 468C468 560 624 585 912 525"/>
+  </g>
+  <rect x="520" y="205" width="240" height="92" rx="16" fill="#0b1220"/>
+  <text x="640" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">Technikraum</text>
+  <text x="640" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bbf7d0">Verstärker / Netzwerk</text>
+  <rect x="120" y="500" width="118" height="78" rx="16" fill="#fff" stroke="#0b1220" stroke-width="4"/>
+  <text x="179" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#0b1220">App</text>
+  <text x="179" y="558" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#334155">Szenen</text>
+  <path d="M238 536c76-18 126-38 282-285" stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none"/>
+  <text x="640" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Funklautsprecher im Bestand, kabelgebundene Zonen im Neubau sauber planen</text>
+</svg>

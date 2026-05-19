@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home für Ferienwohnung und Airbnb</title>
+  <desc id="desc">Ferienwohnung mit smartem Zutritt, Heizungssteuerung, Fenstersensoren, Wassersensor, WLAN-Router, Smartphone-Status für Eigentümer und einfacher Gäste-Bedienung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Smart Home für Ferienwohnung und Airbnb</text>
+  <path d="M250 335 640 165l390 170" fill="none" stroke="#0b1220" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="310" y="335" width="660" height="250" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M530 335v250M750 335v250" stroke="#94a3b8" stroke-width="3"/>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="585" y="450" width="110" height="135" rx="8"/>
+    <rect x="365" y="418" width="112" height="58" rx="14"/>
+    <rect x="805" y="418" width="112" height="58" rx="14"/>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <circle cx="418" cy="520" r="24"/>
+    <circle cx="862" cy="520" r="24"/>
+    <rect x="520" y="210" width="240" height="78" rx="16"/>
+    <rect x="1038" y="430" width="120" height="132" rx="22"/>
+    <rect x="125" y="445" width="140" height="86" rx="16"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="640" y="245" font-size="18" font-weight="700">WLAN / Zentrale</text>
+    <text x="640" y="270" font-size="13">Fernzugriff</text>
+    <text x="640" y="520" font-size="14" fill="#fff">Zutritt</text>
+    <text x="421" y="454" font-size="14" font-weight="700">Heizung</text>
+    <text x="861" y="454" font-size="14" font-weight="700">Fenster</text>
+    <text x="418" y="525" font-size="13">Wasser</text>
+    <text x="862" y="525" font-size="13">Sensor</text>
+    <text x="1098" y="482" font-size="15" font-weight="700">Eigentümer</text>
+    <text x="1098" y="508" font-size="13">Status</text>
+    <text x="195" y="481" font-size="15" font-weight="700">Gäste</text>
+    <text x="195" y="506" font-size="13">einfach bedienen</text>
+    <text x="640" y="650" font-size="18" font-weight="700">Fernsteuerung, Sensorik und einfache Bedienung reduzieren Aufwand.</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M640 288c-92 32-154 76-219 166"/>
+    <path d="M640 288v162"/>
+    <path d="M640 288c100 42 164 86 222 166"/>
+    <path d="M1038 496c-150-42-256-105-398-208"/>
+    <path d="M265 488c150-36 250-92 375-200"/>
+  </g>
+</svg>

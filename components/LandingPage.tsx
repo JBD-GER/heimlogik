@@ -9,6 +9,7 @@ import { PackageCards } from "@/components/PackageCards";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { FAQSchema, ServiceSchema } from "@/components/StructuredData";
 import { processSteps, trustBadges, type PageContent } from "@/lib/content";
+import { guideArticles } from "@/lib/ratgeber";
 import { siteConfig } from "@/site.config";
 
 export function LandingPage({ content }: { content: PageContent }) {
@@ -39,6 +40,11 @@ export function LandingPage({ content }: { content: PageContent }) {
       items: ["Stabilität", "Erweiterbarkeit", "Datenschutz", "Supportfähigkeit"],
     },
   ];
+  const guideRecommendations = relatedGuidesByService[content.path] ?? guideArticles.slice(0, 3).map((article) => article.path);
+  const relatedGuides = guideRecommendations
+    .map((path) => guideArticles.find((article) => article.path === path))
+    .filter((article): article is (typeof guideArticles)[number] => Boolean(article))
+    .slice(0, 3);
 
   return (
     <>
@@ -155,6 +161,30 @@ export function LandingPage({ content }: { content: PageContent }) {
         </section>
       ) : null}
 
+      {relatedGuides.length ? (
+        <section className="section-pad">
+          <div className="container-page">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-accent">Aus dem Ratgeber</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Passende Smart-Home-Ratgeber</h2>
+              <p className="mt-4 leading-7 text-slate-600">
+                Vertiefende Einordnungen zu Planung, Nachrüstung, Systemwahl und Kosten - passend zu dieser Leistung.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {relatedGuides.map((article) => (
+                <Link key={article.path} href={article.path} className="rounded-md border border-slate-200 bg-white p-6 shadow-sm hover:border-accent">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
+                  <h3 className="mt-3 text-xl font-bold text-ink">{article.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{article.excerpt}</p>
+                  <span className="mt-5 inline-flex text-sm font-semibold text-ink">Artikel lesen</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="section-pad">
         <div className="container-page">
           <div className="max-w-3xl">
@@ -211,6 +241,59 @@ export function LandingPage({ content }: { content: PageContent }) {
     </>
   );
 }
+
+const relatedGuidesByService: Record<string, string[]> = {
+  "/smart-home-nachruesten": [
+    "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen",
+    "/ratgeber/smart-home-fuer-senioren",
+    "/ratgeber/smart-home-fehler-vermeiden",
+  ],
+  "/ferienwohnung-smart-home": [
+    "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb",
+    "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm",
+    "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum",
+  ],
+  "/smarte-heizkoerperthermostate": [
+    "/ratgeber/smart-home-fuer-senioren",
+    "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb",
+    "/ratgeber/smarte-heizkoerperthermostate-heizungssteuerung",
+  ],
+  "/knx-home-assistant-systemintegration": [
+    "/ratgeber/home-assistant-professionell-einrichten-lassen",
+    "/ratgeber/knx-oder-home-assistant",
+    "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster",
+  ],
+  "/smart-home-planung": [
+    "/ratgeber/smart-home-fehler-vermeiden",
+    "/ratgeber/smart-home-neubau-planung",
+    "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster",
+  ],
+  "/smart-home-installation": [
+    "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen",
+    "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum",
+    "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder",
+  ],
+  "/energiemanagement-heizung": [
+    "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement",
+    "/ratgeber/smarte-heizkoerperthermostate-heizungssteuerung",
+    "/ratgeber/knx-oder-home-assistant",
+  ],
+  "/hifi-audio-tv-integration": [
+    "/ratgeber/multiroom-audio-smart-home-sonos-bose-kabel",
+    "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum",
+    "/ratgeber/smart-home-neubau-planung",
+  ],
+  "/smart-home-sicherheit-zutritt": [
+    "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm",
+    "/ratgeber/smart-home-fuer-senioren",
+    "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb",
+  ],
+  "/licht-rollladen-beschattung": [
+    "/ratgeber/smart-home-rollladensteuerung-beschattung",
+    "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder",
+    "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster",
+  ],
+};
 
 function LeadForm({ content, compact = false }: { content: PageContent; compact?: boolean }) {
   return (

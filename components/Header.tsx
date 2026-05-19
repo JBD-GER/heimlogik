@@ -12,7 +12,7 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const serviceItems = navItems.filter((item) => item.href !== "/kontakt" && item.href !== "/leistungen");
+  const serviceItems = navItems.filter((item) => !["/kontakt", "/leistungen", "/ratgeber"].includes(item.href));
 
   useEffect(() => {
     function closeOnOutsideClick(event: MouseEvent) {
@@ -79,6 +79,9 @@ export function Header() {
           <Link href="/#servicegebiet" onClick={closeMenus} className="focus-ring inline-flex min-h-11 items-center rounded-md px-3 text-sm font-semibold text-slate-800 hover:bg-slate-100">
             Servicegebiet
           </Link>
+          <Link href="/ratgeber" onClick={closeMenus} className="focus-ring inline-flex min-h-11 items-center rounded-md px-3 text-sm font-semibold text-slate-800 hover:bg-slate-100">
+            Ratgeber
+          </Link>
           <Link href="/kontakt" onClick={closeMenus} className="focus-ring inline-flex min-h-11 items-center rounded-md px-3 text-sm font-semibold text-slate-800 hover:bg-slate-100">
             Kontakt
           </Link>
@@ -124,6 +127,9 @@ export function Header() {
             <div className="my-4 h-px bg-slate-200" />
             <Link href="/#servicegebiet" onClick={closeMenus} className="block rounded-md px-3 py-3 text-base font-semibold text-slate-800 hover:bg-slate-100">
               Servicegebiet
+            </Link>
+            <Link href="/ratgeber" onClick={closeMenus} className="block rounded-md px-3 py-3 text-base font-semibold text-slate-800 hover:bg-slate-100">
+              Ratgeber
             </Link>
             <Link href="/kontakt" onClick={closeMenus} className="block rounded-md px-3 py-3 text-base font-semibold text-slate-800 hover:bg-slate-100">
               Kontakt

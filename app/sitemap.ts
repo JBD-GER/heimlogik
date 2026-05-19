@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { localPages, servicePages } from "@/lib/content";
+import { guideArticles } from "@/lib/ratgeber";
 import { siteConfig } from "@/site.config";
 
 const baseUrl = siteConfig.siteUrl.replace(/\/$/, "");
@@ -18,6 +19,8 @@ const staticRoutes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const indexableRoutes = [
     ...staticRoutes,
+    "/ratgeber",
+    ...guideArticles.map((article) => article.path),
     ...Object.keys(servicePages),
     ...Object.keys(localPages),
   ];

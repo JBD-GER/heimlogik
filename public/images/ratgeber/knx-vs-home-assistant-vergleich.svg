@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">KNX vs. Home Assistant</title>
+  <desc id="desc">Vergleich zwischen KNX als kabelgebundener Basis und Home Assistant als Integrationsplattform mit Kombinationsmöglichkeit.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#0b1220">KNX vs. Home Assistant</text>
+  <rect x="130" y="170" width="430" height="450" rx="18" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+  <rect x="720" y="170" width="430" height="450" rx="18" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+  <circle cx="640" cy="395" r="72" fill="#0b1220"/>
+  <text x="640" y="386" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#fff">Kombination</text>
+  <text x="640" y="414" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#bbf7d0">möglich</text>
+  <path d="M560 395h-70M720 395h70" stroke="#0b1220" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Arial, sans-serif" fill="#0b1220">
+    <text x="345" y="224" text-anchor="middle" font-size="32" font-weight="700">KNX</text>
+    <text x="935" y="224" text-anchor="middle" font-size="32" font-weight="700">Home Assistant</text>
+    <text x="345" y="560" text-anchor="middle" font-size="18" font-weight="700">kabelgebundene Gebäudebasis</text>
+    <text x="935" y="560" text-anchor="middle" font-size="18" font-weight="700">zentrale Integrationsplattform</text>
+  </g>
+  <g fill="#fff" stroke="#0b1220" stroke-width="4">
+    <rect x="250" y="272" width="190" height="90" rx="10"/>
+    <rect x="200" y="430" width="96" height="70" rx="10"/>
+    <rect x="394" y="430" width="96" height="70" rx="10"/>
+    <rect x="805" y="286" width="260" height="84" rx="14"/>
+    <circle cx="840" cy="460" r="38"/>
+    <circle cx="935" cy="460" r="38"/>
+    <circle cx="1030" cy="460" r="38"/>
+  </g>
+  <g stroke="#06b6d4" stroke-width="5" fill="none">
+    <path d="M345 362v68M296 465h98"/>
+    <path d="M250 396h190"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="8 10" fill="none">
+    <path d="M935 370v52"/>
+    <path d="M935 370c-68 22-95 52-95 52"/>
+    <path d="M935 370c68 22 95 52 95 52"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" font-size="16" text-anchor="middle">
+    <text x="345" y="315" font-weight="700">Schaltschrank</text>
+    <text x="248" y="473">Taster</text>
+    <text x="442" y="473">Aktoren</text>
+    <text x="935" y="333" font-weight="700">Home Assistant</text>
+    <text x="840" y="466">Sensoren</text>
+    <text x="935" y="466">Apps</text>
+    <text x="1030" y="466">Sprache</text>
+  </g>
+</svg>

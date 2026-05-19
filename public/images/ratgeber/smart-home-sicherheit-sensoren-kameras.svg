@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart-Home-Sicherheit im Einfamilienhaus</title>
+  <desc id="desc">Haus mit Türsensoren, Fenstersensoren, Bewegungsmeldern, Außenkamera, Videotürklingel, Außenlicht, Smartphone-Benachrichtigung und Home Assistant.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Smart-Home-Sicherheit im Einfamilienhaus</text>
+  <path d="M245 338 640 162l395 176" fill="none" stroke="#0b1220" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="310" y="338" width="660" height="255" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M530 338v255M750 338v255" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="582" y="442" width="116" height="151" rx="8" fill="#0b1220"/>
+  <circle cx="680" cy="514" r="7" fill="#22c55e"/>
+  <g fill="#fff" stroke="#22c55e" stroke-width="4">
+    <rect x="362" y="405" width="105" height="76" rx="8"/>
+    <rect x="812" y="405" width="105" height="76" rx="8"/>
+    <circle cx="404" cy="529" r="22"/>
+    <circle cx="876" cy="529" r="22"/>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <rect x="188" y="270" width="120" height="72" rx="16"/>
+    <rect x="978" y="268" width="120" height="72" rx="16"/>
+    <rect x="1040" y="492" width="112" height="128" rx="18"/>
+    <rect x="124" y="492" width="140" height="90" rx="18"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="248" y="312" font-size="15" font-weight="700">Außenkamera</text>
+    <text x="1038" y="310" font-size="15" font-weight="700">Außenlicht</text>
+    <text x="1096" y="538" font-size="15" font-weight="700">Smartphone</text>
+    <text x="1096" y="564" font-size="13">Push-Hinweis</text>
+    <text x="194" y="532" font-size="15" font-weight="700">Home Assistant</text>
+    <text x="194" y="558" font-size="13">Sicherheitslogik</text>
+    <text x="640" y="515" font-size="14" fill="#fff">Tür</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M264 532c110-55 232-64 376-14"/>
+    <path d="M264 532c210 88 508 82 776 24"/>
+    <path d="M308 306c112 28 242 54 332 212"/>
+    <path d="M978 304c-128 35-238 82-338 214"/>
+  </g>
+  <g fill="#22c55e">
+    <circle cx="414" cy="443" r="10"/>
+    <circle cx="865" cy="443" r="10"/>
+    <circle cx="404" cy="529" r="8"/>
+    <circle cx="876" cy="529" r="8"/>
+  </g>
+  <rect x="275" y="630" width="730" height="42" rx="21" fill="#ecfdf5" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="657" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Sicherheit als sachliche Ergänzung: Sensorik, Licht, Benachrichtigung und klare Regeln</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart-Home-Kosten im Einfamilienhaus</title>
+  <desc id="desc">Drei Ausbaustufen für Smart-Home-Kosten: Einstieg, Komfort und Premium mit typischen Funktionen und Kostentreibern.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smart-Home-Kosten im Einfamilienhaus</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="150" y="430" width="250" height="170" rx="16" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+    <rect x="515" y="330" width="250" height="270" rx="16" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+    <rect x="880" y="230" width="250" height="370" rx="16" fill="#f8fafc" stroke="#0b1220" stroke-width="4"/>
+    <text x="275" y="472" text-anchor="middle" font-size="26" font-weight="700" fill="#0b1220">Einstieg</text>
+    <text x="640" y="372" text-anchor="middle" font-size="26" font-weight="700" fill="#0b1220">Komfort</text>
+    <text x="1005" y="272" text-anchor="middle" font-size="26" font-weight="700" fill="#0b1220">Premium</text>
+    <text x="275" y="512" text-anchor="middle" font-size="17" fill="#334155">Heizung</text>
+    <text x="275" y="540" text-anchor="middle" font-size="17" fill="#334155">Licht</text>
+    <text x="275" y="568" text-anchor="middle" font-size="17" fill="#334155">Sensoren</text>
+    <text x="640" y="412" text-anchor="middle" font-size="17" fill="#334155">Rollläden</text>
+    <text x="640" y="440" text-anchor="middle" font-size="17" fill="#334155">Szenen</text>
+    <text x="640" y="468" text-anchor="middle" font-size="17" fill="#334155">App und Visualisierung</text>
+    <text x="1005" y="312" text-anchor="middle" font-size="17" fill="#334155">KNX</text>
+    <text x="1005" y="340" text-anchor="middle" font-size="17" fill="#334155">Audio</text>
+    <text x="1005" y="368" text-anchor="middle" font-size="17" fill="#334155">Sicherheit</text>
+    <text x="1005" y="396" text-anchor="middle" font-size="17" fill="#334155">Energie</text>
+    <text x="1005" y="424" text-anchor="middle" font-size="17" fill="#334155">Touchpanel</text>
+  </g>
+  <path d="M230 640h820" stroke="#0b1220" stroke-width="5" stroke-linecap="round"/>
+  <path d="M400 640l-22-14M400 640l-22 14M765 640l-22-14M765 640l-22 14M1130 640l-22-14M1130 640l-22 14" stroke="#0b1220" stroke-width="4"/>
+  <text x="640" y="682" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Kosten entstehen durch Umfang, Systemwahl, Bestand, Planung und Installation</text>
+</svg>

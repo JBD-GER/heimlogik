@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Netzwerk als Grundlage für Smart Home</title>
+  <desc id="desc">Einfamilienhaus mit Technikraum, Router, Netzwerkschrank, Switch, Patchpanel, LAN-Kabeln, Access Points, WLAN und Smart-Home-Zentrale.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Netzwerk als Grundlage für Smart Home</text>
+  <rect x="180" y="190" width="720" height="400" rx="10" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M180 390h720M420 190v400M660 190v400" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="225" y="440" width="150" height="96" rx="14" fill="#0b1220"/>
+  <text x="300" y="476" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Technikraum</text>
+  <text x="300" y="504" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#bbf7d0">Router / Switch</text>
+  <text x="300" y="526" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#bbf7d0">Patchpanel</text>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <circle cx="540" cy="286" r="28"/>
+    <circle cx="780" cy="286" r="28"/>
+    <circle cx="540" cy="486" r="28"/>
+    <circle cx="780" cy="486" r="28"/>
+  </g>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="468" y="302" width="78" height="42" rx="9"/>
+    <rect x="720" y="430" width="96" height="46" rx="10"/>
+    <rect x="715" y="518" width="110" height="42" rx="10"/>
+    <rect x="945" y="275" width="170" height="110" rx="16"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M375 488h130v-144"/>
+    <path d="M375 488h405v-174"/>
+    <path d="M375 488h165"/>
+    <path d="M375 488h385v-12"/>
+    <path d="M375 488h395v30"/>
+    <path d="M375 488c180 120 430 120 570-60"/>
+  </g>
+  <g stroke="#06b6d4" stroke-width="3" stroke-dasharray="8 10" fill="none">
+    <circle cx="540" cy="286" r="82"/>
+    <circle cx="780" cy="286" r="82"/>
+    <circle cx="540" cy="486" r="82"/>
+    <circle cx="780" cy="486" r="82"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="540" y="292" font-size="14" font-weight="700">AP</text>
+    <text x="780" y="292" font-size="14" font-weight="700">AP</text>
+    <text x="540" y="492" font-size="14" font-weight="700">AP</text>
+    <text x="780" y="492" font-size="14" font-weight="700">AP</text>
+    <text x="507" y="329" font-size="13">TV / LAN</text>
+    <text x="768" y="459" font-size="13">Touchpanel</text>
+    <text x="770" y="545" font-size="13">Arbeitszimmer</text>
+    <text x="1030" y="318" font-size="16" font-weight="700">Smart-Home-Zentrale</text>
+    <text x="1030" y="346" font-size="13">Home Assistant / Gateway</text>
+    <text x="640" y="650" font-size="18" font-weight="700">LAN entlastet feste Geräte, Access Points sorgen für stabiles WLAN.</text>
+  </g>
+</svg>

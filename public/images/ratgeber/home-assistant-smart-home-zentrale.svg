@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Home Assistant als Smart-Home-Zentrale</title>
+  <desc id="desc">Home Assistant als zentrale Plattform mit Licht, Heizung, Rollläden, Sicherheit, Audio, Photovoltaik, Wallbox, KNX, Zigbee, Matter, Dashboard und lokalen Automationen.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Home Assistant als Smart-Home-Zentrale</text>
+  <rect x="500" y="285" width="280" height="150" rx="22" fill="#0b1220"/>
+  <text x="640" y="344" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Home Assistant</text>
+  <text x="640" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bbf7d0">lokal / Szenen / Dashboards</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+      <rect x="145" y="190" width="160" height="82" rx="16"/>
+      <rect x="145" y="330" width="160" height="82" rx="16"/>
+      <rect x="145" y="470" width="160" height="82" rx="16"/>
+      <rect x="975" y="190" width="160" height="82" rx="16"/>
+      <rect x="975" y="330" width="160" height="82" rx="16"/>
+      <rect x="975" y="470" width="160" height="82" rx="16"/>
+    </g>
+    <text x="225" y="238" font-size="17" font-weight="700" fill="#0b1220">Licht</text>
+    <text x="225" y="378" font-size="17" font-weight="700" fill="#0b1220">Heizung</text>
+    <text x="225" y="518" font-size="17" font-weight="700" fill="#0b1220">Rollläden</text>
+    <text x="1055" y="238" font-size="17" font-weight="700" fill="#0b1220">Sicherheit</text>
+    <text x="1055" y="378" font-size="17" font-weight="700" fill="#0b1220">Audio</text>
+    <text x="1055" y="518" font-size="17" font-weight="700" fill="#0b1220">PV / Wallbox</text>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <rect x="422" y="170" width="136" height="70" rx="16"/>
+    <rect x="610" y="170" width="136" height="70" rx="16"/>
+    <rect x="798" y="170" width="136" height="70" rx="16"/>
+    <rect x="508" y="500" width="264" height="90" rx="16"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="490" y="212" font-size="16" font-weight="700">KNX</text>
+    <text x="678" y="212" font-size="16" font-weight="700">Zigbee/Matter</text>
+    <text x="866" y="212" font-size="16" font-weight="700">WLAN</text>
+    <text x="640" y="540" font-size="18" font-weight="700">Dashboard</text>
+    <text x="640" y="566" font-size="14">Tablet / Smartphone</text>
+    <text x="640" y="655" font-size="18" font-weight="700">Struktur, Dokumentation und Backups machen aus Integration ein System.</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M305 231c76 38 126 68 195 100"/>
+    <path d="M305 371c68 8 126 8 195-2"/>
+    <path d="M305 511c76-35 128-66 195-100"/>
+    <path d="M975 231c-76 38-126 68-195 100"/>
+    <path d="M975 371c-68 8-126 8-195-2"/>
+    <path d="M975 511c-76-35-128-66-195-100"/>
+    <path d="M490 240c48 28 88 48 150 45"/>
+    <path d="M678 240c-18 28-24 34-38 45"/>
+    <path d="M866 240c-60 34-112 48-226 45"/>
+    <path d="M640 435v65"/>
+  </g>
+</svg>

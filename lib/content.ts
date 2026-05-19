@@ -77,6 +77,7 @@ export type PageContent = {
 
 export const navItems = [
   { href: "/leistungen", label: "Leistungen" },
+  { href: "/ratgeber", label: "Ratgeber" },
   { href: "/smart-home-planung", label: "Smart-Home Planung" },
   { href: "/smart-home-installation", label: "Installation" },
   { href: "/knx-home-assistant-systemintegration", label: "KNX & Home Assistant" },

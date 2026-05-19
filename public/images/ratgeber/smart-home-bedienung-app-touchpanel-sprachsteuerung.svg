@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home richtig bedienen</title>
+  <desc id="desc">Smart-Home-Bedienung mit App, Sprachsteuerung, Touchpanel, klassischen Tastern, automatischen Szenen und mehreren Nutzern.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smart Home richtig bedienen</text>
+  <rect x="500" y="285" width="280" height="145" rx="20" fill="#0b1220"/>
+  <text x="640" y="342" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#fff">Zentrale Steuerung</text>
+  <text x="640" y="376" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bbf7d0">Szenen / Nutzer / Räume</text>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="150" y="220" width="135" height="210" rx="24"/>
+    <rect x="380" y="190" width="170" height="110" rx="16"/>
+    <rect x="920" y="190" width="185" height="120" rx="16"/>
+    <rect x="980" y="438" width="135" height="92" rx="16"/>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <circle cx="320" cy="545" r="35"/>
+    <circle cx="412" cy="545" r="35"/>
+    <circle cx="504" cy="545" r="35"/>
+    <rect x="790" y="486" width="150" height="82" rx="16"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="218" y="272" font-size="18" font-weight="700">App</text>
+    <text x="218" y="306" font-size="14">Übersicht</text>
+    <text x="465" y="236" font-size="18" font-weight="700">Sprache</text>
+    <text x="465" y="264" font-size="14">Komfortbefehl</text>
+    <text x="1013" y="238" font-size="18" font-weight="700">Touchpanel</text>
+    <text x="1013" y="268" font-size="14">Wandübersicht</text>
+    <text x="1048" y="492" font-size="18" font-weight="700">Taster</text>
+    <text x="1048" y="516" font-size="14">intuitiv</text>
+    <text x="865" y="532" font-size="18" font-weight="700">Automationen</text>
+    <text x="320" y="551" font-size="13">Familie</text>
+    <text x="412" y="551" font-size="13">Gäste</text>
+    <text x="504" y="551" font-size="13">Kinder</text>
+    <text x="640" y="654" font-size="18" font-weight="700">Gute Bedienung kombiniert Taster, App, Szenen und Automatik statt App-Chaos.</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M285 326c82 16 142 32 215 32"/>
+    <path d="M550 245c42 42 62 60 82 40"/>
+    <path d="M920 250c-78 36-110 70-140 98"/>
+    <path d="M980 485c-72-12-132-30-200-90"/>
+    <path d="M505 545c64-28 94-72 135-115"/>
+    <path d="M790 527c-68-20-120-52-150-97"/>
+  </g>
+</svg>

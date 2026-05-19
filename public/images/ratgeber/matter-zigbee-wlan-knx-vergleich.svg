@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart-Home-Systeme im Vergleich</title>
+  <desc id="desc">Einordnung von Matter, Thread, Zigbee, WLAN, KNX und Home Assistant im Smart Home.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smart-Home-Systeme im Vergleich</text>
+  <rect x="500" y="285" width="280" height="150" rx="20" fill="#0b1220"/>
+  <text x="640" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Home Assistant</text>
+  <text x="640" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#bbf7d0">zentrale Integrationsplattform</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="130" y="210" width="250" height="115" rx="16" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+    <text x="255" y="257" font-size="24" font-weight="700" fill="#0b1220">KNX</text>
+    <text x="255" y="288" font-size="16" fill="#334155">kabelgebundene Gebäudeautomation</text>
+    <rect x="130" y="420" width="250" height="115" rx="16" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+    <text x="255" y="467" font-size="24" font-weight="700" fill="#0b1220">WLAN</text>
+    <text x="255" y="498" font-size="16" fill="#334155">einzelne Geräte im Heimnetz</text>
+    <rect x="900" y="170" width="250" height="105" rx="16" fill="#f0fdf4" stroke="#22c55e" stroke-width="4"/>
+    <text x="1025" y="214" font-size="24" font-weight="700" fill="#0b1220">Zigbee</text>
+    <text x="1025" y="244" font-size="16" fill="#334155">Sensoren, Taster, Thermostate</text>
+    <rect x="900" y="325" width="250" height="105" rx="16" fill="#eff6ff" stroke="#06b6d4" stroke-width="4"/>
+    <text x="1025" y="369" font-size="24" font-weight="700" fill="#0b1220">Thread</text>
+    <text x="1025" y="399" font-size="16" fill="#334155">modernes Funk-Mesh</text>
+    <rect x="900" y="480" width="250" height="105" rx="16" fill="#f8fafc" stroke="#0b1220" stroke-width="4"/>
+    <text x="1025" y="524" font-size="24" font-weight="700" fill="#0b1220">Matter</text>
+    <text x="1025" y="554" font-size="16" fill="#334155">Verbindungsstandard</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M380 268h120"/>
+    <path d="M380 478c84-38 94-52 120-84"/>
+    <path d="M780 342c58-76 80-106 120-120"/>
+    <path d="M780 360h120"/>
+    <path d="M780 392c70 72 85 108 120 140"/>
+  </g>
+  <g fill="#22c55e">
+    <path d="M500 268l-14-8v16z"/>
+    <path d="M500 394l-16-4 10 14z"/>
+    <path d="M900 222l-16-3 9 14z"/>
+    <path d="M900 360l-14-8v16z"/>
+    <path d="M900 532l-16-3 9 14z"/>
+  </g>
+  <rect x="250" y="620" width="780" height="42" rx="21" fill="#ecfdf5" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="647" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Gute Planung ordnet Standards, Geräte und Bedienung zu einem stabilen System.</text>
+</svg>

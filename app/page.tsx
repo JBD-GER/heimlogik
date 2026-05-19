@@ -9,6 +9,7 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FAQSchema, LocalBusinessSchema } from "@/components/StructuredData";
 import { homeFaqs, processSteps, serviceAreaLinks, serviceCards } from "@/lib/content";
+import { guideArticles } from "@/lib/ratgeber";
 import { siteConfig } from "@/site.config";
 
 export const metadata: Metadata = {
@@ -110,6 +111,36 @@ export default function HomePage() {
             {serviceCards.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-white">
+        <div className="container-page">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-accent">Ratgeber</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Aus dem Smart-Home-Ratgeber</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Praxisnahe Einordnungen zu Nachrüstung, Systemauswahl und Kosten - für Eigentümer, Bauherren und Sanierer in Hannover und Umgebung.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen",
+              "/ratgeber/knx-oder-home-assistant",
+              "/ratgeber/was-kostet-ein-smart-home",
+            ].map((path) => {
+              const article = guideArticles.find((item) => item.path === path);
+              if (!article) return null;
+              return (
+                <Link key={article.path} href={article.path} className="rounded-md border border-slate-200 bg-paper p-6 shadow-sm hover:border-accent">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-accent">{article.category}</p>
+                  <h3 className="mt-3 text-xl font-bold text-ink">{article.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{article.excerpt}</p>
+                  <span className="mt-5 inline-flex text-sm font-semibold text-ink">Artikel lesen</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

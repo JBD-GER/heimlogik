@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Die häufigsten Smart-Home-Fehler</title>
+  <desc id="desc">Gegenüberstellung von App-Chaos, schwachem WLAN, falscher Gerätewahl, fehlender Planung und sauberer Heimlogik-Struktur mit Netzwerk, Systemauswahl, Bedienung und Dokumentation.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Die häufigsten Smart-Home-Fehler</text>
+  <rect x="130" y="180" width="460" height="430" rx="18" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+  <rect x="690" y="180" width="460" height="430" rx="18" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+  <text x="360" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#0b1220">Typische Stolperstellen</text>
+  <text x="920" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#0b1220">Saubere Heimlogik-Struktur</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#0b1220">
+    <text x="190" y="300">App-Chaos</text>
+    <text x="190" y="360">schwaches WLAN</text>
+    <text x="190" y="420">falsche Gerätewahl</text>
+    <text x="190" y="480">fehlende Planung</text>
+    <text x="190" y="540">keine zentrale Steuerung</text>
+    <text x="750" y="300">Planung vor Kauf</text>
+    <text x="750" y="360">stabiles Netzwerk</text>
+    <text x="750" y="420">passende Systemauswahl</text>
+    <text x="750" y="480">klare Bedienung</text>
+    <text x="750" y="540">Dokumentation & Updates</text>
+  </g>
+  <g fill="#f97316">
+    <circle cx="165" cy="294" r="9"/><circle cx="165" cy="354" r="9"/><circle cx="165" cy="414" r="9"/><circle cx="165" cy="474" r="9"/><circle cx="165" cy="534" r="9"/>
+  </g>
+  <g fill="#22c55e">
+    <circle cx="725" cy="294" r="9"/><circle cx="725" cy="354" r="9"/><circle cx="725" cy="414" r="9"/><circle cx="725" cy="474" r="9"/><circle cx="725" cy="534" r="9"/>
+  </g>
+  <path d="M605 395h70" stroke="#0b1220" stroke-width="5" stroke-linecap="round"/>
+  <path d="m675 395-18-12v24z" fill="#0b1220"/>
+  <rect x="800" y="590" width="240" height="42" rx="21" fill="#fff" stroke="#22c55e" stroke-width="3"/>
+  <text x="920" y="617" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0b1220">erst planen, dann kaufen</text>
+  <text x="640" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Gute Smart-Home-Projekte vermeiden Dauerbaustellen durch Struktur.</text>
+</svg>

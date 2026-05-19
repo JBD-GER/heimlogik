@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smarte Rollladensteuerung und Beschattung</title>
+  <desc id="desc">Einfamilienhaus mit Rollläden, Raffstores, Sonnen- und Temperatursensor, App-Steuerung, Zeitplan, Smart-Home-Zentrale und Verbindung zu Sicherheit, Licht und Heizung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Smarte Rollladensteuerung und Beschattung</text>
+  <path d="M230 332 640 155l410 177" fill="none" stroke="#0b1220" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="300" y="332" width="680" height="260" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M526 332v260M754 332v260" stroke="#94a3b8" stroke-width="3"/>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="355" y="392" width="118" height="86" rx="8"/>
+    <rect x="582" y="392" width="118" height="86" rx="8"/>
+    <rect x="808" y="392" width="118" height="86" rx="8"/>
+  </g>
+  <g stroke="#0b1220" stroke-width="3">
+    <path d="M355 414h118M355 436h118M355 458h118"/>
+    <path d="M582 414h118M582 436h118M582 458h118"/>
+    <path d="M808 414h118M808 436h118M808 458h118"/>
+  </g>
+  <rect x="522" y="210" width="236" height="88" rx="16" fill="#0b1220"/>
+  <text x="640" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">Smart-Home-Zentrale</text>
+  <text x="640" y="274" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bbf7d0">Zeitplan / App / Sensoren</text>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <circle cx="188" cy="282" r="42"/>
+    <rect x="1040" y="258" width="126" height="78" rx="16"/>
+    <rect x="112" y="504" width="148" height="92" rx="16"/>
+    <rect x="1020" y="502" width="148" height="92" rx="16"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#0b1220">
+    <text x="188" y="288" font-size="15" font-weight="700">Sonne</text>
+    <text x="1103" y="294" font-size="15" font-weight="700">Temperatur</text>
+    <text x="186" y="542" font-size="15" font-weight="700">App</text>
+    <text x="186" y="566" font-size="13">manuell</text>
+    <text x="1094" y="540" font-size="15" font-weight="700">Licht/Sicherheit</text>
+    <text x="1094" y="566" font-size="13">Szenen</text>
+    <text x="414" y="515" font-size="14">Rollladen</text>
+    <text x="641" y="515" font-size="14">Raffstore</text>
+    <text x="867" y="515" font-size="14">Beschattung</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M230 284c150 5 242 20 292 0"/>
+    <path d="M1040 296c-132-20-218-16-282-12"/>
+    <path d="M260 550c150-26 255-92 380-252"/>
+    <path d="M1020 546c-146-42-220-96-380-248"/>
+  </g>
+  <rect x="300" y="632" width="680" height="42" rx="21" fill="#ecfdf5" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Beschattung reagiert auf Sonne, Temperatur, Alltag und Sicherheit.</text>
+</svg>
