@@ -16,7 +16,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <div className="min-h-screen bg-paper">
       <DashboardNav userEmail={user.email ?? ""} />
-      <div className="xl:pl-72">
+      <div className="transition-[padding] duration-200 xl:pl-[var(--dashboard-sidebar-width)]">
         <main className="mx-auto w-full max-w-[1480px] px-4 py-6 sm:px-6 md:px-8 md:py-8 lg:px-10 xl:px-12 xl:py-10">{children}</main>
       </div>
     </div>

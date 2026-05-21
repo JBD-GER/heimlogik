@@ -52,12 +52,12 @@ export default async function CustomerDsgvoPage({ params }: PageProps) {
       ) : null}
 
       <div className="grid gap-5 xl:grid-cols-[1fr_0.8fr]">
-        <section className="overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+        <section className="touch-scroll-y overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
           <div className="border-b border-slate-200 px-5 py-4">
             <h2 className="text-lg font-bold text-ink">Vorschau</h2>
             <p className="mt-1 text-sm text-slate-600">Kunde und Datum werden beim Signieren automatisch eingesetzt.</p>
           </div>
-          <iframe title="DSGVO Vorschau" srcDoc={previewHtml} className="h-[760px] w-full bg-white" />
+          <iframe title="DSGVO Vorschau" srcDoc={previewHtml} className="pointer-events-none h-[70dvh] min-h-[560px] w-full bg-white xl:h-[760px]" />
         </section>
 
         <InfoCard title="Unterschrift erfassen">

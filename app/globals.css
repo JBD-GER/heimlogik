@@ -6,6 +6,7 @@
   color-scheme: light;
   --background: #f8fafc;
   --foreground: #0f172a;
+  --dashboard-sidebar-width: 18rem;
 }
 
 html {
@@ -45,6 +46,12 @@ select,
 textarea,
 summary {
   touch-action: manipulation;
+}
+
+.touch-scroll-y {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
 }
 
 ::selection {
