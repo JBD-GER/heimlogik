@@ -51,28 +51,26 @@ export default async function CustomerDsgvoPage({ params }: PageProps) {
         </InfoCard>
       ) : null}
 
-      <div className="grid gap-5 xl:grid-cols-[1fr_0.8fr]">
-        <section className="touch-scroll-y overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 px-5 py-4">
-            <h2 className="text-lg font-bold text-ink">Vorschau</h2>
-            <p className="mt-1 text-sm text-slate-600">Kunde und Datum werden beim Signieren automatisch eingesetzt.</p>
-          </div>
-          <iframe title="DSGVO Vorschau" srcDoc={previewHtml} className="pointer-events-none h-[70dvh] min-h-[560px] w-full bg-white xl:h-[760px]" />
-        </section>
+      <section className="overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+        <div className="border-b border-slate-200 px-5 py-4">
+          <h2 className="text-lg font-bold text-ink">Einwilligung</h2>
+          <p className="mt-1 text-sm text-slate-600">Bitte die Einwilligung gemeinsam mit dem Kunden durchgehen. Die Unterschrift folgt direkt darunter.</p>
+        </div>
+        <iframe title="DSGVO Vorschau" srcDoc={previewHtml} className="pointer-events-none h-[900px] w-full bg-white sm:h-[980px] lg:h-[1040px]" />
+      </section>
 
-        <InfoCard title="Unterschrift erfassen">
-          <form action={`/api/dashboard/customers/${customerId}/dsgvo`} method="post" className="grid gap-4">
-            <div className="rounded-md bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="font-bold text-ink">{customerName(customer)}</p>
-              <p className="mt-1">Datum: wird beim Speichern automatisch gesetzt</p>
-            </div>
-            <SignaturePad name="signature_data" />
-            <button className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-ink hover:bg-green-400">
-              Einwilligung speichern
-            </button>
-          </form>
-        </InfoCard>
-      </div>
+      <InfoCard title="Unterschrift erfassen">
+        <form action={`/api/dashboard/customers/${customerId}/dsgvo`} method="post" className="grid gap-4">
+          <div className="rounded-md bg-slate-50 p-4 text-sm text-slate-700">
+            <p className="font-bold text-ink">{customerName(customer)}</p>
+            <p className="mt-1">Datum: wird beim Speichern automatisch gesetzt</p>
+          </div>
+          <SignaturePad name="signature_data" />
+          <button className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-4 text-sm font-bold text-ink hover:bg-green-400">
+            Einwilligung speichern
+          </button>
+        </form>
+      </InfoCard>
     </div>
   );
 }
