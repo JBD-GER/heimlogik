@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CookieBanner } from "@/components/CookieBanner";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { TrackingManager } from "@/components/TrackingManager";
-import { TrackingPlaceholders } from "@/components/TrackingPlaceholders";
+import { SiteShell } from "@/components/SiteShell";
 import { siteConfig } from "@/site.config";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -38,13 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de">
       <body className={`${inter.className} min-h-screen bg-paper antialiased`}>
-        <TrackingPlaceholders />
-        <TrackingManager />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <CookieBanner />
-        <StickyMobileCTA />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

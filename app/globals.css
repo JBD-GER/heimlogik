@@ -22,6 +22,29 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
 }
 
 ::selection {

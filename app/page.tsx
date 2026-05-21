@@ -172,6 +172,36 @@ export default function HomePage() {
       </section>
 
       <section className="section-pad">
+        <div className="container-page grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+            <Image
+              src="/images/Mitarbeiter_fuenf.png"
+              alt="Heimlogik Mitarbeiter bei der Smart-Home-Systemintegration"
+              width={1254}
+              height={1254}
+              className="aspect-[4/3] w-full object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-accent">Persönliche Umsetzung</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-ink">Ein Ansprechpartner, der Planung und Einrichtung zusammenbringt</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Gerade bei Smart Home zählt, dass nach der Installation nicht fünf einzelne Apps übrig bleiben, sondern ein verständliches System. Heimlogik begleitet die Abstimmung, richtet die Logik ein und sorgt für eine klare Übergabe.
+            </p>
+            <div className="mt-6 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+              {["saubere Raum- und Szenenstruktur", "verständliche Nutzerrechte", "Automationen mit Alltagssinn", "Einweisung nach der Einrichtung"].map((item) => (
+                <div key={item} className="flex gap-2">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad">
         <div className="container-page">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-accent">Projektarten</p>
