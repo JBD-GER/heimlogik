@@ -7,9 +7,13 @@ import { splitList } from "@/lib/dashboard/diagnostics";
 import { projectSystemDisplayName, projectSystemOptionExists, projectSystemOptions } from "@/lib/dashboard/system-options";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
+export const runtime = "nodejs";
+
 type RouteContext = {
   params: Promise<{ customerId: string; projectId: string; diagnosticId: string }>;
 };
+
+const maxUploadFileSize = 25 * 1024 * 1024;
 
 function optionalText(value: FormDataEntryValue | null) {
   const text = String(value ?? "").trim();
@@ -38,6 +42,17 @@ function filesFromFormData(formData: FormData) {
   return [...formData.getAll("photos"), formData.get("photo")].filter((file): file is File => file instanceof File && file.size > 0);
 }
 
+function formatUploadSize(bytes: number) {
+  return `${(bytes / 1024 / 1024).toFixed(1).replace(".", ",")} MB`;
+}
+
+function validateUploadFiles(files: File[]) {
+  const oversizedFile = files.find((file) => file.size > maxUploadFileSize);
+  if (!oversizedFile) return null;
+
+  return `Die Datei "${oversizedFile.name}" ist ${formatUploadSize(oversizedFile.size)} groß. Bitte Foto erneut auswählen; iPad-Fotos werden automatisch optimiert. Maximale Einzeldatei: ${formatUploadSize(maxUploadFileSize)}.`;
+}
+
 function errorResponse(message: string, status = 400) {
   return new NextResponse(message, {
     status,
@@ -50,6 +65,12 @@ export async function POST(request: Request, { params }: RouteContext) {
   const { customerId, projectId, diagnosticId } = await params;
   const formData = await request.formData();
   const title = optionalText(formData.get("title"));
+  const files = filesFromFormData(formData);
+  const uploadValidationError = validateUploadFiles(files);
+
+  if (uploadValidationError) {
+    return errorResponse(uploadValidationError, 413);
+  }
 
   if (!title) {
     return errorResponse("Bitte einen Titel für den Befund eintragen.");
@@ -138,7 +159,6 @@ export async function POST(request: Request, { params }: RouteContext) {
     return errorResponse(error?.message ?? "Befund konnte nicht gespeichert werden.");
   }
 
-  const files = filesFromFormData(formData);
   const uploadedFileIds: string[] = [];
 
   for (const file of files) {

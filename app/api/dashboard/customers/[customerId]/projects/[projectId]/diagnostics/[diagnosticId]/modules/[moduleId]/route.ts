@@ -7,6 +7,8 @@ import { splitList } from "@/lib/dashboard/diagnostics";
 import { projectSystemDisplayName, projectSystemOptionExists, projectSystemOptions } from "@/lib/dashboard/system-options";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
+export const runtime = "nodejs";
+
 type RouteContext = {
   params: Promise<{ customerId: string; projectId: string; diagnosticId: string; moduleId: string }>;
 };
@@ -16,6 +18,8 @@ type StoredFile = {
   storage_bucket: string;
   storage_path: string;
 };
+
+const maxUploadFileSize = 25 * 1024 * 1024;
 
 function optionalText(value: FormDataEntryValue | null) {
   const text = String(value ?? "").trim();
@@ -42,6 +46,17 @@ function systemLabel(system: { system_type: string; manufacturer: string | null;
 
 function filesFromFormData(formData: FormData) {
   return [...formData.getAll("photos"), formData.get("photo")].filter((file): file is File => file instanceof File && file.size > 0);
+}
+
+function formatUploadSize(bytes: number) {
+  return `${(bytes / 1024 / 1024).toFixed(1).replace(".", ",")} MB`;
+}
+
+function validateUploadFiles(files: File[]) {
+  const oversizedFile = files.find((file) => file.size > maxUploadFileSize);
+  if (!oversizedFile) return null;
+
+  return `Die Datei "${oversizedFile.name}" ist ${formatUploadSize(oversizedFile.size)} groß. Bitte Foto erneut auswählen; iPad-Fotos werden automatisch optimiert. Maximale Einzeldatei: ${formatUploadSize(maxUploadFileSize)}.`;
 }
 
 function errorResponse(message: string, status = 400) {
@@ -194,6 +209,13 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const affectedSystems = await ensureNewProjectSystems({ supabase, projectId, diagnosticId, formData });
+  const files = filesFromFormData(formData);
+  const uploadValidationError = validateUploadFiles(files);
+
+  if (uploadValidationError) {
+    return errorResponse(uploadValidationError, 413);
+  }
+
   let nextPhotoFileId = moduleRow.photo_file_id;
   const currentModuleFileIds = await fileIdsForModule(supabase, moduleId, moduleRow.photo_file_id);
   const removeFileIds = formData
@@ -213,7 +235,6 @@ export async function POST(request: Request, { params }: RouteContext) {
     await deleteStoredFiles(supabase, removeFileIds);
   }
 
-  const files = filesFromFormData(formData);
   const uploadedFileIds: string[] = [];
 
   for (const file of files) {
