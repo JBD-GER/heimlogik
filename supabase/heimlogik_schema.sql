@@ -739,15 +739,7 @@ values (
   'project-files',
   false,
   52428800,
-  array[
-    'application/pdf',
-    'image/png',
-    'image/jpeg',
-    'image/webp',
-    'image/heic',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  ]
+  null
 )
 on conflict (id) do update
 set

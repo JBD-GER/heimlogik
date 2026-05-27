@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { BedDouble, Calculator, Clock3, Euro, Play, ReceiptText, Square } from "lucide-react";
+import { BillingTimeEntryEditor } from "@/components/dashboard/BillingTimeEntryEditor";
+import { BillingTimeForm } from "@/components/dashboard/BillingTimeForm";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
@@ -153,7 +155,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
   const unbilledExpenseEntries = expenseEntries.filter(isUnbilled);
   const unbilledAccommodationEntries = accommodationEntries.filter(isUnbilled);
   const unbilledHours = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at), 0);
-  const unbilledTimeNet = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at) * netAmount(entry.hourly_rate_net ?? 120), 0);
+  const unbilledTimeNet = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at) * netAmount(entry.hourly_rate_net ?? 210), 0);
   const unbilledExpenseNet = unbilledExpenseEntries.reduce((sum, entry) => sum + netAmount(entry.amount_net), 0);
   const unbilledAccommodationNet = unbilledAccommodationEntries.reduce((sum, entry) => sum + netAmount(entry.amount_net), 0);
   const unbilledNetTotal = unbilledTimeNet + unbilledExpenseNet + unbilledAccommodationNet;
@@ -260,33 +262,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
               <Play className="h-5 w-5 text-accent" aria-hidden="true" />
               <h2 className="text-xl font-bold text-ink">Stundenerfassung starten</h2>
             </div>
-            <form action={billingApiPath} method="post" className="mt-5 grid gap-4">
-              <input type="hidden" name="_intent" value="start_time" />
-              <input type="hidden" name="start_date" value={startDate} />
-              <input type="hidden" name="end_date" value={endDate} />
-              <div className="grid gap-4 md:grid-cols-3">
-                <label className="grid gap-2 text-sm font-semibold text-ink">
-                  Mitarbeiter
-                  <StaffSelect staffMembers={staffMembers} />
-                </label>
-                <label className="grid gap-2 text-sm font-semibold text-ink md:col-span-2">
-                  Tätigkeit
-                  <input name="title" required placeholder="z.B. KNX Parametrierung" className="min-h-11 rounded-md border border-slate-200 px-3 font-normal" />
-                </label>
-                <label className="grid gap-2 text-sm font-semibold text-ink">
-                  Stundensatz netto
-                  <input name="hourly_rate_net" inputMode="decimal" defaultValue="120,00" className="min-h-11 rounded-md border border-slate-200 px-3 font-normal" />
-                </label>
-                <label className="grid gap-2 text-sm font-semibold text-ink md:col-span-2">
-                  Beschreibung / geplant
-                  <input name="description" placeholder="Was wird gemacht?" className="min-h-11 rounded-md border border-slate-200 px-3 font-normal" />
-                </label>
-              </div>
-              <button className="focus-ring inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-accent px-4 text-sm font-bold text-ink hover:bg-green-400 md:w-fit">
-                <Play className="h-4 w-4" aria-hidden="true" />
-                Start
-              </button>
-            </form>
+            <BillingTimeForm action={billingApiPath} startDate={startDate} endDate={endDate} staffMembers={staffMembers} todayDate={dateInputInBerlin()} />
           </section>
 
           {timeEntries.length === 0 ? (
@@ -316,7 +292,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
                         </div>
                         <div className="rounded-md bg-slate-50 p-3">
                           <p className="text-xs font-bold uppercase text-slate-500">Netto</p>
-                          <p className="mt-1 text-lg font-bold text-ink">{formatCurrency(hours * netAmount(entry.hourly_rate_net ?? 120))}</p>
+                          <p className="mt-1 text-lg font-bold text-ink">{formatCurrency(hours * netAmount(entry.hourly_rate_net ?? 210))}</p>
                         </div>
                         {!entry.stopped_at ? (
                           <form action={billingApiPath} method="post" className="sm:col-span-2">
@@ -332,6 +308,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
                         ) : null}
                       </div>
                     </div>
+                    <BillingTimeEntryEditor action={billingApiPath} startDate={startDate} endDate={endDate} entry={entry} staffMembers={staffMembers} />
                   </article>
                 );
               })}

@@ -1,3 +1,5 @@
+import { diagnosticCostBasis, diagnosticDefaultHourlyRateNet } from "@/lib/dashboard/diagnostic-pricing";
+
 export type DiagnosticCause = {
   cause: string;
   likelihood: string;
@@ -128,6 +130,10 @@ function numberValue(value: unknown) {
   return typeof value === "number" && Number.isFinite(value) ? value : 0;
 }
 
+function currencyValue(value: number) {
+  return Math.round(value * 100) / 100;
+}
+
 function stringArray(value: unknown) {
   return Array.isArray(value) ? value.map(stringValue).filter(Boolean) : [];
 }
@@ -165,7 +171,7 @@ export function normalizeDiagnosticAnalysis(value: unknown): DiagnosticStructure
     summary: stringValue(value.summary),
     overall_status: stringValue(value.overall_status),
     overall_recommendation: stringValue(value.overall_recommendation),
-    cost_basis: stringValue(value.cost_basis) || "Stundensatz 120 EUR netto pro Stunde. Material, Anfahrt und Fremdleistungen sind nicht enthalten, sofern nicht separat ausgewiesen.",
+    cost_basis: stringValue(value.cost_basis) || diagnosticCostBasis(diagnosticDefaultHourlyRateNet),
     estimated_total_hours_min: numberValue(value.estimated_total_hours_min),
     estimated_total_hours_max: numberValue(value.estimated_total_hours_max),
     estimated_total_cost_min: numberValue(value.estimated_total_cost_min),
@@ -176,10 +182,31 @@ export function normalizeDiagnosticAnalysis(value: unknown): DiagnosticStructure
   };
 }
 
-export function parseDiagnosticAnalysis(value?: string | null) {
+export function applyDiagnosticHourlyRate(analysis: DiagnosticStructuredAnalysis, hourlyRateNet = diagnosticDefaultHourlyRateNet): DiagnosticStructuredAnalysis {
+  const findings = analysis.findings.map((finding) => ({
+    ...finding,
+    cost_min: currencyValue(finding.effort_hours_min * hourlyRateNet),
+    cost_max: currencyValue(finding.effort_hours_max * hourlyRateNet),
+  }));
+  const totalHoursMin = analysis.estimated_total_hours_min || findings.reduce((sum, finding) => sum + finding.effort_hours_min, 0);
+  const totalHoursMax = analysis.estimated_total_hours_max || findings.reduce((sum, finding) => sum + finding.effort_hours_max, 0);
+
+  return {
+    ...analysis,
+    cost_basis: diagnosticCostBasis(hourlyRateNet),
+    estimated_total_hours_min: totalHoursMin,
+    estimated_total_hours_max: totalHoursMax,
+    estimated_total_cost_min: currencyValue(totalHoursMin * hourlyRateNet),
+    estimated_total_cost_max: currencyValue(totalHoursMax * hourlyRateNet),
+    findings,
+  };
+}
+
+export function parseDiagnosticAnalysis(value?: string | null, hourlyRateNet?: number) {
   if (!value) return null;
   try {
-    return normalizeDiagnosticAnalysis(JSON.parse(value));
+    const analysis = normalizeDiagnosticAnalysis(JSON.parse(value));
+    return analysis && hourlyRateNet ? applyDiagnosticHourlyRate(analysis, hourlyRateNet) : analysis;
   } catch {
     return null;
   }
@@ -208,4 +235,3 @@ export function diagnosticAnalysisToPlainText(analysis: DiagnosticStructuredAnal
     analysis.limitations.length ? `Hinweise: ${analysis.limitations.join(" ")}` : "",
   ].filter(Boolean).join("\n\n");
 }
-

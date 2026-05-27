@@ -1,4 +1,5 @@
 import "server-only";
+import { diagnosticCostBasis, diagnosticDefaultHourlyRateNet } from "@/lib/dashboard/diagnostic-pricing";
 import { labelFor } from "@/lib/dashboard/labels";
 
 export type DiagnosticModulePreset = {
@@ -37,12 +38,14 @@ export function buildDiagnosticAnalysisInput({
   customerName,
   projectName,
   propertyName,
+  hourlyRateNet = diagnosticDefaultHourlyRateNet,
   diagnostic,
   modules,
 }: {
   customerName: string;
   projectName: string;
   propertyName?: string | null;
+  hourlyRateNet?: number;
   diagnostic: {
     title: string;
     customer_report?: string | null;
@@ -94,7 +97,7 @@ export function buildDiagnosticAnalysisInput({
     `Kunde: ${customerName}`,
     `Projekt: ${projectName}`,
     propertyName ? `Objekt/Gebäude: ${propertyName}` : "",
-    "Kalkulationsgrundlage: Heimlogik-Stundensatz 120 EUR pro Stunde. Material, Anfahrt und Fremdleistungen nur aufführen, wenn sie aus den Befunden erkennbar sind; ansonsten als nicht enthalten kennzeichnen.",
+    `Kalkulationsgrundlage: ${diagnosticCostBasis(hourlyRateNet)} Führe Material, Anfahrt und Fremdleistungen nur auf, wenn sie aus den Befunden erkennbar sind; ansonsten als nicht enthalten kennzeichnen. Nenne keine internen Gründe für den verwendeten Stundensatz.`,
     `Diagnostik: ${diagnostic.title}`,
     `Kategorie: ${labelFor(diagnostic.error_category)}`,
     `Priorität: ${labelFor(diagnostic.priority)}`,

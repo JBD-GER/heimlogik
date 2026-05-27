@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
-import { diagnosticAnalysisJsonSchema, diagnosticAnalysisToPlainText, normalizeDiagnosticAnalysis } from "@/lib/dashboard/diagnostic-analysis";
+import { applyDiagnosticHourlyRate, diagnosticAnalysisJsonSchema, diagnosticAnalysisToPlainText, normalizeDiagnosticAnalysis } from "@/lib/dashboard/diagnostic-analysis";
+import { diagnosticHourlyRateForProject } from "@/lib/dashboard/diagnostic-pricing";
 import { buildDiagnosticAnalysisInput } from "@/lib/dashboard/diagnostics";
 import { customerName } from "@/lib/dashboard/format";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -82,10 +83,11 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const supabase = createSupabaseAdminClient();
-  const [{ data: diagnostic }, { data: modules }, { data: signatures }] = await Promise.all([
+  const [{ data: diagnostic }, { data: modules }, { data: signatures }, partnerAssignmentsResult] = await Promise.all([
     supabase.from("diagnostics").select("*").eq("id", diagnosticId).eq("project_id", projectId).single(),
     supabase.from("diagnostic_modules").select("*").eq("diagnostic_id", diagnosticId).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
     supabase.from("diagnostic_signatures").select("signer_type").eq("diagnostic_id", diagnosticId),
+    supabase.from("project_professional_partners").select("professional_partner_id", { count: "exact", head: true }).eq("project_id", projectId),
   ]);
 
   if (!diagnostic) {
@@ -95,6 +97,7 @@ export async function POST(request: Request, { params }: RouteContext) {
   const diagnosticRow = diagnostic as DiagnosticRow;
   const moduleRows = (modules ?? []) as DiagnosticModuleRow[];
   const hasHeimlogikSignature = (signatures ?? []).some((signature) => signature.signer_type === "heimlogik");
+  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject((partnerAssignmentsResult.count ?? 0) > 0);
 
   if (!moduleRows.length) {
     return errorResponse("Bitte zuerst mindestens einen Befund speichern.");
@@ -108,6 +111,7 @@ export async function POST(request: Request, { params }: RouteContext) {
     customerName: customerName(customer),
     projectName: project.project_name,
     propertyName: property?.property_name,
+    hourlyRateNet: diagnosticHourlyRateNet,
     diagnostic: diagnosticRow,
     modules: moduleRows,
   });
@@ -122,7 +126,7 @@ export async function POST(request: Request, { params }: RouteContext) {
     body: JSON.stringify({
       model,
       instructions:
-        "Du bist ein technischer Smart-Home-Diagnostiker für Heimlogik. Erstelle ausschließlich strukturierte JSON-Daten für einen offiziellen Diagnostikbericht auf Deutsch. Schreibe sachlich, kundentauglich und ohne Begriffe wie KI, künstliche Intelligenz, Modell oder automatisch erzeugt. Für jeden Befund nenne nachvollziehbare mögliche Ursachen, konkrete Prüfungen, empfohlene Maßnahmen, Aufwand in Stunden und Kosten auf Basis von 120 EUR pro Stunde. Alle Stunden- und Kostenwerte sind ausdrücklich unverbindliche Orientierungs- und Schätzwerte, kein Angebot und keine Abrechnungssumme. Material, Anfahrt und Fremdleistungen nur nennen, wenn sie aus den Befunden ableitbar sind; sonst als nicht enthalten ausweisen. Behaupte nichts als sicher, wenn es nicht aus den Befunden folgt. Keine Passwörter, keine Zugangsdaten, keine spekulativen Garantien.",
+        `Du bist ein technischer Smart-Home-Diagnostiker für Heimlogik. Erstelle ausschließlich strukturierte JSON-Daten für einen offiziellen Diagnostikbericht auf Deutsch. Schreibe sachlich, kundentauglich und ohne Begriffe wie KI, künstliche Intelligenz, Modell oder automatisch erzeugt. Für jeden Befund nenne nachvollziehbare mögliche Ursachen, konkrete Prüfungen, empfohlene Maßnahmen, Aufwand in Stunden und Kosten auf Basis von ${diagnosticHourlyRateNet} EUR netto pro Stunde. Verwende exakt diese Kalkulationsgrundlage und nenne keine internen Gründe für den Stundensatz. Alle Stunden- und Kostenwerte sind ausdrücklich unverbindliche Orientierungs- und Schätzwerte, kein Angebot und keine Abrechnungssumme. Material, Anfahrt und Fremdleistungen nur nennen, wenn sie aus den Befunden ableitbar sind; sonst als nicht enthalten ausweisen. Behaupte nichts als sicher, wenn es nicht aus den Befunden folgt. Keine Passwörter, keine Zugangsdaten, keine spekulativen Garantien.`,
       input,
       text: {
         format: {
@@ -160,12 +164,13 @@ export async function POST(request: Request, { params }: RouteContext) {
     return errorResponse("Die technische Analyse konnte nicht strukturiert verarbeitet werden.");
   }
 
-  const plainTextSummary = diagnosticAnalysisToPlainText(structuredAnalysis);
+  const pricedStructuredAnalysis = applyDiagnosticHourlyRate(structuredAnalysis, diagnosticHourlyRateNet);
+  const plainTextSummary = diagnosticAnalysisToPlainText(pricedStructuredAnalysis);
 
   const { error } = await supabase
     .from("diagnostics")
     .update({
-      ai_analysis: JSON.stringify(structuredAnalysis),
+      ai_analysis: JSON.stringify(pricedStructuredAnalysis),
       ai_model: model,
       ai_generated_at: new Date().toISOString(),
       report_file_id: null,

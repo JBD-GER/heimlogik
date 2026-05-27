@@ -2,6 +2,7 @@ import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
+import { normalizeUploadImageFile } from "@/lib/dashboard/image-files";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -44,11 +45,11 @@ export async function POST(request: Request) {
   let imageStoragePath: string | null = null;
 
   if (image instanceof File && image.size > 0) {
-    const fileName = safeFileName(image.name) || `mitarbeiter-${staffId}`;
+    const normalizedImage = await normalizeUploadImageFile(image);
+    const fileName = safeFileName(normalizedImage.fileName) || `mitarbeiter-${staffId}`;
     const storagePath = `team/staff/${staffId}/${randomUUID()}-${fileName}`;
-    const buffer = Buffer.from(await image.arrayBuffer());
-    const { error } = await supabase.storage.from("project-files").upload(storagePath, buffer, {
-      contentType: image.type || "application/octet-stream",
+    const { error } = await supabase.storage.from("project-files").upload(storagePath, normalizedImage.buffer, {
+      contentType: normalizedImage.mimeType,
       upsert: false,
     });
 
@@ -82,4 +83,3 @@ export async function POST(request: Request) {
   revalidatePath("/dashboard/mitarbeiter");
   return NextResponse.redirect(new URL("/dashboard/mitarbeiter", request.url), 303);
 }
-

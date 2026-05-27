@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { BrainCircuit, Camera, FileText, PenLine } from "lucide-react";
+import { BrainCircuit, Camera, FileText, PenLine, Trash2 } from "lucide-react";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 import { FindingPhotoInput } from "@/components/dashboard/FindingPhotoInput";
+import { FloorRoomSelect } from "@/components/dashboard/FloorRoomSelect";
 import { InfoCard } from "@/components/dashboard/InfoCard";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { SignaturePad } from "@/components/dashboard/SignaturePad";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
 import { parseDiagnosticAnalysis } from "@/lib/dashboard/diagnostic-analysis";
+import { diagnosticHourlyRateForProject } from "@/lib/dashboard/diagnostic-pricing";
 import { diagnosticModuleLabel } from "@/lib/dashboard/diagnostics";
 import { customerName, formatCurrency, formatDate, formatDateTime } from "@/lib/dashboard/format";
 import { labelFor } from "@/lib/dashboard/labels";
@@ -73,6 +75,7 @@ type FloorRow = {
 
 type RoomRow = {
   id: string;
+  floor_id: string | null;
   room_name: string;
 };
 
@@ -112,7 +115,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
 
   if (!diagnostic) return null;
 
-  const [modulesResult, signaturesResult, floorsResult, roomsResult, systemsResult, reportFileResult] = await Promise.all([
+  const [modulesResult, signaturesResult, floorsResult, roomsResult, systemsResult, reportFileResult, partnerAssignmentsResult] = await Promise.all([
     supabase
       .from("diagnostic_modules")
       .select("*, floors(floor_name), rooms(room_name)")
@@ -121,9 +124,10 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
       .order("created_at", { ascending: true }),
     supabase.from("diagnostic_signatures").select("signer_type, signer_name, signed_at").eq("diagnostic_id", diagnosticId),
     property ? supabase.from("floors").select("id, floor_name").eq("property_id", property.id).order("level_number", { ascending: true }) : Promise.resolve({ data: [], error: null }),
-    property ? supabase.from("rooms").select("id, room_name").eq("property_id", property.id).order("room_name", { ascending: true }) : Promise.resolve({ data: [], error: null }),
+    property ? supabase.from("rooms").select("id, floor_id, room_name").eq("property_id", property.id).order("room_name", { ascending: true }) : Promise.resolve({ data: [], error: null }),
     supabase.from("project_systems").select("id, system_type, manufacturer, model, description").eq("project_id", projectId).order("created_at", { ascending: true }),
     diagnostic.report_file_id ? supabase.from("files").select("id, file_name, mime_type").eq("id", diagnostic.report_file_id).single() : Promise.resolve({ data: null, error: null }),
+    supabase.from("project_professional_partners").select("professional_partner_id", { count: "exact", head: true }).eq("project_id", projectId),
   ]);
 
   const migrationMissing = Boolean(modulesResult.error || signaturesResult.error);
@@ -166,7 +170,8 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
   const customerSignature = signatures.find((signature) => signature.signer_type === "customer");
   const canPrepareReport = modules.length > 0 && Boolean(heimlogikSignature);
   const availableSystemOptions = projectSystemOptions.filter((option) => !projectSystemOptionExists(option, systems));
-  const structuredAnalysis = parseDiagnosticAnalysis(diagnostic.ai_analysis);
+  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject((partnerAssignmentsResult.count ?? 0) > 0);
+  const structuredAnalysis = parseDiagnosticAnalysis(diagnostic.ai_analysis, diagnosticHourlyRateNet);
 
   return (
     <div className="grid gap-6">
@@ -241,28 +246,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
             <FindingPhotoInput />
           </label>
           <div className="grid gap-4 md:grid-cols-3">
-            <label className="grid gap-2 text-sm font-semibold text-ink">
-              Etage optional
-              <select name="floor_id" className="min-h-11 rounded-md border border-slate-200 bg-white px-3 font-normal">
-                <option value="">Ohne Etage</option>
-                {floors.map((floor) => (
-                  <option key={floor.id} value={floor.id}>
-                    {floor.floor_name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="grid gap-2 text-sm font-semibold text-ink">
-              Raum optional
-              <select name="room_id" className="min-h-11 rounded-md border border-slate-200 bg-white px-3 font-normal">
-                <option value="">Ohne Raum</option>
-                {rooms.map((room) => (
-                  <option key={room.id} value={room.id}>
-                    {room.room_name}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <FloorRoomSelect floors={floors} rooms={rooms} />
             <input name="affected_area" placeholder="Freier Bereich optional" className="mt-auto min-h-11 rounded-md border border-slate-200 px-3" />
           </div>
           <div className="grid gap-3">
@@ -328,7 +312,16 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
                           {[item.affected_area, item.floors?.floor_name, item.rooms?.room_name].filter(Boolean).join(" · ") || "Ohne Raumbezug"}
                         </p>
                       </div>
-                      <StatusBadge value={item.severity} />
+                      <div className="flex shrink-0 flex-wrap items-center gap-2 md:justify-end">
+                        <StatusBadge value={item.severity} />
+                        <form action={`${baseApiPath}/modules/${item.id}`} method="post">
+                          <input type="hidden" name="_intent" value="delete" />
+                          <button className="focus-ring inline-flex min-h-9 items-center gap-2 rounded-md border border-red-200 bg-white px-3 text-xs font-bold text-red-700 hover:bg-red-50">
+                            <Trash2 className="h-4 w-4" aria-hidden="true" />
+                            Löschen
+                          </button>
+                        </form>
+                      </div>
                     </div>
                     {item.affected_systems?.length ? (
                       <div className="mt-4 flex flex-wrap gap-2">
@@ -403,28 +396,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
                           className="min-h-24 rounded-md border border-slate-200 bg-white px-3 py-2"
                         />
                         <div className="grid gap-4 md:grid-cols-3">
-                          <label className="grid gap-2 text-sm font-semibold text-ink">
-                            Etage optional
-                            <select name="floor_id" defaultValue={item.floor_id ?? ""} className="min-h-11 rounded-md border border-slate-200 bg-white px-3 font-normal">
-                              <option value="">Ohne Etage</option>
-                              {floors.map((floor) => (
-                                <option key={floor.id} value={floor.id}>
-                                  {floor.floor_name}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label className="grid gap-2 text-sm font-semibold text-ink">
-                            Raum optional
-                            <select name="room_id" defaultValue={item.room_id ?? ""} className="min-h-11 rounded-md border border-slate-200 bg-white px-3 font-normal">
-                              <option value="">Ohne Raum</option>
-                              {rooms.map((room) => (
-                                <option key={room.id} value={room.id}>
-                                  {room.room_name}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
+                          <FloorRoomSelect floors={floors} rooms={rooms} defaultFloorId={item.floor_id} defaultRoomId={item.room_id} />
                           <input name="affected_area" defaultValue={item.affected_area ?? ""} placeholder="Freier Bereich optional" className="mt-auto min-h-11 rounded-md border border-slate-200 bg-white px-3" />
                         </div>
                         <div className="grid gap-3">
@@ -495,12 +467,6 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
                             Änderungen speichern
                           </button>
                         </div>
-                      </form>
-                      <form action={`${baseApiPath}/modules/${item.id}`} method="post" className="mt-3 border-t border-slate-200 pt-3">
-                        <input type="hidden" name="_intent" value="delete" />
-                        <button className="focus-ring inline-flex min-h-10 w-full items-center justify-center rounded-md border border-red-200 bg-white px-4 text-sm font-bold text-red-700 hover:bg-red-50 md:w-fit">
-                          Befund endgültig löschen
-                        </button>
                       </form>
                     </details>
               </article>
@@ -590,7 +556,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
                 <p className="text-xs font-bold uppercase tracking-wide text-accent">Berichtseite</p>
                 <h2 className="mt-1 text-2xl font-black text-ink">Diagnostikbericht vorbereiten</h2>
                 <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                  Hier wird die unterschriebene Ist-Situation als offizieller Bericht zusammengeführt. Die technische Analyse ergänzt Ursachen, Prüfungen, Maßnahmen, Aufwand und Kosten auf Basis von 120 €/h.
+                  Hier wird die unterschriebene Ist-Situation als offizieller Bericht zusammengeführt. Die technische Analyse ergänzt Ursachen, Prüfungen, Maßnahmen, Aufwand und Kosten auf Basis von {diagnosticHourlyRateNet} €/h netto.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">

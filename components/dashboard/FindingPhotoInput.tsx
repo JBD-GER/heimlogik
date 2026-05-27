@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Camera, ImagePlus, X } from "lucide-react";
+import { documentUploadAccept, imageUploadAccept } from "@/lib/dashboard/upload-accept";
 
 type SelectedPhoto = {
   id: string;
@@ -19,6 +20,8 @@ type FindingPhotoInputProps = {
 const maxImageDimension = 1800;
 const jpegQuality = 0.78;
 const compressFromBytes = 900 * 1024;
+const heicMimeTypes = new Set(["image/heic", "image/heif", "image/heic-sequence", "image/heif-sequence"]);
+const imageFileExtensions = /\.(avif|bmp|gif|heic|heif|jpe?g|png|svg|tiff?|webp)$/i;
 
 function formatBytes(bytes: number) {
   if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
@@ -27,6 +30,27 @@ function formatBytes(bytes: number) {
 
 function imageNeedsCompression(file: File) {
   return file.type.startsWith("image/") && file.size >= compressFromBytes;
+}
+
+function isImageFile(file: File) {
+  return file.type.startsWith("image/") || imageFileExtensions.test(file.name);
+}
+
+function isHeicFile(file: File) {
+  const fileName = file.name.toLowerCase();
+  return heicMimeTypes.has(file.type.toLowerCase()) || fileName.endsWith(".heic") || fileName.endsWith(".heif");
+}
+
+function jpgName(fileName: string) {
+  const baseName = fileName.replace(/\.[^.]+$/, "") || "befund-foto";
+  return `${baseName}.jpg`;
+}
+
+async function convertHeicFile(file: File) {
+  const { default: heic2any } = await import("heic2any");
+  const result = await heic2any({ blob: file, toType: "image/jpeg", quality: 0.86 });
+  const blob = Array.isArray(result) ? result[0] : result;
+  return new File([blob], jpgName(file.name), { type: "image/jpeg", lastModified: Date.now() });
 }
 
 function loadImageFromFile(file: File) {
@@ -46,12 +70,34 @@ function loadImageFromFile(file: File) {
 }
 
 async function compressImageFile(file: File) {
-  if (!imageNeedsCompression(file)) {
-    return { file, originalSize: file.size, optimized: false };
+  let workingFile = file;
+  let convertedFromHeic = false;
+
+  if (isHeicFile(file)) {
+    try {
+      workingFile = await convertHeicFile(file);
+      convertedFromHeic = true;
+    } catch {
+      return {
+        file,
+        originalSize: file.size,
+        optimized: false,
+        warning: "Original wird unverändert hochgeladen; der Server versucht die Umwandlung nochmal.",
+      };
+    }
+  }
+
+  if (!imageNeedsCompression(workingFile)) {
+    return {
+      file: workingFile,
+      originalSize: file.size,
+      optimized: convertedFromHeic,
+      warning: convertedFromHeic ? "HEIC wurde automatisch in JPEG umgewandelt." : undefined,
+    };
   }
 
   try {
-    const image = await loadImageFromFile(file);
+    const image = await loadImageFromFile(workingFile);
     const scale = Math.min(1, maxImageDimension / Math.max(image.naturalWidth, image.naturalHeight));
     const width = Math.max(1, Math.round(image.naturalWidth * scale));
     const height = Math.max(1, Math.round(image.naturalHeight * scale));
@@ -66,22 +112,28 @@ async function compressImageFile(file: File) {
     context.drawImage(image, 0, 0, width, height);
 
     const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", jpegQuality));
-    if (!blob || blob.size >= file.size) {
-      return { file, originalSize: file.size, optimized: false };
+    if (!blob || blob.size >= workingFile.size) {
+      return {
+        file: workingFile,
+        originalSize: file.size,
+        optimized: convertedFromHeic,
+        warning: convertedFromHeic ? "HEIC wurde automatisch in JPEG umgewandelt." : undefined,
+      };
     }
 
-    const nextName = file.name.replace(/\.[^.]+$/, "") || "befund-foto";
+    const nextName = workingFile.name.replace(/\.[^.]+$/, "") || "befund-foto";
     return {
       file: new File([blob], `${nextName}.jpg`, { type: "image/jpeg", lastModified: Date.now() }),
       originalSize: file.size,
       optimized: true,
+      warning: convertedFromHeic ? "HEIC wurde automatisch in JPEG umgewandelt." : undefined,
     };
   } catch {
     return {
-      file,
+      file: workingFile,
       originalSize: file.size,
-      optimized: false,
-      warning: "Dieses Bild konnte nicht automatisch verkleinert werden. Falls der Upload scheitert, bitte als JPEG aufnehmen.",
+      optimized: convertedFromHeic,
+      warning: convertedFromHeic ? "HEIC wurde in JPEG umgewandelt; Originalgröße bleibt erhalten." : "Originalgröße bleibt erhalten.",
     };
   }
 }
@@ -94,6 +146,7 @@ export function FindingPhotoInput({ name = "photos" }: FindingPhotoInputProps) {
   const [photos, setPhotos] = useState<SelectedPhoto[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [syncWarning, setSyncWarning] = useState("");
+  const [canSyncFiles, setCanSyncFiles] = useState(true);
 
   useEffect(() => {
     photosRef.current = photos;
@@ -103,10 +156,12 @@ export function FindingPhotoInput({ name = "photos" }: FindingPhotoInputProps) {
     const input = submitInputRef.current;
     if (!input) return;
     if (typeof DataTransfer === "undefined") {
-      setSyncWarning("Dieser Browser kann die ausgewählten Fotos nicht sicher an das Formular übergeben. Bitte Safari/Chrome aktualisieren.");
+      setCanSyncFiles(false);
+      setSyncWarning("Dieser Browser lädt die ausgewählten Originaldateien hoch; die Server-Optimierung bleibt aktiv.");
       return;
     }
 
+    setCanSyncFiles(true);
     const transfer = new DataTransfer();
     photos.forEach((photo) => transfer.items.add(photo.file));
     input.files = transfer.files;
@@ -133,7 +188,7 @@ export function FindingPhotoInput({ name = "photos" }: FindingPhotoInputProps) {
         originalSize,
         optimized,
         warning,
-        previewUrl: file.type.startsWith("image/") ? URL.createObjectURL(file) : null,
+        previewUrl: isImageFile(file) ? URL.createObjectURL(file) : null,
       }));
       return [...current, ...nextPhotos];
     });
@@ -150,29 +205,31 @@ export function FindingPhotoInput({ name = "photos" }: FindingPhotoInputProps) {
 
   return (
     <div className="grid gap-3">
-      <input ref={submitInputRef} name={name} type="file" multiple className="sr-only" tabIndex={-1} aria-hidden="true" />
+      <input ref={submitInputRef} name={canSyncFiles ? name : undefined} type="file" multiple className="sr-only" tabIndex={-1} aria-hidden="true" />
       <input
         ref={cameraInputRef}
+        name={canSyncFiles ? undefined : name}
         type="file"
-        accept="image/*"
+        accept={imageUploadAccept}
         capture="environment"
         className="sr-only"
         tabIndex={-1}
         onChange={(event) => {
           void addFiles(event.currentTarget.files);
-          event.currentTarget.value = "";
+          if (canSyncFiles) event.currentTarget.value = "";
         }}
       />
       <input
         ref={galleryInputRef}
+        name={canSyncFiles ? undefined : name}
         type="file"
-        accept="image/*,.pdf,application/pdf"
+        accept={documentUploadAccept}
         multiple
         className="sr-only"
         tabIndex={-1}
         onChange={(event) => {
           void addFiles(event.currentTarget.files);
-          event.currentTarget.value = "";
+          if (canSyncFiles) event.currentTarget.value = "";
         }}
       />
 

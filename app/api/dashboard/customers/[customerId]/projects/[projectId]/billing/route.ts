@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
-import { berlinDateEndExclusiveIso, berlinDateStartIso, durationHours } from "@/lib/dashboard/billing";
+import { berlinDateEndExclusiveIso, berlinDateStartIso, berlinDateTimeIso, durationHours } from "@/lib/dashboard/billing";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
 import { customerName, formatDate, formatDateTime } from "@/lib/dashboard/format";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -56,6 +56,16 @@ function parseDecimal(value: FormDataEntryValue | null, fallback = 0) {
   return Number.isFinite(number) ? number : fallback;
 }
 
+function validTimeValue(value: string | null): value is string {
+  return Boolean(value?.match(/^\d{2}:\d{2}$/));
+}
+
+function hourlyRateFromForm(formData: FormData) {
+  if (optionalText(formData.get("free_of_charge")) === "on") return 0;
+  if (optionalText(formData.get("partner_rate")) === "on") return 190;
+  return 210;
+}
+
 function errorResponse(message: string, status = 400) {
   return new NextResponse(message, {
     status,
@@ -104,13 +114,32 @@ export async function POST(request: Request, { params }: RouteContext) {
     const title = optionalText(formData.get("title"));
     if (!title) return errorResponse("Bitte Tätigkeit eintragen.");
 
+    const timeMode = optionalText(formData.get("time_mode"));
+    const manualDate = optionalText(formData.get("manual_date"));
+    const manualStartTime = optionalText(formData.get("manual_start_time"));
+    const manualEndTime = optionalText(formData.get("manual_end_time"));
+    let startedAt = new Date().toISOString();
+    let stoppedAt: string | null = null;
+
+    if (timeMode === "manual") {
+      if (!manualDate || !validTimeValue(manualStartTime) || !validTimeValue(manualEndTime)) {
+        return errorResponse("Bitte Datum, Von und Bis für die nachgereichten Stunden eintragen.");
+      }
+      startedAt = berlinDateTimeIso(manualDate, manualStartTime);
+      stoppedAt = berlinDateTimeIso(manualDate, manualEndTime);
+      if (!stoppedAt || new Date(stoppedAt).getTime() <= new Date(startedAt).getTime()) {
+        return errorResponse("Die Bis-Uhrzeit muss nach der Von-Uhrzeit liegen.");
+      }
+    }
+
     const { error } = await supabase.from("time_entries").insert({
       project_id: projectId,
       staff_member_id: optionalText(formData.get("staff_member_id")),
       title,
       description: optionalText(formData.get("description")),
-      hourly_rate_net: parseDecimal(formData.get("hourly_rate_net"), 120),
-      started_at: new Date().toISOString(),
+      hourly_rate_net: hourlyRateFromForm(formData),
+      started_at: startedAt,
+      stopped_at: stoppedAt,
       created_by: user.id,
     });
 
@@ -129,6 +158,64 @@ export async function POST(request: Request, { params }: RouteContext) {
       .eq("id", timeEntryId)
       .eq("project_id", projectId)
       .is("stopped_at", null)
+      .is("billed_at", null);
+
+    if (error) return errorResponse(error.message);
+    revalidatePath(`/dashboard/kunden/${customerId}/projekte/${projectId}/abrechnung`);
+    return NextResponse.redirect(billingUrl(request, customerId, projectId, formData, "stunden"), 303);
+  }
+
+  if (intent === "update_time") {
+    const timeEntryId = optionalText(formData.get("time_entry_id"));
+    const title = optionalText(formData.get("title"));
+    const manualDate = optionalText(formData.get("manual_date"));
+    const manualStartTime = optionalText(formData.get("manual_start_time"));
+    const manualEndTime = optionalText(formData.get("manual_end_time"));
+
+    if (!timeEntryId) return errorResponse("Zeiteintrag fehlt.");
+    if (!title) return errorResponse("Bitte Tätigkeit eintragen.");
+    if (!manualDate || !validTimeValue(manualStartTime)) return errorResponse("Bitte Datum und Von-Uhrzeit eintragen.");
+
+    const startedAt = berlinDateTimeIso(manualDate, manualStartTime);
+    let stoppedAt: string | null = null;
+    if (manualEndTime) {
+      if (!validTimeValue(manualEndTime)) return errorResponse("Bitte eine gültige Bis-Uhrzeit eintragen.");
+      stoppedAt = berlinDateTimeIso(manualDate, manualEndTime);
+      if (new Date(stoppedAt).getTime() <= new Date(startedAt).getTime()) {
+        return errorResponse("Die Bis-Uhrzeit muss nach der Von-Uhrzeit liegen.");
+      }
+    }
+
+    const { error } = await supabase
+      .from("time_entries")
+      .update({
+        staff_member_id: optionalText(formData.get("staff_member_id")),
+        title,
+        description: optionalText(formData.get("description")),
+        hourly_rate_net: hourlyRateFromForm(formData),
+        started_at: startedAt,
+        stopped_at: stoppedAt,
+      })
+      .eq("id", timeEntryId)
+      .eq("project_id", projectId)
+      .is("invoice_id", null)
+      .is("billed_at", null);
+
+    if (error) return errorResponse(error.message);
+    revalidatePath(`/dashboard/kunden/${customerId}/projekte/${projectId}/abrechnung`);
+    return NextResponse.redirect(billingUrl(request, customerId, projectId, formData, "stunden"), 303);
+  }
+
+  if (intent === "delete_time") {
+    const timeEntryId = optionalText(formData.get("time_entry_id"));
+    if (!timeEntryId) return errorResponse("Zeiteintrag fehlt.");
+
+    const { error } = await supabase
+      .from("time_entries")
+      .delete()
+      .eq("id", timeEntryId)
+      .eq("project_id", projectId)
+      .is("invoice_id", null)
       .is("billed_at", null);
 
     if (error) return errorResponse(error.message);
@@ -244,7 +331,7 @@ export async function POST(request: Request, { params }: RouteContext) {
       .join("\n"),
     quantity: durationHours(entry.started_at, entry.stopped_at),
     unit: "Std.",
-    unitPriceNet: Number(entry.hourly_rate_net ?? 120),
+    unitPriceNet: Number(entry.hourly_rate_net ?? 210),
     taxRate: 19,
   }));
 

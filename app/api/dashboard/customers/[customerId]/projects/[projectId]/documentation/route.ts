@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
 import { ensureProjectDocumentCategories, getProjectContext } from "@/lib/dashboard/customer-data";
+import { normalizeUploadImageFile } from "@/lib/dashboard/image-files";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -117,11 +118,11 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const supabase = createSupabaseAdminClient();
-  const fileName = safeFileName(file.name) || `datei-${randomUUID()}`;
+  const normalizedFile = await normalizeUploadImageFile(file);
+  const fileName = safeFileName(normalizedFile.fileName) || `datei-${randomUUID()}`;
   const storagePath = `customers/${customerId}/projects/${projectId}/documents/${category.slug}/${randomUUID()}-${fileName}`;
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const { error: uploadError } = await supabase.storage.from("project-files").upload(storagePath, buffer, {
-    contentType: file.type || "application/octet-stream",
+  const { error: uploadError } = await supabase.storage.from("project-files").upload(storagePath, normalizedFile.buffer, {
+    contentType: normalizedFile.mimeType,
     upsert: false,
   });
 
@@ -132,9 +133,9 @@ export async function POST(request: Request, { params }: RouteContext) {
   const fileRecord = {
     customer_id: customerId,
     project_id: projectId,
-    file_name: optionalText(formData.get("title")) ?? file.name,
-    mime_type: file.type || null,
-    file_size_bytes: file.size,
+    file_name: optionalText(formData.get("title")) ?? normalizedFile.fileName,
+    mime_type: normalizedFile.mimeType,
+    file_size_bytes: normalizedFile.size,
     category: fileCategoryForSlug(category.slug),
     storage_bucket: "project-files",
     storage_path: storagePath,

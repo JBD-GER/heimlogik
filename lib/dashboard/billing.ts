@@ -51,6 +51,13 @@ export function berlinDateStartIso(dateValue: string) {
   return new Date(Date.UTC(year, month - 1, day, 0, 0, 0) - offset * 60_000).toISOString();
 }
 
+export function berlinDateTimeIso(dateValue: string, timeValue: string) {
+  const [year, month, day] = dateValue.split("-").map(Number);
+  const [hours, minutes] = timeValue.split(":").map(Number);
+  const offset = berlinOffsetMinutes(new Date(Date.UTC(year, month - 1, day, hours || 12)));
+  return new Date(Date.UTC(year, month - 1, day, hours || 0, minutes || 0, 0) - offset * 60_000).toISOString();
+}
+
 export function berlinDateEndExclusiveIso(dateValue: string) {
   return berlinDateStartIso(addDays(dateValue, 1));
 }

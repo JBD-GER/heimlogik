@@ -2,6 +2,7 @@ import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
+import { normalizeUploadImageFile } from "@/lib/dashboard/image-files";
 import { professionalPartnerAreaOptions } from "@/lib/dashboard/team";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
@@ -49,11 +50,11 @@ export async function POST(request: Request) {
   let logoStoragePath: string | null = null;
 
   if (logo instanceof File && logo.size > 0) {
-    const fileName = safeFileName(logo.name) || `fachpartner-${partnerId}`;
+    const normalizedLogo = await normalizeUploadImageFile(logo);
+    const fileName = safeFileName(normalizedLogo.fileName) || `fachpartner-${partnerId}`;
     const storagePath = `team/partners/${partnerId}/${randomUUID()}-${fileName}`;
-    const buffer = Buffer.from(await logo.arrayBuffer());
-    const { error } = await supabase.storage.from("project-files").upload(storagePath, buffer, {
-      contentType: logo.type || "application/octet-stream",
+    const { error } = await supabase.storage.from("project-files").upload(storagePath, normalizedLogo.buffer, {
+      contentType: normalizedLogo.mimeType,
       upsert: false,
     });
 

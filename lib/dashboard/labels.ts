@@ -105,6 +105,19 @@ export const enumLabels: Record<string, string> = {
   bauunternehmen_gu: "Bauunternehmen / GU",
   hersteller_lieferant: "Hersteller / Lieferant",
   sonstiges: "Sonstiges",
+  living_room: "Wohnzimmer",
+  kitchen: "Küche",
+  bathroom: "Bad",
+  bedroom: "Schlafzimmer",
+  office: "Büro",
+  technical_room: "Technikraum",
+  hallway: "Flur",
+  outdoor: "Außenbereich",
+  children_room: "Kinderzimmer",
+  dining_room: "Esszimmer",
+  utility_room: "Hauswirtschaft",
+  garage: "Garage",
+  other: "Sonstiges",
 };
 
 export function labelFor(value?: string | null) {

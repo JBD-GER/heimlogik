@@ -36,6 +36,20 @@ create table if not exists public.diagnostic_modules (
 );
 
 alter table public.diagnostic_modules
+  add column if not exists affected_area text,
+  add column if not exists affected_systems text[] not null default '{}',
+  add column if not exists floor_id uuid references public.floors(id) on delete set null,
+  add column if not exists room_id uuid references public.rooms(id) on delete set null,
+  add column if not exists observation text,
+  add column if not exists expected_state text,
+  add column if not exists actual_state text,
+  add column if not exists evidence text,
+  add column if not exists recommendation text,
+  add column if not exists severity public.priority_level not null default 'normal',
+  add column if not exists notes text,
+  add column if not exists sort_order integer not null default 0,
+  add column if not exists created_by uuid references public.profiles(id) on delete set null,
+  add column if not exists updated_at timestamptz not null default now(),
   add column if not exists photo_file_id uuid references public.files(id) on delete set null;
 
 alter table public.files

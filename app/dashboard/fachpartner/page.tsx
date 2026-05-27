@@ -4,6 +4,7 @@ import { EmptyState } from "@/components/dashboard/EmptyState";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
 import { partnerAreaLabel, professionalPartnerAreaOptions } from "@/lib/dashboard/team";
+import { imageUploadAccept } from "@/lib/dashboard/upload-accept";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
 export const metadata: Metadata = {
@@ -100,7 +101,7 @@ export default async function FachpartnerPage() {
             </label>
             <label className="grid gap-2 text-sm font-semibold text-ink">
               Logo
-              <input name="logo" type="file" accept="image/*" className="rounded-md border border-slate-200 bg-white px-3 py-2 font-normal" />
+              <input name="logo" type="file" accept={imageUploadAccept} className="rounded-md border border-slate-200 bg-white px-3 py-2 font-normal" />
             </label>
           </div>
           <input type="hidden" name="country" value="Deutschland" />

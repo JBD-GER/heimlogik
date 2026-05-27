@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
 import { splitList } from "@/lib/dashboard/diagnostics";
+import { normalizeUploadImageFile } from "@/lib/dashboard/image-files";
 import { projectSystemDisplayName, projectSystemOptionExists, projectSystemOptions } from "@/lib/dashboard/system-options";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
@@ -13,7 +14,7 @@ type RouteContext = {
   params: Promise<{ customerId: string; projectId: string; diagnosticId: string }>;
 };
 
-const maxUploadFileSize = 25 * 1024 * 1024;
+const maxUploadFileSize = 50 * 1024 * 1024;
 
 function optionalText(value: FormDataEntryValue | null) {
   const text = String(value ?? "").trim();
@@ -60,6 +61,58 @@ function errorResponse(message: string, status = 400) {
   });
 }
 
+function isSchemaCacheColumnError(error?: { message?: string } | null) {
+  return Boolean(error?.message?.includes("schema cache") || error?.message?.includes("Could not find"));
+}
+
+function legacyDiagnosticModulePayload(payload: Record<string, unknown>) {
+  const nextPayload = { ...payload };
+  delete nextPayload.actual_state;
+  delete nextPayload.evidence;
+  delete nextPayload.recommendation;
+  return nextPayload;
+}
+
+async function resolveLocation({
+  supabase,
+  projectPropertyId,
+  floorId,
+  roomId,
+}: {
+  supabase: ReturnType<typeof createSupabaseAdminClient>;
+  projectPropertyId: string;
+  floorId: string | null;
+  roomId: string | null;
+}) {
+  if (!roomId) {
+    if (!floorId) return { floorId: null, roomId: null, error: null };
+
+    const { data: floor, error } = await supabase
+      .from("floors")
+      .select("id")
+      .eq("id", floorId)
+      .eq("property_id", projectPropertyId)
+      .maybeSingle<{ id: string }>();
+
+    if (error) return { floorId: null, roomId: null, error: error.message };
+    if (!floor) return { floorId: null, roomId: null, error: "Etage wurde nicht gefunden." };
+    return { floorId: floor.id, roomId: null, error: null };
+  }
+
+  const { data: room, error } = await supabase
+    .from("rooms")
+    .select("id, floor_id")
+    .eq("id", roomId)
+    .eq("property_id", projectPropertyId)
+    .maybeSingle<{ id: string; floor_id: string | null }>();
+
+  if (error) return { floorId: null, roomId: null, error: error.message };
+  if (!room) return { floorId: null, roomId: null, error: "Raum wurde nicht gefunden." };
+  if (floorId && room.floor_id && floorId !== room.floor_id) return { floorId: null, roomId: null, error: "Raum gehört nicht zur ausgewählten Etage." };
+
+  return { floorId: room.floor_id ?? floorId, roomId: room.id, error: null };
+}
+
 export async function POST(request: Request, { params }: RouteContext) {
   const user = await requireDashboardUser();
   const { customerId, projectId, diagnosticId } = await params;
@@ -76,8 +129,8 @@ export async function POST(request: Request, { params }: RouteContext) {
     return errorResponse("Bitte einen Titel für den Befund eintragen.");
   }
 
-  const { project } = await getProjectContext(customerId, projectId);
-  if (!project) {
+  const { project, property } = await getProjectContext(customerId, projectId);
+  if (!project || !property) {
     return errorResponse("Projekt wurde nicht gefunden.", 404);
   }
 
@@ -131,29 +184,51 @@ export async function POST(request: Request, { params }: RouteContext) {
     .eq("diagnostic_id", diagnosticId);
   const selectedSystems = formData.getAll("affected_systems").map((value) => String(value).trim()).filter(Boolean);
   const affectedSystems = Array.from(new Set([...selectedSystems, ...selectedSystemOptions.map((system) => system.label), ...newSystems]));
+  const location = await resolveLocation({
+    supabase,
+    projectPropertyId: property.id,
+    floorId: formData.get("whole_building") === "on" ? null : optionalUuid(formData.get("floor_id")),
+    roomId: formData.get("whole_building") === "on" ? null : optionalUuid(formData.get("room_id")),
+  });
 
-  const { data: moduleRow, error } = await supabase
+  if (location.error) {
+    return errorResponse(location.error);
+  }
+
+  const modulePayload = {
+    diagnostic_id: diagnosticId,
+    module_type: String(formData.get("module_type") ?? "custom"),
+    title,
+    affected_area: optionalText(formData.get("affected_area")),
+    affected_systems: affectedSystems,
+    observation: optionalText(formData.get("observation")),
+    expected_state: optionalText(formData.get("expected_state")),
+    actual_state: optionalText(formData.get("actual_state")),
+    evidence: optionalText(formData.get("evidence")),
+    recommendation: optionalText(formData.get("recommendation")),
+    severity: String(formData.get("severity") ?? "normal"),
+    notes: optionalText(formData.get("notes")),
+    floor_id: location.floorId,
+    room_id: location.roomId,
+    sort_order: count ?? 0,
+    created_by: user.id,
+  };
+
+  let insertResult = await supabase
     .from("diagnostic_modules")
-    .insert({
-      diagnostic_id: diagnosticId,
-      module_type: String(formData.get("module_type") ?? "custom"),
-      title,
-      affected_area: optionalText(formData.get("affected_area")),
-      affected_systems: affectedSystems,
-      floor_id: optionalUuid(formData.get("floor_id")),
-      room_id: optionalUuid(formData.get("room_id")),
-      observation: optionalText(formData.get("observation")),
-      expected_state: optionalText(formData.get("expected_state")),
-      actual_state: optionalText(formData.get("actual_state")),
-      evidence: optionalText(formData.get("evidence")),
-      recommendation: optionalText(formData.get("recommendation")),
-      severity: String(formData.get("severity") ?? "normal"),
-      notes: optionalText(formData.get("notes")),
-      sort_order: count ?? 0,
-      created_by: user.id,
-    })
+    .insert(modulePayload)
     .select("id")
     .single();
+
+  if (isSchemaCacheColumnError(insertResult.error)) {
+    insertResult = await supabase
+      .from("diagnostic_modules")
+      .insert(legacyDiagnosticModulePayload(modulePayload))
+      .select("id")
+      .single();
+  }
+
+  const { data: moduleRow, error } = insertResult;
 
   if (error || !moduleRow) {
     return errorResponse(error?.message ?? "Befund konnte nicht gespeichert werden.");
@@ -162,11 +237,11 @@ export async function POST(request: Request, { params }: RouteContext) {
   const uploadedFileIds: string[] = [];
 
   for (const file of files) {
-    const fileName = safeFileName(file.name) || `befund-${randomUUID()}`;
+    const normalizedFile = await normalizeUploadImageFile(file);
+    const fileName = safeFileName(normalizedFile.fileName) || `befund-${randomUUID()}.jpg`;
     const storagePath = `customers/${customerId}/projects/${projectId}/diagnostics/${diagnosticId}/findings/${moduleRow.id}/${randomUUID()}-${fileName}`;
-    const buffer = Buffer.from(await file.arrayBuffer());
-    const { error: uploadError } = await supabase.storage.from("project-files").upload(storagePath, buffer, {
-      contentType: file.type || "application/octet-stream",
+    const { error: uploadError } = await supabase.storage.from("project-files").upload(storagePath, normalizedFile.buffer, {
+      contentType: normalizedFile.mimeType,
       upsert: false,
     });
 
@@ -182,8 +257,8 @@ export async function POST(request: Request, { params }: RouteContext) {
         diagnostic_id: diagnosticId,
         diagnostic_module_id: moduleRow.id,
         file_name: fileName,
-        mime_type: file.type || null,
-        file_size_bytes: file.size,
+        mime_type: normalizedFile.mimeType,
+        file_size_bytes: normalizedFile.size,
         category: "diagnostic_image",
         storage_bucket: "project-files",
         storage_path: storagePath,

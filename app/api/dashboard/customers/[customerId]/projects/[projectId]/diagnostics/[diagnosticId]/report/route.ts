@@ -4,8 +4,10 @@ import { revalidatePath } from "next/cache";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
 import { parseDiagnosticAnalysis } from "@/lib/dashboard/diagnostic-analysis";
+import { diagnosticHourlyRateForProject } from "@/lib/dashboard/diagnostic-pricing";
 import { renderDiagnosticReportPdf } from "@/lib/dashboard/diagnostic-report-pdf";
 import { customerName } from "@/lib/dashboard/format";
+import { normalizeReportImage } from "@/lib/dashboard/image-files";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -99,10 +101,11 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const supabase = createSupabaseAdminClient();
-  const [{ data: diagnostic }, { data: modules }, { data: signatures }] = await Promise.all([
+  const [{ data: diagnostic }, { data: modules }, { data: signatures }, partnerAssignmentsResult] = await Promise.all([
     supabase.from("diagnostics").select("*").eq("id", diagnosticId).eq("project_id", projectId).single(),
     supabase.from("diagnostic_modules").select("*").eq("diagnostic_id", diagnosticId).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
     supabase.from("diagnostic_signatures").select("signer_type, signer_name, signature_data_url, signed_at").eq("diagnostic_id", diagnosticId),
+    supabase.from("project_professional_partners").select("professional_partner_id", { count: "exact", head: true }).eq("project_id", projectId),
   ]);
 
   if (!diagnostic) {
@@ -110,12 +113,15 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const diagnosticRow = diagnostic as DiagnosticRow;
+  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject((partnerAssignmentsResult.count ?? 0) > 0);
   if (!diagnosticRow.ai_analysis) {
     return errorResponse("Bitte zuerst eine technische Ursachenanalyse erstellen.");
   }
-  if (!parseDiagnosticAnalysis(diagnosticRow.ai_analysis)) {
+  const structuredAnalysis = parseDiagnosticAnalysis(diagnosticRow.ai_analysis, diagnosticHourlyRateNet);
+  if (!structuredAnalysis) {
     return errorResponse("Bitte die technische Analyse neu erstellen, damit feste Berichtsdaten vorliegen.");
   }
+  const diagnosticReportRow = { ...diagnosticRow, ai_analysis: JSON.stringify(structuredAnalysis) };
 
   const signedRows = ((signatures ?? []) as SignatureRow[]).sort((a, b) => {
     const order = { heimlogik: 0, customer: 1 } as Record<string, number>;
@@ -163,13 +169,14 @@ export async function POST(request: Request, { params }: RouteContext) {
 
   await Promise.all(
     Array.from(photoFileMap.values()).map(async (file) => {
-      if (file.mime_type !== "image/png" && file.mime_type !== "image/jpeg") return;
       const { data } = await supabase.storage.from(file.storage_bucket).download(file.storage_path);
       if (!data) return;
+      const normalizedImage = await normalizeReportImage(file.file_name, file.mime_type, Buffer.from(await data.arrayBuffer()));
+      if (!normalizedImage) return;
       const photo = {
-        fileName: file.file_name,
-        mimeType: file.mime_type,
-        bytes: Buffer.from(await data.arrayBuffer()),
+        fileName: normalizedImage.fileName,
+        mimeType: normalizedImage.mimeType,
+        bytes: normalizedImage.bytes,
       };
 
       if (file.diagnostic_module_id) {
@@ -198,7 +205,7 @@ export async function POST(request: Request, { params }: RouteContext) {
     projectName: project.project_name,
     propertyName: property?.property_name,
     createdAt,
-    diagnostic: diagnosticRow,
+    diagnostic: diagnosticReportRow,
     modules: moduleRows.map((diagnosticModule) => ({
       ...diagnosticModule,
       photos: photosByModule.get(diagnosticModule.id) ?? [],
