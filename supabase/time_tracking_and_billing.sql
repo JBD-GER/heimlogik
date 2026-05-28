@@ -40,7 +40,7 @@ create table if not exists public.time_entries (
   description text,
   started_at timestamptz not null default now(),
   stopped_at timestamptz,
-  hourly_rate_net numeric(12,2) not null default 210,
+  hourly_rate_net numeric(12,2) not null default 190,
   billable boolean not null default true,
   billed_at timestamptz,
   created_by uuid references public.profiles(id) on delete set null,
@@ -55,7 +55,7 @@ create table if not exists public.time_entries (
 );
 
 alter table if exists public.time_entries
-  alter column hourly_rate_net set default 210;
+  alter column hourly_rate_net set default 190;
 
 create index if not exists idx_time_entries_project_started on public.time_entries(project_id, started_at desc);
 create index if not exists idx_time_entries_project_open on public.time_entries(project_id, stopped_at) where stopped_at is null;

@@ -5,7 +5,7 @@ import { BillingTimeForm } from "@/components/dashboard/BillingTimeForm";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
-import { berlinDateEndExclusiveIso, berlinDateStartIso, dateInputInBerlin, durationHours, formatHours, monthRange } from "@/lib/dashboard/billing";
+import { berlinDateEndExclusiveIso, berlinDateStartIso, billingHourlyRateNet, dateInputInBerlin, durationHours, formatHours, monthRange } from "@/lib/dashboard/billing";
 import { formatCurrency, formatDate, formatDateTime } from "@/lib/dashboard/format";
 import { fullStaffName, staffTitleLabel } from "@/lib/dashboard/team";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -155,7 +155,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
   const unbilledExpenseEntries = expenseEntries.filter(isUnbilled);
   const unbilledAccommodationEntries = accommodationEntries.filter(isUnbilled);
   const unbilledHours = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at), 0);
-  const unbilledTimeNet = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at) * netAmount(entry.hourly_rate_net ?? 210), 0);
+  const unbilledTimeNet = unbilledTimeEntries.reduce((sum, entry) => sum + durationHours(entry.started_at, entry.stopped_at) * billingHourlyRateNet(entry.hourly_rate_net), 0);
   const unbilledExpenseNet = unbilledExpenseEntries.reduce((sum, entry) => sum + netAmount(entry.amount_net), 0);
   const unbilledAccommodationNet = unbilledAccommodationEntries.reduce((sum, entry) => sum + netAmount(entry.amount_net), 0);
   const unbilledNetTotal = unbilledTimeNet + unbilledExpenseNet + unbilledAccommodationNet;
@@ -292,7 +292,7 @@ export default async function ProjectBillingPage({ params, searchParams }: PageP
                         </div>
                         <div className="rounded-md bg-slate-50 p-3">
                           <p className="text-xs font-bold uppercase text-slate-500">Netto</p>
-                          <p className="mt-1 text-lg font-bold text-ink">{formatCurrency(hours * netAmount(entry.hourly_rate_net ?? 210))}</p>
+                          <p className="mt-1 text-lg font-bold text-ink">{formatCurrency(hours * billingHourlyRateNet(entry.hourly_rate_net))}</p>
                         </div>
                         {!entry.stopped_at ? (
                           <form action={billingApiPath} method="post" className="sm:col-span-2">

@@ -1,8 +1,8 @@
-export const diagnosticDefaultHourlyRateNet = 210;
+export const diagnosticDefaultHourlyRateNet = 190;
 export const diagnosticReducedHourlyRateNet = 190;
 
-export function diagnosticHourlyRateForProject(hasProfessionalPartner: boolean) {
-  return hasProfessionalPartner ? diagnosticReducedHourlyRateNet : diagnosticDefaultHourlyRateNet;
+export function diagnosticHourlyRateForProject() {
+  return diagnosticDefaultHourlyRateNet;
 }
 
 export function diagnosticCostBasis(hourlyRateNet = diagnosticDefaultHourlyRateNet) {

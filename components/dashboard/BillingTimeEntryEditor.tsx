@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Save, Trash2 } from "lucide-react";
-import { formatHours } from "@/lib/dashboard/billing";
+import { billingHourlyRateNet, formatHours, standardHourlyRateNet } from "@/lib/dashboard/billing";
 import { fullStaffName, staffTitleLabel } from "@/lib/dashboard/team";
 
 type StaffRow = {
@@ -52,8 +52,7 @@ function durationFromInputs(dateValue: string, startTime: string, endTime: strin
 }
 
 function rateMode(hourlyRateNet?: number | null) {
-  if (Number(hourlyRateNet ?? 210) === 0) return "free";
-  if (Number(hourlyRateNet ?? 210) === 190) return "partner";
+  if (billingHourlyRateNet(hourlyRateNet) === 0) return "free";
   return "default";
 }
 
@@ -76,10 +75,9 @@ export function BillingTimeEntryEditor({
   const [startTime, setStartTime] = useState(started.time);
   const [endTime, setEndTime] = useState(stopped.time);
   const [freeOfCharge, setFreeOfCharge] = useState(rateMode(entry.hourly_rate_net) === "free");
-  const [partnerRate, setPartnerRate] = useState(rateMode(entry.hourly_rate_net) === "partner");
   const canChange = !entry.billed_at && !entry.invoice_id;
   const hours = useMemo(() => durationFromInputs(entryDate, startTime, endTime), [entryDate, startTime, endTime]);
-  const hourlyRate = freeOfCharge ? "0,00" : partnerRate ? "190,00" : "210,00";
+  const hourlyRate = freeOfCharge ? "0,00" : `${standardHourlyRateNet},00`;
 
   if (!canChange) return null;
 
@@ -92,7 +90,6 @@ export function BillingTimeEntryEditor({
         <input type="hidden" name="start_date" value={startDate} />
         <input type="hidden" name="end_date" value={endDate} />
         <input type="hidden" name="free_of_charge" value={freeOfCharge ? "on" : ""} />
-        <input type="hidden" name="partner_rate" value={partnerRate ? "on" : ""} />
 
         <div className="grid gap-4 md:grid-cols-3">
           <label className="grid gap-2 text-sm font-semibold text-ink">
@@ -137,25 +134,10 @@ export function BillingTimeEntryEditor({
             <input
               type="checkbox"
               checked={freeOfCharge}
-              onChange={(event) => {
-                setFreeOfCharge(event.target.checked);
-                if (event.target.checked) setPartnerRate(false);
-              }}
+              onChange={(event) => setFreeOfCharge(event.target.checked)}
               className="h-4 w-4 accent-ink"
             />
             Kostenlos
-          </label>
-          <label className="flex w-fit items-center gap-3 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-ink">
-            <input
-              type="checkbox"
-              checked={partnerRate}
-              onChange={(event) => {
-                setPartnerRate(event.target.checked);
-                if (event.target.checked) setFreeOfCharge(false);
-              }}
-              className="h-4 w-4 accent-ink"
-            />
-            Partnersatz
           </label>
         </div>
 

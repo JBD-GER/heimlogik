@@ -1,4 +1,9 @@
 export const berlinTimeZone = "Europe/Berlin";
+export const standardHourlyRateNet = 190;
+
+export function billingHourlyRateNet(value?: number | string | null) {
+  return Number(value ?? standardHourlyRateNet) === 0 ? 0 : standardHourlyRateNet;
+}
 
 export function dateInputInBerlin(date = new Date()) {
   const parts = new Intl.DateTimeFormat("de-DE", {

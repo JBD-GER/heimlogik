@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { requireDashboardUser } from "@/lib/dashboard/auth";
-import { berlinDateEndExclusiveIso, berlinDateStartIso, berlinDateTimeIso, durationHours } from "@/lib/dashboard/billing";
+import { berlinDateEndExclusiveIso, berlinDateStartIso, berlinDateTimeIso, billingHourlyRateNet, durationHours, standardHourlyRateNet } from "@/lib/dashboard/billing";
 import { getProjectContext } from "@/lib/dashboard/customer-data";
 import { customerName, formatDate, formatDateTime } from "@/lib/dashboard/format";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -62,8 +62,7 @@ function validTimeValue(value: string | null): value is string {
 
 function hourlyRateFromForm(formData: FormData) {
   if (optionalText(formData.get("free_of_charge")) === "on") return 0;
-  if (optionalText(formData.get("partner_rate")) === "on") return 190;
-  return 210;
+  return standardHourlyRateNet;
 }
 
 function errorResponse(message: string, status = 400) {
@@ -331,7 +330,7 @@ export async function POST(request: Request, { params }: RouteContext) {
       .join("\n"),
     quantity: durationHours(entry.started_at, entry.stopped_at),
     unit: "Std.",
-    unitPriceNet: Number(entry.hourly_rate_net ?? 210),
+    unitPriceNet: billingHourlyRateNet(entry.hourly_rate_net),
     taxRate: 19,
   }));
 

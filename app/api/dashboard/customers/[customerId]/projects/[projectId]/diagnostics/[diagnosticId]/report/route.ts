@@ -101,11 +101,10 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const supabase = createSupabaseAdminClient();
-  const [{ data: diagnostic }, { data: modules }, { data: signatures }, partnerAssignmentsResult] = await Promise.all([
+  const [{ data: diagnostic }, { data: modules }, { data: signatures }] = await Promise.all([
     supabase.from("diagnostics").select("*").eq("id", diagnosticId).eq("project_id", projectId).single(),
     supabase.from("diagnostic_modules").select("*").eq("diagnostic_id", diagnosticId).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
     supabase.from("diagnostic_signatures").select("signer_type, signer_name, signature_data_url, signed_at").eq("diagnostic_id", diagnosticId),
-    supabase.from("project_professional_partners").select("professional_partner_id", { count: "exact", head: true }).eq("project_id", projectId),
   ]);
 
   if (!diagnostic) {
@@ -113,7 +112,7 @@ export async function POST(request: Request, { params }: RouteContext) {
   }
 
   const diagnosticRow = diagnostic as DiagnosticRow;
-  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject((partnerAssignmentsResult.count ?? 0) > 0);
+  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject();
   if (!diagnosticRow.ai_analysis) {
     return errorResponse("Bitte zuerst eine technische Ursachenanalyse erstellen.");
   }

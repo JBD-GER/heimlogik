@@ -115,7 +115,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
 
   if (!diagnostic) return null;
 
-  const [modulesResult, signaturesResult, floorsResult, roomsResult, systemsResult, reportFileResult, partnerAssignmentsResult] = await Promise.all([
+  const [modulesResult, signaturesResult, floorsResult, roomsResult, systemsResult, reportFileResult] = await Promise.all([
     supabase
       .from("diagnostic_modules")
       .select("*, floors(floor_name), rooms(room_name)")
@@ -127,7 +127,6 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
     property ? supabase.from("rooms").select("id, floor_id, room_name").eq("property_id", property.id).order("room_name", { ascending: true }) : Promise.resolve({ data: [], error: null }),
     supabase.from("project_systems").select("id, system_type, manufacturer, model, description").eq("project_id", projectId).order("created_at", { ascending: true }),
     diagnostic.report_file_id ? supabase.from("files").select("id, file_name, mime_type").eq("id", diagnostic.report_file_id).single() : Promise.resolve({ data: null, error: null }),
-    supabase.from("project_professional_partners").select("professional_partner_id", { count: "exact", head: true }).eq("project_id", projectId),
   ]);
 
   const migrationMissing = Boolean(modulesResult.error || signaturesResult.error);
@@ -170,7 +169,7 @@ export default async function DiagnosticDetailPage({ params }: PageProps) {
   const customerSignature = signatures.find((signature) => signature.signer_type === "customer");
   const canPrepareReport = modules.length > 0 && Boolean(heimlogikSignature);
   const availableSystemOptions = projectSystemOptions.filter((option) => !projectSystemOptionExists(option, systems));
-  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject((partnerAssignmentsResult.count ?? 0) > 0);
+  const diagnosticHourlyRateNet = diagnosticHourlyRateForProject();
   const structuredAnalysis = parseDiagnosticAnalysis(diagnostic.ai_analysis, diagnosticHourlyRateNet);
 
   return (
