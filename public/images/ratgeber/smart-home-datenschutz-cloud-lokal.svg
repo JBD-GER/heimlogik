@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Datenschutz im Smart Home</title>
+  <desc id="desc">Smart-Home-Datenschutz mit lokaler Steuerung, Cloud-Diensten, Kameras, Sprachassistenten, Nutzerrechten, Updates und Netzwerksegmentierung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Datenschutz im Smart Home</text>
+  <rect x="170" y="205" width="410" height="340" rx="18" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+  <rect x="700" y="205" width="410" height="340" rx="18" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+  <path d="M310 405 375 330l65 75v88H310z" fill="#fff" stroke="#0b1220" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="350" y="432" width="50" height="61" rx="5" fill="#0b1220"/>
+  <path d="M873 315c35-52 120-35 128 30 48 0 78 30 78 72 0 44-35 73-82 73H810c-48 0-80-31-80-72 0-43 33-72 78-72 9-24 31-38 65-31z" fill="#fff" stroke="#0b1220" stroke-width="5"/>
+  <path d="M640 300v150" stroke="#0b1220" stroke-width="5" stroke-linecap="round"/>
+  <path d="m640 450-15-24h30z" fill="#0b1220"/>
+  <rect x="530" y="270" width="220" height="80" rx="18" fill="#0b1220"/>
+  <text x="640" y="304" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">bewusst entscheiden</text>
+  <text x="640" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#bbf7d0">lokal oder Cloud</text>
+  <g fill="#fff7ed" stroke="#f97316" stroke-width="4">
+    <circle cx="255" cy="265" r="28"/>
+    <rect x="465" y="445" width="72" height="50" rx="12"/>
+    <circle cx="760" cy="265" r="28"/>
+    <rect x="1018" y="445" width="58" height="68" rx="14"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="375" y="250" font-size="22" font-weight="700">Lokal</text>
+    <text x="375" y="280" font-size="14">Grundfunktionen im Haus</text>
+    <text x="905" y="250" font-size="22" font-weight="700">Cloud</text>
+    <text x="905" y="280" font-size="14">Fernzugriff bewusst nutzen</text>
+    <text x="255" y="271" font-size="13" font-weight="700">2FA</text>
+    <text x="501" y="476" font-size="13" font-weight="700">Kamera</text>
+    <text x="760" y="271" font-size="13" font-weight="700">App</text>
+    <text x="1047" y="484" font-size="13" font-weight="700">Mic</text>
+    <text x="640" y="645" font-size="18" font-weight="700">Datenarme Planung heißt: lokal wo möglich, Cloud nur wo sinnvoll.</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home Zutrittskontrolle</title>
+  <desc id="desc">Haustür mit smartem Türschloss, Fingerprint-Leser, Code-Tastatur, Videoklingel, Smartphone-App und zentraler Rechteverwaltung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smart Home Zutrittskontrolle</text>
+  <path d="M250 340 640 170l390 170" fill="none" stroke="#0b1220" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="315" y="340" width="650" height="260" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <rect x="555" y="378" width="170" height="222" rx="8" fill="#fff" stroke="#0b1220" stroke-width="5"/>
+  <circle cx="690" cy="488" r="8" fill="#0b1220"/>
+  <rect x="405" y="420" width="92" height="116" rx="16" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+  <rect x="790" y="420" width="92" height="116" rx="16" fill="#ecfdf5" stroke="#22c55e" stroke-width="4"/>
+  <rect x="995" y="375" width="118" height="150" rx="24" fill="#0b1220"/>
+  <rect x="1014" y="404" width="80" height="78" rx="10" fill="#ecfdf5"/>
+  <circle cx="1054" cy="500" r="8" fill="#bbf7d0"/>
+  <rect x="160" y="410" width="120" height="92" rx="18" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+  <g fill="#0b1220" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="451" y="454" font-size="15" font-weight="700">Code</text>
+    <text x="451" y="482" font-size="13">zeitlich</text>
+    <text x="451" y="506" font-size="13">begrenzt</text>
+    <text x="836" y="454" font-size="15" font-weight="700">Fingerprint</text>
+    <text x="836" y="482" font-size="13">Bewohner</text>
+    <text x="836" y="506" font-size="13">schnell rein</text>
+    <text x="1054" y="448" font-size="15" font-weight="700">App</text>
+    <text x="220" y="446" font-size="15" font-weight="700">Klingel</text>
+    <text x="220" y="474" font-size="13">Gegensprechen</text>
+    <text x="640" y="645" font-size="18" font-weight="700">Smarte Haustürtechnik braucht Rechte, Notfallzugang und klare Bedienung.</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M640 378V280"/>
+    <path d="M640 280H451v140"/>
+    <path d="M640 280h196v140"/>
+    <path d="M640 280c170 18 292 82 414 124"/>
+    <path d="M640 280c-150 22-270 72-420 130"/>
+  </g>
+  <rect x="530" y="210" width="220" height="70" rx="16" fill="#0b1220"/>
+  <text x="640" y="239" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Rechteverwaltung</text>
+  <text x="640" y="264" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#bbf7d0">Familie, Gäste, Dienstleister</text>
+</svg>

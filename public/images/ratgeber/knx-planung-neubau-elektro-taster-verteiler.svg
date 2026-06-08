@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">KNX Planung im Neubau</title>
+  <desc id="desc">Grundriss mit KNX-Verteiler, Busleitung, Tastern, Präsenzmeldern, Aktoren, Licht, Beschattung und Visualisierung für einen Neubau.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">KNX Planung im Neubau</text>
+  <rect x="260" y="190" width="680" height="400" rx="10" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <path d="M260 390h680M500 190v400M720 190v400" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="130" y="300" width="118" height="210" rx="18" fill="#0b1220"/>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="330" y="268" width="80" height="52" rx="12"/>
+    <rect x="555" y="268" width="80" height="52" rx="12"/>
+    <rect x="775" y="268" width="80" height="52" rx="12"/>
+    <circle cx="380" cy="482" r="28"/>
+    <circle cx="605" cy="482" r="28"/>
+    <circle cx="825" cy="482" r="28"/>
+    <rect x="990" y="340" width="142" height="92" rx="16"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M248 405h82"/>
+    <path d="M410 294h145"/>
+    <path d="M635 294h140"/>
+    <path d="M855 294c74 18 96 54 135 92"/>
+    <path d="M380 454V320"/>
+    <path d="M605 454V320"/>
+    <path d="M825 454V320"/>
+    <path d="M248 405c160 82 432 100 742 6"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="189" y="348" font-size="17" font-weight="700" fill="#fff">Verteiler</text>
+    <text x="189" y="377" font-size="13" fill="#bbf7d0">Aktoren</text>
+    <text x="189" y="401" font-size="13" fill="#bbf7d0">Reserven</text>
+    <text x="189" y="425" font-size="13" fill="#bbf7d0">Gateway</text>
+    <text x="370" y="301" font-size="13" font-weight="700">Taster</text>
+    <text x="595" y="301" font-size="13" font-weight="700">Taster</text>
+    <text x="815" y="301" font-size="13" font-weight="700">Taster</text>
+    <text x="380" y="488" font-size="13">Präsenz</text>
+    <text x="605" y="488" font-size="13">Licht</text>
+    <text x="825" y="488" font-size="13">Rollo</text>
+    <text x="1061" y="375" font-size="15" font-weight="700">Visualisierung</text>
+    <text x="1061" y="402" font-size="13">Home Assistant</text>
+    <text x="640" y="650" font-size="18" font-weight="700">Funktionen, Leitungen und Reserven vor der Elektroausführung klären.</text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Wärmepumpe, PV und Smart Home</title>
+  <desc id="desc">Haus mit Photovoltaik, Wärmepumpe, Pufferspeicher, Raumtemperaturen, Energiemanagement und zentraler Smart-Home-Visualisierung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#0b1220">Wärmepumpe, PV und Smart Home</text>
+  <path d="M250 340 610 175l360 165" fill="none" stroke="#0b1220" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="320" y="340" width="580" height="250" fill="#f8fafc" stroke="#0b1220" stroke-width="5"/>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4">
+    <rect x="470" y="218" width="280" height="58" rx="10"/>
+    <path d="M512 218v58M568 218v58M624 218v58M680 218v58M470 247h280"/>
+  </g>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+    <rect x="390" y="430" width="120" height="78" rx="14"/>
+    <rect x="560" y="430" width="120" height="78" rx="14"/>
+    <rect x="730" y="430" width="120" height="78" rx="14"/>
+    <rect x="965" y="430" width="150" height="112" rx="18"/>
+    <rect x="150" y="445" width="140" height="96" rx="18"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M610 276v92"/>
+    <path d="M610 368v62"/>
+    <path d="M680 470h50"/>
+    <path d="M850 470c62 0 78-18 115 0"/>
+    <path d="M390 470c-54 0-72 24-100 24"/>
+  </g>
+  <g fill="#22c55e">
+    <path d="M610 430l-9-16h18z"/>
+    <path d="M730 470l-14-8v16z"/>
+    <path d="M965 470l-15-8v17z"/>
+    <path d="M290 494l16-8v17z"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#0b1220" text-anchor="middle">
+    <text x="610" y="254" font-size="18" font-weight="700">PV-Anlage</text>
+    <text x="450" y="462" font-size="16" font-weight="700">Raum</text>
+    <text x="450" y="488" font-size="13">Temperatur</text>
+    <text x="620" y="462" font-size="16" font-weight="700">Energie</text>
+    <text x="620" y="488" font-size="13">Visualisierung</text>
+    <text x="790" y="462" font-size="16" font-weight="700">Speicher</text>
+    <text x="790" y="488" font-size="13">Warmwasser</text>
+    <text x="1040" y="475" font-size="16" font-weight="700">Wärmepumpe</text>
+    <text x="1040" y="502" font-size="13">läuft ruhig</text>
+    <text x="220" y="482" font-size="16" font-weight="700">Fenster</text>
+    <text x="220" y="509" font-size="13">Hinweis</text>
+    <text x="640" y="650" font-size="18" font-weight="700">Nicht hektisch schalten, sondern Energieflüsse sinnvoll priorisieren.</text>
+  </g>
+</svg>

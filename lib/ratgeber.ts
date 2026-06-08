@@ -272,6 +272,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
       { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
       { label: "Energiemanagement mit PV und Wallbox", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
+      { label: "KNX im Neubau planen", href: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler" },
       { label: "Smart Home Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
     ],
     finalCta:
@@ -433,6 +434,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     guideLinks: [
       { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
+      { label: "KNX im Neubau planen", href: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler" },
       { label: "Multiroom Audio im Smart Home", href: "/ratgeber/multiroom-audio-smart-home-sonos-bose-kabel" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
@@ -777,12 +779,14 @@ export const guideArticles: GuideArticle[] = [
     ],
     guideLinks: [
       { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Smart Home Zutrittskontrolle", href: "/ratgeber/smart-home-zutrittskontrolle-tuerschloss-fingerprint-code" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Smart Home für Senioren", href: "/ratgeber/smart-home-fuer-senioren" },
       { label: "Smart Home für Ferienwohnung", href: "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb" },
       { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
       { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Datenschutz", href: "/ratgeber/smart-home-datenschutz-cloud-lokal" },
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
       { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
     ],
@@ -874,6 +878,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
       { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
       { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Smart Home im Garten", href: "/ratgeber/smart-home-garten-aussenbereich-bewaesserung-licht" },
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
     ],
     finalCta:
@@ -963,6 +968,8 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home für Ferienwohnung", href: "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb" },
       { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
       { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Smart Home Datenschutz", href: "/ratgeber/smart-home-datenschutz-cloud-lokal" },
+      { label: "Smart Home im Garten", href: "/ratgeber/smart-home-garten-aussenbereich-bewaesserung-licht" },
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
     ],
     finalCta:
@@ -1051,6 +1058,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
       { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
+      { label: "Wärmepumpe smart steuern", href: "/ratgeber/waermepumpe-smart-home-steuern-pv-heizung" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
     ],
     finalCta:
@@ -1585,6 +1593,460 @@ export const guideArticles: GuideArticle[] = [
     ],
     finalCta:
       "Heimlogik hilft dabei, Smart Home von Anfang an sauber zu planen - damit Technik im Alltag funktioniert und nicht zur Dauerbaustelle wird.",
+  },
+  {
+    slug: "smart-home-zutrittskontrolle-tuerschloss-fingerprint-code",
+    path: "/ratgeber/smart-home-zutrittskontrolle-tuerschloss-fingerprint-code",
+    title: "Smart Home Zutrittskontrolle - Türschloss, Fingerprint, Codes und Klingel sinnvoll planen",
+    metaTitle: "Smart Home Zutrittskontrolle: Türschloss, Fingerprint & Codes",
+    metaDescription:
+      "Smart Home Zutrittskontrolle planen: smarte Türschlösser, Fingerprint, Codes, Klingel, Nutzerrechte und Sicherheit verständlich erklärt.",
+    category: "Audio, Licht & Sicherheit",
+    excerpt:
+      "Wie smarter Zutritt im Einfamilienhaus, bei Ferienwohnungen und im Alltag funktioniert - inklusive Sicherheit, Notfallzugang und Bedienung.",
+    intro:
+      "Smarte Zutrittskontrolle klingt einfach: Tür auf per App, Fingerprint oder Code. In der Praxis entscheidet aber nicht das einzelne Schloss, sondern das Zusammenspiel aus Tür, Stromversorgung, Berechtigungen, Notfallkonzept, Klingel, Netzwerk und Alltagstauglichkeit.",
+    image: "/images/ratgeber/smart-home-zutrittskontrolle-tuerschloss-fingerprint-code.svg",
+    imageAlt:
+      "Grafik zu Smart-Home-Zutrittskontrolle mit Türschloss, Fingerprint, Code-Tastatur, Klingel, App und zentraler Rechteverwaltung",
+    graphicTitle: "Smart Home Zutrittskontrolle",
+    localNote:
+      "In Häusern rund um Hannover, Nienburg, Wunstorf, Leese und Neustadt am Rübenberge lohnt sich bei Zutrittstechnik ein besonders genauer Blick auf Tür, Netzwerk und Notfallbedienung.",
+    sections: [
+      {
+        id: "warum",
+        title: "Wann smarter Zutritt wirklich sinnvoll ist",
+        body: [
+          "Smart-Home-Zutritt ist vor allem dann hilfreich, wenn mehrere Personen regelmäßig ins Haus müssen: Familie, Kinder, Reinigung, Handwerker, Pflege, Feriengäste oder Nachbarn. Temporäre Berechtigungen können Schlüsselübergaben reduzieren und Abläufe transparenter machen.",
+          "Der Nutzen entsteht nicht nur durch Komfort. Ein gutes System zeigt, welche Berechtigungen aktiv sind, kann verlorene Schlüssel ersetzen und erleichtert das Verwalten von Gästen oder Dienstleistern.",
+        ],
+      },
+      {
+        id: "loesungen",
+        title: "Türschloss, Fingerprint, Code, NFC und Klingel",
+        body: [
+          "Smarte Türschlösser, Motorschlösser, Fingerprint-Leser, Code-Tastaturen, NFC-Transponder und Videoklingeln haben unterschiedliche Stärken. Fingerprint ist bequem, Codes eignen sich gut für zeitlich begrenzte Zugänge, NFC ist oft robust im Alltag.",
+          "Wichtig ist, dass die Lösung zur Tür passt. Mehrfachverriegelung, Zylinder, Beschlag, Stromversorgung und mechanischer Schlüsselzugang müssen geprüft werden, bevor Technik bestellt wird.",
+        ],
+        bullets: ["Tür und Zylinder zuerst prüfen", "Berechtigungen sauber strukturieren", "Klingel und Gegensprechen mitdenken"],
+      },
+      {
+        id: "sicherheit",
+        title: "Sicherheit, Nutzerrechte und Notfallzugang",
+        body: [
+          "Ein smartes Schloss darf nicht nur bequem sein. Es braucht ein klares Rechtekonzept, sichere Konten, nachvollziehbare Protokolle und einen Plan für leere Batterien, Internetausfall oder defekte Geräte.",
+          "Für Familien ist außerdem wichtig, wer Berechtigungen ändern darf. Für Vermietung oder Ferienwohnungen zählen zeitlich begrenzte Codes, Sperrlisten und klare Prozesse bei Check-in und Check-out.",
+        ],
+      },
+      {
+        id: "alltag",
+        title: "Bedienung im Alltag: App ist nicht genug",
+        body: [
+          "Die Haustür muss auch funktionieren, wenn das Smartphone leer ist, Gäste keine App installieren möchten oder Kinder schnell rein müssen. Deshalb sind Taster, Codes, Transponder, Fingerprint und mechanische Rückfallebene oft wichtiger als eine hübsche App.",
+          "Auch Benachrichtigungen sollten gezielt eingesetzt werden. Zu viele Hinweise führen schnell dazu, dass echte Ereignisse nicht mehr beachtet werden.",
+        ],
+        bullets: ["keine reine App-Abhängigkeit", "Berechtigungen regelmäßig prüfen", "Benachrichtigungen sparsam einsetzen"],
+      },
+      {
+        id: "empfehlung",
+        title: "Empfehlung für Einfamilienhaus und Vermietung",
+        body: [
+          "Im Einfamilienhaus reicht oft eine Kombination aus sicherem Schloss, Fingerprint oder Code, Klingel und einfacher App-Verwaltung. Bei Ferienwohnungen sind temporäre Codes, Fernwartung und Dokumentation besonders wichtig.",
+          "Heimlogik plant Zutritt als Teil des Gesamtsystems: Netzwerk, Türtechnik, Nutzerrechte, Datenschutz, Bedienung und Notfallzugang werden zusammen betrachtet.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Sind smarte Türschlösser sicher?", answer: "Sie können sicher sein, wenn Tür, Schloss, Nutzerkonten, Berechtigungen und Notfallzugang sauber geplant sind. Das einzelne Gerät allein entscheidet nicht über Sicherheit." },
+      { question: "Was ist besser: Fingerprint oder Code?", answer: "Fingerprint ist bequem für feste Bewohner. Codes sind praktisch für Gäste, Handwerker oder Ferienwohnungen, besonders wenn sie zeitlich begrenzt vergeben werden." },
+      { question: "Funktioniert ein smartes Schloss ohne Internet?", answer: "Viele Systeme können lokal oder per Bluetooth weiter funktionieren. Entscheidend ist das konkrete Produkt und ein geplanter Notfallzugang." },
+      { question: "Kann man Zutrittsrechte zeitlich begrenzen?", answer: "Ja, viele Systeme erlauben zeitlich begrenzte Codes oder Nutzerrechte. Das ist besonders für Ferienwohnungen und Dienstleister hilfreich." },
+      { question: "Brauche ich für Zutrittskontrolle einen Fachpartner?", answer: "Bei einfachen Nachrüstlösungen nicht immer. Bei Motorschloss, Türtechnik, Stromversorgung, Klingelanlage oder Integration ins Smart Home ist Fachplanung sinnvoll." },
+    ],
+    serviceLinks: [
+      { label: "Smart Home Sicherheit & Zutritt", href: "/smart-home-sicherheit-zutritt" },
+      { label: "Smart Home Sicherheit", href: "/smart-home-sicherheit" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "Ferienwohnung Smart Home", href: "/ferienwohnung-smart-home" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+    ],
+    guideLinks: [
+      { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Smart Home Ferienwohnung", href: "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb" },
+      { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik plant smarte Zutrittslösungen, die bequem bleiben, ohne Sicherheit, Notfallzugang und Alltagstauglichkeit zu vergessen.",
+  },
+  {
+    slug: "waermepumpe-smart-home-steuern-pv-heizung",
+    path: "/ratgeber/waermepumpe-smart-home-steuern-pv-heizung",
+    title: "Wärmepumpe smart steuern - PV, Heizung und Komfort im Smart Home verbinden",
+    metaTitle: "Wärmepumpe smart steuern: PV, Heizung & Smart Home",
+    metaDescription:
+      "Wärmepumpe smart steuern: PV-Überschuss, Raumtemperatur, Heizkurve, Schnittstellen und Grenzen im Smart Home verständlich erklärt.",
+    category: "Heizung, Energie & Komfort",
+    excerpt:
+      "Wie Wärmepumpe, Photovoltaik, Raumtemperatur und Energiemanagement zusammenarbeiten können - ohne falsche Sparversprechen.",
+    intro:
+      "Eine Wärmepumpe wird nicht dadurch besser, dass sie ständig per App geschaltet wird. Sinnvoll wird Smart Home, wenn es Zustände sichtbar macht, Raumkomfort unterstützt, PV-Überschuss einordnet und die Heizungslogik respektiert.",
+    image: "/images/ratgeber/waermepumpe-smart-home-pv-heizung.svg",
+    imageAlt:
+      "Grafik zu Wärmepumpe im Smart Home mit Photovoltaik, Speicher, Raumtemperatur, Heizkreis, Energiemanagement und zentraler Visualisierung",
+    graphicTitle: "Wärmepumpe, PV und Smart Home",
+    localNote:
+      "Für Neubauten und Sanierungen in der Region Hannover, Nienburg und Wunstorf ist die Abstimmung von Wärmepumpe, PV, Netzwerk und Smart Home besonders wichtig.",
+    sections: [
+      {
+        id: "warum",
+        title: "Warum Wärmepumpen anders gesteuert werden als alte Heizungen",
+        body: [
+          "Wärmepumpen arbeiten am effizientesten, wenn sie gleichmäßig und mit niedrigen Vorlauftemperaturen laufen. Kurzes Ein- und Ausschalten wie bei klassischen Heizkörpern ist meist keine gute Strategie.",
+          "Smart Home sollte deshalb nicht gegen die Wärmepumpe regeln, sondern Informationen ergänzen: Raumtemperaturen, Fensterstatus, PV-Erzeugung, Speicherstand, Strompreise und Komfortwünsche.",
+        ],
+      },
+      {
+        id: "schnittstellen",
+        title: "Schnittstellen: Hersteller-App, Modbus, SG Ready und Home Assistant",
+        body: [
+          "Je nach Hersteller gibt es sehr unterschiedliche Möglichkeiten: Cloud-App, lokale Schnittstelle, Modbus, SG Ready, KNX-Gateway oder Integration über Home Assistant. Nicht jede Schnittstelle erlaubt dieselbe Tiefe der Steuerung.",
+          "Vor der Planung sollte geklärt werden, welche Werte gelesen und welche Befehle zuverlässig geschrieben werden können. Sonst entstehen Automationen, die auf dem Papier gut aussehen, aber im Betrieb instabil bleiben.",
+        ],
+        bullets: ["Schnittstellen vor dem Kauf klären", "lokale Daten bevorzugen, wenn möglich", "Herstellerlogik respektieren"],
+      },
+      {
+        id: "pv",
+        title: "PV-Überschuss und Eigenverbrauch sinnvoll nutzen",
+        body: [
+          "PV-Überschuss kann genutzt werden, um Warmwasser oder Pufferspeicher zu bestimmten Zeiten vorzuziehen. Dabei sollten Komfort, Effizienz und Gerätegrenzen beachtet werden.",
+          "Nicht jeder Sonnenstrahl muss sofort eine Aktion auslösen. Gute Logik arbeitet mit Schwellwerten, Mindestlaufzeiten, Wetterprognosen und Prioritäten zwischen Wallbox, Speicher, Warmwasser und Haushaltsverbrauchern.",
+        ],
+      },
+      {
+        id: "raumkomfort",
+        title: "Raumkomfort, Heizkurve und Fensterkontakte",
+        body: [
+          "Raumtemperaturen helfen, Komfort sichtbar zu machen. Bei Fußbodenheizung sind schnelle Eingriffe aber meist wirkungslos oder sogar kontraproduktiv, weil das System träge reagiert.",
+          "Fensterkontakte können Hinweise geben oder einzelne Räume schützen. Die grundlegende Effizienz entsteht jedoch über hydraulischen Abgleich, passende Heizkurve, niedrige Vorlauftemperatur und saubere Planung.",
+        ],
+        bullets: ["keine hektischen Automationen", "Heizkurve und Abgleich ernst nehmen", "Sensorwerte zur Kontrolle nutzen"],
+      },
+      {
+        id: "grenzen",
+        title: "Grenzen und sinnvolle Umsetzung",
+        body: [
+          "Smart Home ersetzt keine Heizungsplanung. Es kann aber Messwerte, Visualisierung, Benachrichtigungen und priorisierte Energieflüsse bereitstellen.",
+          "Heimlogik verbindet Wärmepumpe, PV, Wallbox, Netzwerk und Visualisierung so, dass das System nachvollziehbar bleibt und nicht aus vielen unverbundenen Apps besteht.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Kann man eine Wärmepumpe per Smart Home steuern?", answer: "Ja, wenn passende Schnittstellen vorhanden sind. Sinnvoll ist meist eine ergänzende Steuerung und Visualisierung, nicht ein ständiges Überschreiben der Heizungslogik." },
+      { question: "Lohnt sich PV-Überschuss für die Wärmepumpe?", answer: "Oft kann PV-Überschuss für Warmwasser oder Speicher genutzt werden. Ob es sinnvoll ist, hängt von Anlage, Speicher, Komfortwunsch und Regelstrategie ab." },
+      { question: "Ist Home Assistant für Wärmepumpen geeignet?", answer: "Home Assistant kann viele Wärmepumpen, Wechselrichter und Energiesysteme integrieren. Die Qualität hängt stark von den verfügbaren Schnittstellen ab." },
+      { question: "Sollte man jeden Raum einzeln regeln?", answer: "Bei Wärmepumpe und Fußbodenheizung ist eine aggressive Einzelraumregelung oft nicht ideal. Gute Grundplanung und passende Heizkurve sind wichtiger." },
+      { question: "Welche Daten sind für Energiemanagement wichtig?", answer: "Wichtig sind PV-Erzeugung, Hausverbrauch, Speicherstand, Wallbox, Wärmepumpenstatus, Temperaturen und Prioritäten für Verbraucher." },
+    ],
+    serviceLinks: [
+      { label: "Energiemanagement & Heizung", href: "/energiemanagement-heizung" },
+      { label: "Smarte Heizungssteuerung", href: "/smarte-heizungssteuerung" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "Smart Home Planung", href: "/smart-home-planung" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Nienburg", href: "/smart-home-nienburg" },
+    ],
+    guideLinks: [
+      { label: "PV, Wallbox und Energiemanagement", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
+      { label: "Smarte Heizungssteuerung", href: "/ratgeber/smarte-heizkoerperthermostate-heizungssteuerung" },
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
+      { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
+    ],
+    finalCta:
+      "Heimlogik verbindet Wärmepumpe, Photovoltaik, Wallbox und Smart Home zu einem nachvollziehbaren Energiesystem für Ihr Haus.",
+  },
+  {
+    slug: "knx-planung-neubau-elektro-taster-verteiler",
+    path: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler",
+    title: "KNX im Neubau planen - Elektroplanung, Taster, Verteiler und Reserven",
+    metaTitle: "KNX im Neubau planen: Elektro, Taster, Verteiler & Reserven",
+    metaDescription:
+      "KNX im Neubau richtig planen: Funktionen, Taster, Präsenzmelder, Verteiler, Leitungen, Visualisierung und spätere Erweiterungen.",
+    category: "KNX, Home Assistant & Systeme",
+    excerpt:
+      "Welche Entscheidungen bei KNX früh getroffen werden sollten, damit Licht, Beschattung, Heizung und Bedienung im Neubau zusammenpassen.",
+    intro:
+      "KNX ist im Neubau besonders stark, wenn es früh in die Elektroplanung einbezogen wird. Wer erst nach Schalterprogramm, Verteilergröße und Leitungswegen über Smart Home spricht, verliert viele Möglichkeiten oder zahlt später doppelt.",
+    image: "/images/ratgeber/knx-planung-neubau-elektro-taster-verteiler.svg",
+    imageAlt:
+      "Grafik zur KNX-Planung im Neubau mit Verteiler, Busleitung, Tastern, Präsenzmeldern, Aktoren, Licht, Beschattung und Visualisierung",
+    graphicTitle: "KNX Planung im Neubau",
+    localNote:
+      "Bei Neubauprojekten in Hannover, Nienburg, Wunstorf und Umgebung sollte KNX vor der finalen Elektroplanung besprochen werden, damit Verteiler, Leitungen und Bedienung passen.",
+    sections: [
+      {
+        id: "frueh-planen",
+        title: "Warum KNX früh geplant werden muss",
+        body: [
+          "KNX betrifft nicht nur smarte Taster. Es beeinflusst Leitungswege, Schaltschrank, Aktoren, Sensorik, Beleuchtung, Beschattung, Heizung, Netzwerk und spätere Visualisierung.",
+          "Frühe Planung verhindert, dass Funktionen nachträglich mit Kompromissen gelöst werden müssen. Besonders Lichtkreise, Rollladenmotoren, Präsenzmelder und zentrale Bedienpunkte sollten vor der Elektroausführung klar sein.",
+        ],
+      },
+      {
+        id: "funktionen",
+        title: "Funktionen vor Geräten festlegen",
+        body: [
+          "Gute KNX-Planung beginnt mit Alltagsszenen: Kommen, Gehen, Nacht, Kochen, Arbeiten, Urlaub, Beschattung, Reinigung und Sicherheit. Erst danach werden Taster, Sensoren und Aktoren ausgewählt.",
+          "So entsteht ein System, das weniger Tasten braucht und trotzdem mehr kann. Räume werden nach Nutzung geplant, nicht nach Geräteprospekt.",
+        ],
+        bullets: ["Szenen vor Schalteranzahl", "Räume nach Nutzung planen", "Sensorik früh einzeichnen"],
+      },
+      {
+        id: "verteiler",
+        title: "Verteiler, Leitungen und Reserven",
+        body: [
+          "Ein KNX-Projekt braucht Platz im Verteiler: Aktoren, Spannungsversorgung, Reihenklemmen, Gateways, Absicherung und Reserven. Zu kleine Verteiler werden später teuer und unübersichtlich.",
+          "Auch Leerrohre, Netzwerkleitungen, Busleitung, Außenbereich, Technikraum und mögliche Nachrüstpunkte sollten mitgedacht werden. Reserven sind kein Luxus, sondern ein Schutz gegen spätere Umbauten.",
+        ],
+      },
+      {
+        id: "bedienung",
+        title: "Taster, Präsenzmelder und Visualisierung",
+        body: [
+          "KNX-Taster sollten verständlich bleiben. Nicht jede Funktion braucht eine eigene Taste. Viele Abläufe lassen sich über Szenen, Präsenzmelder, Zeitlogik oder Visualisierung besser lösen.",
+          "Präsenzmelder sind besonders wertvoll für Flur, Bad, Hauswirtschaftsraum, Garage und Außenbereich. Visualisierung ergänzt die Bedienung, ersetzt aber keine gute Grundbedienung an der Wand.",
+        ],
+        bullets: ["wenige, klare Tasterfunktionen", "Präsenzmelder gezielt einsetzen", "Visualisierung als Ergänzung"],
+      },
+      {
+        id: "kombination",
+        title: "KNX mit Home Assistant und anderen Systemen kombinieren",
+        body: [
+          "KNX kann die robuste Gebäudebasis bilden. Home Assistant kann Visualisierung, Energie, Audio, Wetter, Apps und weitere Systeme ergänzen.",
+          "Wichtig ist eine saubere Trennung: Grundfunktionen wie Licht und Beschattung sollten lokal und stabil laufen. Komfortfunktionen dürfen flexibler integriert werden.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Wann sollte man KNX im Neubau planen?", answer: "Am besten vor der finalen Elektroplanung. Dann können Verteiler, Leitungen, Taster, Sensoren und Funktionen sinnvoll berücksichtigt werden." },
+      { question: "Ist KNX im Neubau sinnvoll?", answer: "Für viele Neubauten ja, besonders wenn Licht, Beschattung, Heizung und Szenen langlebig und herstellerübergreifend automatisiert werden sollen." },
+      { question: "Braucht KNX einen großen Verteiler?", answer: "KNX benötigt oft mehr Platz im Verteiler als eine klassische Installation. Reserven für Aktoren, Gateways und Erweiterungen sollten eingeplant werden." },
+      { question: "Kann man KNX später erweitern?", answer: "Ja, wenn Busleitung, Platz, Reserven und Struktur vorbereitet wurden. Ohne Planung sind spätere Erweiterungen deutlich schwieriger." },
+      { question: "Kann KNX mit Home Assistant verbunden werden?", answer: "Ja. Home Assistant kann KNX visualisieren und mit weiteren Systemen verbinden, während KNX die lokalen Grundfunktionen übernimmt." },
+    ],
+    serviceLinks: [
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Planung für Neubau", href: "/smart-home-planung" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Neustadt am Rübenberge", href: "/smart-home-neustadt-am-ruebenberge" },
+    ],
+    guideLinks: [
+      { label: "Smart Home Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
+      { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
+      { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
+      { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik unterstützt bei der KNX-Planung im Neubau - von Funktionen und Elektrostruktur bis zur späteren Visualisierung.",
+  },
+  {
+    slug: "smart-home-datenschutz-cloud-lokal",
+    path: "/ratgeber/smart-home-datenschutz-cloud-lokal",
+    title: "Smart Home Datenschutz - Cloud, lokale Steuerung und sensible Geräte richtig einordnen",
+    metaTitle: "Smart Home Datenschutz: Cloud oder lokale Steuerung?",
+    metaDescription:
+      "Smart Home Datenschutz verständlich erklärt: Cloud, lokale Steuerung, Kameras, Sprachassistenten, Nutzerrechte, Updates und sichere Planung.",
+    category: "Planung & Beratung",
+    excerpt:
+      "Welche Daten ein Smart Home erzeugt, wann lokale Steuerung sinnvoll ist und worauf man bei Kameras, Cloud und Nutzerrechten achten sollte.",
+    intro:
+      "Smart Home verarbeitet viele Alltagssignale: Anwesenheit, Temperatur, Türkontakte, Kamerabilder, Sprachbefehle, Energieverbrauch und Routinen. Datenschutz beginnt deshalb nicht bei einer Checkbox, sondern bei Systemauswahl, Netzwerk, Rechtevergabe und klarer Dokumentation.",
+    image: "/images/ratgeber/smart-home-datenschutz-cloud-lokal.svg",
+    imageAlt:
+      "Grafik zu Smart-Home-Datenschutz mit lokaler Steuerung, Cloud-Diensten, Kameras, Sprachassistenten, Nutzerrechten und Netzwerksegmentierung",
+    graphicTitle: "Datenschutz im Smart Home",
+    localNote:
+      "Für private Häuser und kleinere Gewerbeobjekte in Hannover und Umgebung ist Datenschutz besonders praxisnah: Welche Daten müssen wirklich in die Cloud und welche Funktionen können lokal bleiben?",
+    sections: [
+      {
+        id: "daten",
+        title: "Welche Daten im Smart Home entstehen",
+        body: [
+          "Schon einfache Sensoren können viel über den Alltag verraten: Wann jemand zu Hause ist, welche Räume genutzt werden, wann Fenster geöffnet sind oder wie Energie verbraucht wird.",
+          "Besonders sensibel sind Kameras, Mikrofone, Türschlösser, Zutrittssysteme und Standortfunktionen. Sie sollten bewusster geplant werden als reine Komfortgeräte.",
+        ],
+      },
+      {
+        id: "lokal-cloud",
+        title: "Lokale Steuerung oder Cloud - was ist besser?",
+        body: [
+          "Lokale Steuerung bedeutet, dass zentrale Funktionen im Haus laufen und nicht zwingend einen externen Dienst benötigen. Das kann Datenschutz, Reaktionszeit und Ausfallsicherheit verbessern.",
+          "Cloud-Dienste sind nicht automatisch schlecht. Sie können Fernzugriff, Sprachassistenten, Herstellerfunktionen oder einfache Einrichtung ermöglichen. Wichtig ist, bewusst zu entscheiden, welche Funktion wirklich Cloud braucht.",
+        ],
+        bullets: ["Grundfunktionen möglichst lokal halten", "Cloud bewusst und sparsam nutzen", "Fernzugriff sauber absichern"],
+      },
+      {
+        id: "kameras",
+        title: "Kameras, Türklingeln und Sprachassistenten",
+        body: [
+          "Kameras und Videoklingeln sind datenschutzrechtlich sensibel, weil sie Personen erfassen können. Blickwinkel, Speicherort, Aufbewahrung, Hinweise und Rechte müssen sorgfältig geprüft werden.",
+          "Sprachassistenten sind bequem, aber nicht für jede Funktion nötig. Für viele Alltagsabläufe sind Taster, Szenen und Automationen datensparsamer und zuverlässiger.",
+        ],
+      },
+      {
+        id: "rechte-netzwerk",
+        title: "Nutzerrechte, Netzwerk und Updates",
+        body: [
+          "Ein sicheres Smart Home braucht klare Nutzerkonten, starke Passwörter, Zwei-Faktor-Authentifizierung, regelmäßige Updates und Backups. Alte Testzugänge und ungenutzte Apps sollten entfernt werden.",
+          "Netzwerksegmentierung kann helfen, Smart-Home-Geräte, Gäste-WLAN, Kameras und private Geräte voneinander zu trennen. Das ist besonders bei vielen WLAN-Geräten sinnvoll.",
+        ],
+        bullets: ["Nutzerrechte regelmäßig prüfen", "Backups und Updates planen", "Gäste-WLAN getrennt halten"],
+      },
+      {
+        id: "empfehlung",
+        title: "Empfehlung für eine datensparsame Planung",
+        body: [
+          "Planen Sie zuerst, welche Funktionen wirklich gebraucht werden. Danach wird entschieden, welche Daten dafür notwendig sind, wo sie verarbeitet werden und wer Zugriff erhält.",
+          "Heimlogik bevorzugt klare, dokumentierte Systeme: lokale Grundfunktionen, bewusst eingesetzte Cloud-Dienste, sichere Nutzerrechte und eine Bedienung, die nicht von unnötigen Apps abhängt.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Ist ein lokales Smart Home sicherer als Cloud?", answer: "Lokale Steuerung kann Datenschutz und Ausfallsicherheit verbessern. Sicher wird ein System aber erst durch gute Einrichtung, Updates, Nutzerrechte und Netzwerkplanung." },
+      { question: "Sind Smart-Home-Kameras erlaubt?", answer: "Kameras sind sensibel und müssen rechtlich sauber geplant werden. Innenbereiche, Nachbargrundstücke und öffentliche Bereiche erfordern besondere Vorsicht." },
+      { question: "Muss ein Smart Home Daten in die Cloud senden?", answer: "Nein, viele Funktionen können lokal laufen. Manche Herstellerfunktionen, Fernzugriffe oder Sprachassistenten nutzen jedoch Cloud-Dienste." },
+      { question: "Wie schützt man ein Smart Home vor fremdem Zugriff?", answer: "Mit starken Passwörtern, Zwei-Faktor-Authentifizierung, Updates, Backups, klaren Nutzerrechten und einem sauber geplanten Netzwerk." },
+      { question: "Ist Home Assistant datenschutzfreundlich?", answer: "Home Assistant kann sehr datensparsam betrieben werden, wenn Integrationen lokal gewählt und Fernzugriffe sicher eingerichtet werden." },
+    ],
+    serviceLinks: [
+      { label: "Smart Home Planung", href: "/smart-home-planung" },
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Sicherheit", href: "/smart-home-sicherheit" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Leese", href: "/smart-home-leese" },
+    ],
+    guideLinks: [
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik plant Smart Home mit klarer Datenlogik: lokal, sicher, verständlich und nur dort cloudbasiert, wo es wirklich sinnvoll ist.",
+  },
+  {
+    slug: "smart-home-garten-aussenbereich-bewaesserung-licht",
+    path: "/ratgeber/smart-home-garten-aussenbereich-bewaesserung-licht",
+    title: "Smart Home im Garten und Außenbereich - Licht, Bewässerung, Steckdosen und Sensoren",
+    metaTitle: "Smart Home Garten & Außenbereich: Licht, Bewässerung, Sensoren",
+    metaDescription:
+      "Smart Home für Garten und Außenbereich planen: Außenlicht, Bewässerung, Steckdosen, Sensoren, Kameras, Netzwerk und wetterfeste Installation.",
+    category: "Komfort, Sicherheit & Alltag",
+    excerpt:
+      "Was im Außenbereich wirklich sinnvoll ist: Wegebeleuchtung, Bewässerung, Außensteckdosen, Sensoren, Kameras und stabiles WLAN.",
+    intro:
+      "Der Außenbereich wird bei Smart Home oft zu spät bedacht. Dabei profitieren Garten, Einfahrt, Terrasse, Garage und Eingang stark von guter Planung: Licht, Bewässerung, Steckdosen, Sensoren und Netzwerk müssen wetterfest, sicher und bedienbar sein.",
+    image: "/images/ratgeber/smart-home-garten-aussenbereich-bewaesserung-licht.svg",
+    imageAlt:
+      "Grafik zu Smart Home im Garten und Außenbereich mit Wegebeleuchtung, Bewässerung, Außensteckdosen, Kamera, Sensoren, WLAN und Technikraum",
+    graphicTitle: "Smart Home im Außenbereich",
+    localNote:
+      "Bei Häusern in Hannover, Nienburg, Wunstorf, Leese und ländlicher Umgebung sind Grundstücksgröße, Nebengebäude und WLAN-Abdeckung im Außenbereich oft entscheidend.",
+    sections: [
+      {
+        id: "planung",
+        title: "Warum der Außenbereich früh geplant werden sollte",
+        body: [
+          "Außenfunktionen brauchen Strom, Netzwerk, wetterfeste Gehäuse, sichere Montageorte und oft längere Leitungswege. Wer erst nach Terrasse, Gartenbau oder Pflasterung plant, hat weniger Optionen.",
+          "Sinnvoll ist eine gemeinsame Betrachtung von Eingang, Einfahrt, Garten, Garage, Terrasse, Schuppen und Technikraum. So entstehen keine isolierten Einzellösungen.",
+        ],
+      },
+      {
+        id: "licht",
+        title: "Außenlicht, Wegebeleuchtung und Szenen",
+        body: [
+          "Gutes Außenlicht erhöht Komfort und Orientierung. Bewegungsmelder, Dämmerungssensoren, Zeitpläne und Szenen können Eingang, Einfahrt, Terrasse und Gartenwege sinnvoll steuern.",
+          "Wichtig ist, Licht nicht zu übertreiben. Blendung, Nachbarn, Insektenfreundlichkeit und Stromverbrauch sollten berücksichtigt werden.",
+        ],
+        bullets: ["Bewegung und Dämmerung kombinieren", "Blendung vermeiden", "Szenen für Terrasse und Eingang planen"],
+      },
+      {
+        id: "bewaesserung",
+        title: "Bewässerung, Wetterdaten und Bodenfeuchte",
+        body: [
+          "Smarte Bewässerung kann Zeit sparen und Pflanzen schützen. Noch besser wird sie, wenn Wetterprognose, Regenmesser, Bodenfeuchte und Zeitfenster zusammen betrachtet werden.",
+          "Automatik sollte immer manuell übersteuerbar sein. Gerade bei längerer Trockenheit, neuen Pflanzen oder Urlaub ist Kontrolle wichtiger als reine Zeitsteuerung.",
+        ],
+      },
+      {
+        id: "sensoren",
+        title: "Außensteckdosen, Sensoren, Kameras und Sicherheit",
+        body: [
+          "Schaltbare Außensteckdosen sind praktisch für Gartenbeleuchtung, Brunnen, Dekoration oder Geräte. Sie müssen aber fachgerecht und wetterfest installiert werden.",
+          "Kameras, Bewegungsmelder und Kontaktsensoren können Sicherheit erhöhen, sind aber datenschutzsensibel. Besonders Blickwinkel, Aufzeichnung und Nachbargrundstücke müssen bedacht werden.",
+        ],
+        bullets: ["wetterfeste Installation", "Datenschutz bei Kameras prüfen", "Außensteckdosen fachgerecht absichern"],
+      },
+      {
+        id: "netzwerk",
+        title: "WLAN, Funkreichweite und Nebengebäude",
+        body: [
+          "Viele Außenprobleme sind eigentlich Netzwerkprobleme. Massive Wände, große Grundstücke, Garagen und Nebengebäude können WLAN und Funkstandards deutlich schwächen.",
+          "Für stabile Systeme sind Außen-Access-Points, LAN-Leitungen, Mesh-Planung oder gezielte Funkstandards sinnvoller als Geräte blind im Garten zu verteilen.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Was kann man im Garten smart steuern?", answer: "Typisch sind Außenlicht, Bewässerung, Steckdosen, Sensoren, Kameras, Garagentor, Pooltechnik und Szenen für Terrasse oder Eingang." },
+      { question: "Braucht Smart Home im Garten WLAN?", answer: "Viele Geräte brauchen WLAN oder eine andere Funkverbindung. Bei größeren Grundstücken sind Außen-Access-Points oder LAN-Leitungen oft sinnvoll." },
+      { question: "Ist smarte Bewässerung sinnvoll?", answer: "Ja, wenn Wetter, Bodenfeuchte, Wasserbedarf und manuelle Übersteuerung berücksichtigt werden. Reine Zeitpläne sind oft zu grob." },
+      { question: "Kann man Außenlicht automatisch steuern?", answer: "Ja, mit Bewegungsmeldern, Dämmerungssensoren, Zeitplänen und Szenen. Wichtig sind passende Lichtstärke, Ausrichtung und Nachbarschaft." },
+      { question: "Müssen Außensteckdosen vom Elektriker installiert werden?", answer: "Feste Außensteckdosen und 230V-Arbeiten gehören in die Hände einer Elektrofachkraft, besonders wegen Feuchtigkeit und Absicherung." },
+    ],
+    serviceLinks: [
+      { label: "Licht, Rollläden & Beschattung", href: "/licht-rollladen-beschattung" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      { label: "Smart Home Sicherheit", href: "/smart-home-sicherheit" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+      { label: "Smart Home Nienburg", href: "/smart-home-nienburg" },
+    ],
+    guideLinks: [
+      { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
+      { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+      { label: "PV, Wallbox und Energiemanagement", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
+    ],
+    finalCta:
+      "Heimlogik plant Smart Home im Außenbereich mit Licht, Bewässerung, Netzwerk und Sicherheit als zusammenhängendes System.",
   },
 ];
 
