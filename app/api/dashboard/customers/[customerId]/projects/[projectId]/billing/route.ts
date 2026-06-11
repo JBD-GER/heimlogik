@@ -19,7 +19,6 @@ type TimeEntry = {
   started_at: string;
   stopped_at: string;
   hourly_rate_net: number | string | null;
-  staff_members?: { first_name: string | null; last_name: string | null } | null;
 };
 
 type ExpenseEntry = {
@@ -29,7 +28,6 @@ type ExpenseEntry = {
   expense_at: string;
   amount_net: number | string | null;
   tax_rate: number | string | null;
-  staff_members?: { first_name: string | null; last_name: string | null } | null;
 };
 
 type AccommodationEntry = {
@@ -42,7 +40,6 @@ type AccommodationEntry = {
   nights: number | string | null;
   amount_net: number | string | null;
   tax_rate: number | string | null;
-  staff_members?: { first_name: string | null; last_name: string | null } | null;
 };
 
 function optionalText(value: FormDataEntryValue | null) {
@@ -80,10 +77,6 @@ function billingUrl(request: Request, customerId: string, projectId: string, for
   if (startDate) url.searchParams.set("von", startDate);
   if (endDate) url.searchParams.set("bis", endDate);
   return url;
-}
-
-function staffName(row?: { first_name: string | null; last_name: string | null } | null) {
-  return [row?.first_name, row?.last_name].filter(Boolean).join(" ") || "Heimlogik";
 }
 
 function roundCurrency(value: number) {
@@ -281,7 +274,7 @@ export async function POST(request: Request, { params }: RouteContext) {
   const [timeResult, expensesResult, accommodationsResult] = await Promise.all([
     supabase
       .from("time_entries")
-      .select("id, title, description, started_at, stopped_at, hourly_rate_net, staff_members(first_name, last_name)")
+      .select("id, title, description, started_at, stopped_at, hourly_rate_net")
       .eq("project_id", projectId)
       .eq("billable", true)
       .is("invoice_id", null)
@@ -292,7 +285,7 @@ export async function POST(request: Request, { params }: RouteContext) {
       .order("started_at", { ascending: true }),
     supabase
       .from("expense_entries")
-      .select("id, title, description, expense_at, amount_net, tax_rate, staff_members(first_name, last_name)")
+      .select("id, title, description, expense_at, amount_net, tax_rate")
       .eq("project_id", projectId)
       .eq("billable", true)
       .is("invoice_id", null)
@@ -302,7 +295,7 @@ export async function POST(request: Request, { params }: RouteContext) {
       .order("expense_at", { ascending: true }),
     supabase
       .from("accommodation_entries")
-      .select("id, provider, location, notes, check_in_at, check_out_at, nights, amount_net, tax_rate, staff_members(first_name, last_name)")
+      .select("id, provider, location, notes, check_in_at, check_out_at, nights, amount_net, tax_rate")
       .eq("project_id", projectId)
       .eq("billable", true)
       .is("invoice_id", null)
@@ -323,7 +316,6 @@ export async function POST(request: Request, { params }: RouteContext) {
     description: [
       `${formatDate(entry.started_at)} · ${entry.title}`,
       `${formatDateTime(entry.started_at)} bis ${formatDateTime(entry.stopped_at)}`,
-      `Mitarbeiter: ${staffName(entry.staff_members)}`,
       entry.description,
     ]
       .filter(Boolean)
@@ -338,7 +330,7 @@ export async function POST(request: Request, { params }: RouteContext) {
     sourceType: "expense" as const,
     sourceId: entry.id,
     sortDate: entry.expense_at,
-    description: [`Spesen · ${formatDate(entry.expense_at)} · ${entry.title}`, `Mitarbeiter: ${staffName(entry.staff_members)}`, entry.description].filter(Boolean).join("\n"),
+    description: [`Spesen · ${formatDate(entry.expense_at)} · ${entry.title}`, entry.description].filter(Boolean).join("\n"),
     quantity: 1,
     unit: "Pausch.",
     unitPriceNet: Number(entry.amount_net ?? 0),
@@ -353,7 +345,6 @@ export async function POST(request: Request, { params }: RouteContext) {
       `Unterkunft · ${entry.provider}`,
       `${formatDate(entry.check_in_at)}${entry.check_out_at ? ` bis ${formatDate(entry.check_out_at)}` : ""}`,
       entry.location ? `Ort: ${entry.location}` : null,
-      `Mitarbeiter: ${staffName(entry.staff_members)}`,
       entry.notes,
     ]
       .filter(Boolean)

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, Phone, UserRound } from "lucide-react";
+import { Mail, Send, Phone, UserRound } from "lucide-react";
 import { EmptyState } from "@/components/dashboard/EmptyState";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { StatusBadge } from "@/components/dashboard/StatusBadge";
@@ -22,7 +22,12 @@ type StaffMemberRow = {
   is_active: boolean;
 };
 
-export default async function MitarbeiterPage() {
+type MitarbeiterPageProps = {
+  searchParams?: Promise<{ invite_status?: string; invite_message?: string }>;
+};
+
+export default async function MitarbeiterPage({ searchParams }: MitarbeiterPageProps) {
+  const query = (await searchParams) ?? {};
   const supabase = createSupabaseAdminClient();
   const { data, error } = await supabase
     .from("staff_members")
@@ -45,6 +50,12 @@ export default async function MitarbeiterPage() {
       {error ? (
         <section className="rounded-md border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
           Die Mitarbeiter-Tabelle fehlt noch. Bitte die Migration <strong>supabase/team_and_partners.sql</strong> in Supabase ausführen.
+        </section>
+      ) : null}
+
+      {query.invite_message ? (
+        <section className={`rounded-md border p-4 text-sm font-semibold ${query.invite_status === "success" ? "border-green-200 bg-green-50 text-green-800" : "border-red-200 bg-red-50 text-red-800"}`}>
+          {query.invite_message}
         </section>
       ) : null}
 
@@ -122,6 +133,15 @@ export default async function MitarbeiterPage() {
                       {staff.phone ?? "Keine Telefonnummer"}
                     </span>
                   </div>
+                  <form action={`/api/dashboard/staff-members/${staff.id}/invite`} method="post" className="mt-4">
+                    <button
+                      disabled={!staff.email || !staff.is_active}
+                      className="focus-ring inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-sm font-bold text-ink hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 sm:w-fit"
+                    >
+                      <Send className="h-4 w-4" aria-hidden="true" />
+                      Einladung verschicken
+                    </button>
+                  </form>
                 </div>
               </div>
             </article>

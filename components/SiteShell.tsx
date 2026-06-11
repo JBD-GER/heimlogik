@@ -10,7 +10,7 @@ import { TrackingPlaceholders } from "@/components/TrackingPlaceholders";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isInternalArea = pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
+  const isInternalArea = pathname.startsWith("/dashboard") || pathname.startsWith("/admin") || pathname.startsWith("/stunden");
 
   if (isInternalArea) {
     return <main>{children}</main>;

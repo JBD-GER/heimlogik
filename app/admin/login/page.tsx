@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { isAdminEmail } from "@/lib/admin-auth";
+import { findActiveStaffMemberByEmail } from "@/lib/dashboard/staff-auth";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { LoginForm } from "./LoginForm";
 
@@ -22,7 +23,11 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   } = await supabase.auth.getUser();
 
   if (user && isAdminEmail(user.email)) {
-    redirect(nextPath);
+    redirect(nextPath.startsWith("/") ? nextPath : "/dashboard");
+  }
+
+  if (user && (await findActiveStaffMemberByEmail(user.email))) {
+    redirect(nextPath.startsWith("/stunden") ? nextPath : "/stunden");
   }
 
   return (
@@ -32,7 +37,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           <p className="text-sm font-semibold uppercase tracking-wide text-accent">Heimlogik Admin</p>
           <h1 className="mt-3 text-3xl font-bold tracking-normal text-ink">Einloggen</h1>
           <p className="mt-4 text-sm leading-6 text-slate-600">
-            Zugang nur für freigegebene Admin-E-Mail-Adressen. Bei der ersten Registrierung sendet Supabase eine Bestätigungsmail.
+            Zugang nur für freigegebene Admins und eingeladene Mitarbeiter. Bei der ersten Registrierung sendet Supabase eine Bestätigungsmail.
           </p>
           <LoginForm nextPath={nextPath} />
         </div>

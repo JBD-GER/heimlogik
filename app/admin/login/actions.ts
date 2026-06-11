@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { isAdminEmail } from "@/lib/admin-auth";
+import { findActiveStaffMemberByEmail } from "@/lib/dashboard/staff-auth";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type AuthState = {
@@ -14,13 +15,16 @@ export async function authenticate(_prevState: AuthState, formData: FormData): P
   const password = String(formData.get("password") ?? "");
   const mode = String(formData.get("mode") ?? "login");
   const next = String(formData.get("next") ?? "/dashboard");
+  const staffMember = await findActiveStaffMemberByEmail(email);
+  const isAdmin = isAdminEmail(email);
+  const targetPath = isAdmin ? (next.startsWith("/") ? next : "/dashboard") : next.startsWith("/stunden") ? next : "/stunden";
 
   if (!email || !password) {
     return { status: "error", message: "Bitte E-Mail und Passwort ausfüllen." };
   }
 
-  if (!isAdminEmail(email)) {
-    return { status: "error", message: "Diese E-Mail ist nicht für das Admin-Dashboard freigegeben." };
+  if (!isAdmin && !staffMember) {
+    return { status: "error", message: "Diese E-Mail ist nicht für Heimlogik freigegeben." };
   }
 
   const supabase = await createSupabaseServerClient();
@@ -31,7 +35,7 @@ export async function authenticate(_prevState: AuthState, formData: FormData): P
       email,
       password,
       options: {
-        emailRedirectTo: `${siteUrl}/auth/callback?next=/dashboard`,
+        emailRedirectTo: `${siteUrl}/auth/callback?next=${encodeURIComponent(targetPath)}`,
       },
     });
 
@@ -51,7 +55,7 @@ export async function authenticate(_prevState: AuthState, formData: FormData): P
     return { status: "error", message: error.message };
   }
 
-  redirect(next.startsWith("/") ? next : "/dashboard");
+  redirect(targetPath);
 }
 
 export async function signOut() {
