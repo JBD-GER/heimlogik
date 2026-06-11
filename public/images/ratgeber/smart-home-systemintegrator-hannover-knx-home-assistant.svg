@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home Systemintegration Hannover</title>
+  <desc id="desc">Smart-Home-Systemintegration in Hannover mit KNX, Home Assistant, Netzwerk, Licht, Heizung, Photovoltaik, Sicherheit, Audio und regionaler Betreuung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#0b1220">Smart Home Systemintegrator Hannover</text>
+  <rect x="470" y="260" width="340" height="200" rx="24" fill="#0b1220"/>
+  <text x="640" y="332" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#fff">Heimlogik</text>
+  <text x="640" y="368" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#bbf7d0">KNX / Home Assistant / Netzwerk</text>
+  <text x="640" y="402" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">Planung, Integration und Betreuung</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4">
+      <rect x="145" y="185" width="175" height="78" rx="16"/>
+      <rect x="145" y="315" width="175" height="78" rx="16"/>
+      <rect x="145" y="445" width="175" height="78" rx="16"/>
+      <rect x="960" y="185" width="175" height="78" rx="16"/>
+      <rect x="960" y="315" width="175" height="78" rx="16"/>
+      <rect x="960" y="445" width="175" height="78" rx="16"/>
+    </g>
+    <text x="232" y="230" font-size="17" font-weight="700" fill="#0b1220">KNX</text>
+    <text x="232" y="360" font-size="17" font-weight="700" fill="#0b1220">Home Assistant</text>
+    <text x="232" y="490" font-size="17" font-weight="700" fill="#0b1220">Netzwerk</text>
+    <text x="1048" y="230" font-size="17" font-weight="700" fill="#0b1220">Licht</text>
+    <text x="1048" y="360" font-size="17" font-weight="700" fill="#0b1220">Heizung / PV</text>
+    <text x="1048" y="490" font-size="17" font-weight="700" fill="#0b1220">Sicherheit</text>
+  </g>
+  <g fill="#ecfeff" stroke="#06b6d4" stroke-width="4" font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="425" y="165" width="135" height="68" rx="16"/>
+    <rect x="572" y="165" width="135" height="68" rx="16"/>
+    <rect x="719" y="165" width="135" height="68" rx="16"/>
+    <text x="493" y="205" font-size="15" font-weight="700" fill="#0b1220">Planung</text>
+    <text x="640" y="205" font-size="15" font-weight="700" fill="#0b1220">Umsetzung</text>
+    <text x="787" y="205" font-size="15" font-weight="700" fill="#0b1220">Betreuung</text>
+  </g>
+  <g stroke="#22c55e" stroke-width="4" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M320 224c72 30 110 50 150 88"/>
+    <path d="M320 354c62 4 102 4 150 4"/>
+    <path d="M320 484c72-30 110-50 150-88"/>
+    <path d="M960 224c-72 30-110 50-150 88"/>
+    <path d="M960 354c-62 4-102 4-150 4"/>
+    <path d="M960 484c-72-30-110-50-150-88"/>
+    <path d="M493 233c34 30 72 44 147 27"/>
+    <path d="M640 233v27"/>
+    <path d="M787 233c-34 30-72 44-147 27"/>
+  </g>
+  <rect x="445" y="545" width="390" height="55" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Ein System statt einzelner Inseln</text>
+  <text x="640" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0b1220">Regionale Integration verbindet Technik, Gewerke und Alltag.</text>
+</svg>

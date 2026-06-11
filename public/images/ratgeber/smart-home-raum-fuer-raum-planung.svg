@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home Raum für Raum planen</title>
+  <desc id="desc">Raum-für-Raum-Planung für Smart Home mit Wohnzimmer, Küche, Bad, Schlafzimmer, Flur, Garten, Technikraum, Licht, Heizung, Sensorik und Bedienung.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#0b1220">Smart Home Raum für Raum planen</text>
+  <rect x="150" y="175" width="980" height="420" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g stroke="#22c55e" stroke-width="4">
+      <rect x="190" y="215" width="250" height="135" rx="16" fill="#ecfdf5"/>
+      <rect x="515" y="215" width="250" height="135" rx="16" fill="#ecfeff"/>
+      <rect x="840" y="215" width="250" height="135" rx="16" fill="#ecfdf5"/>
+      <rect x="190" y="410" width="250" height="135" rx="16" fill="#ecfeff"/>
+      <rect x="515" y="410" width="250" height="135" rx="16" fill="#ecfdf5"/>
+      <rect x="840" y="410" width="250" height="135" rx="16" fill="#ecfeff"/>
+    </g>
+    <text x="315" y="268" font-size="20" font-weight="700" fill="#0b1220">Wohnen</text>
+    <text x="315" y="300" font-size="15" fill="#334155">Licht / Audio / Szenen</text>
+    <text x="640" y="268" font-size="20" font-weight="700" fill="#0b1220">Küche</text>
+    <text x="640" y="300" font-size="15" fill="#334155">Arbeitslicht / Präsenz</text>
+    <text x="965" y="268" font-size="20" font-weight="700" fill="#0b1220">Bad</text>
+    <text x="965" y="300" font-size="15" fill="#334155">Nachtlicht / Lüftung</text>
+    <text x="315" y="463" font-size="20" font-weight="700" fill="#0b1220">Schlafen</text>
+    <text x="315" y="495" font-size="15" fill="#334155">Beschattung / Ruhe</text>
+    <text x="640" y="463" font-size="20" font-weight="700" fill="#0b1220">Flur</text>
+    <text x="640" y="495" font-size="15" fill="#334155">Bewegung / Orientierung</text>
+    <text x="965" y="463" font-size="20" font-weight="700" fill="#0b1220">Außen</text>
+    <text x="965" y="495" font-size="15" fill="#334155">Licht / Sensoren / WLAN</text>
+  </g>
+  <g fill="#0b1220">
+    <circle cx="228" cy="235" r="8"/><circle cx="553" cy="235" r="8"/><circle cx="878" cy="235" r="8"/>
+    <circle cx="228" cy="430" r="8"/><circle cx="553" cy="430" r="8"/><circle cx="878" cy="430" r="8"/>
+  </g>
+  <rect x="425" y="607" width="430" height="50" rx="25" fill="#0b1220"/>
+  <text x="640" y="639" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Alltag planen, dann Technik auswählen</text>
+  <text x="640" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#0b1220">Jeder Raum braucht eigene Funktionen, Bedienung und Prioritäten.</text>
+</svg>

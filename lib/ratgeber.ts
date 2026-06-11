@@ -440,6 +440,8 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
       { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Systemintegrator Hannover", href: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant" },
       { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
     ],
@@ -1326,6 +1328,8 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Energiemanagement mit PV und Wallbox", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
+      { label: "Smart Home Systemintegrator Hannover", href: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant" },
     ],
     finalCta:
       "Heimlogik richtet Home Assistant nicht als Bastellösung ein, sondern als strukturierte Smart-Home-Zentrale mit sauberer Planung, Dokumentation und alltagstauglichen Automationen.",
@@ -1589,6 +1593,8 @@ export const guideArticles: GuideArticle[] = [
       { label: "Matter, Zigbee, WLAN oder KNX", href: "/ratgeber/matter-zigbee-wlan-knx-unterschied" },
       { label: "Smart Home im Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
       { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
     ],
     finalCta:
@@ -1861,6 +1867,8 @@ export const guideArticles: GuideArticle[] = [
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Systemintegrator Hannover", href: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant" },
       { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
     ],
     finalCta:
@@ -2047,6 +2055,278 @@ export const guideArticles: GuideArticle[] = [
     ],
     finalCta:
       "Heimlogik plant Smart Home im Außenbereich mit Licht, Bewässerung, Netzwerk und Sicherheit als zusammenhängendes System.",
+  },
+  {
+    slug: "smart-home-wartung-betreuung-updates-backups",
+    path: "/ratgeber/smart-home-wartung-betreuung-updates-backups",
+    title: "Smart Home Wartung und Betreuung - warum Updates, Backups und Dokumentation wichtig sind",
+    metaTitle: "Smart Home Wartung & Betreuung: Updates, Backups, Hilfe",
+    metaDescription:
+      "Smart Home Wartung planen: Updates, Backups, Home Assistant Betreuung, Dokumentation, Fernwartung, Fehleranalyse und langfristige Stabilität.",
+    category: "Planung & Beratung",
+    excerpt:
+      "Warum ein Smart Home nach der Installation gepflegt werden sollte - mit Updates, Backups, Dokumentation, Monitoring und klaren Zuständigkeiten.",
+    intro:
+      "Ein gutes Smart Home ist kein einmaliger Gerätekauf, sondern ein technisches System im Haus. Damit Licht, Heizung, Beschattung, Sicherheit, Audio und Visualisierung langfristig zuverlässig bleiben, braucht es Wartung: Updates, Backups, Dokumentation, Fehleranalyse und jemanden, der Änderungen sauber einordnet.",
+    image: "/images/ratgeber/smart-home-wartung-betreuung-updates-backups.svg",
+    imageAlt:
+      "Grafik zur Smart-Home-Wartung mit Updates, Backups, Dokumentation, Monitoring, Fernwartung und stabiler Systembetreuung",
+    graphicTitle: "Smart Home Wartung und Betreuung",
+    localNote:
+      "Gerade bei Häusern in Hannover, Nienburg, Wunstorf, Leese und Umgebung ist eine feste Smart-Home-Betreuung sinnvoll, wenn Home Assistant, KNX, Netzwerk und mehrere Gewerke zusammenarbeiten.",
+    sections: [
+      {
+        id: "warum-wartung",
+        title: "Warum Smart Home Wartung braucht",
+        body: [
+          "Viele Probleme entstehen nicht direkt bei der Installation, sondern Monate später: Hersteller ändern Apps, Geräte bekommen neue Firmware, Batterien werden leer, Automationen werden angepasst oder ein Router wird ersetzt. Ohne Struktur ist dann schwer nachvollziehbar, was zusammenhängt.",
+          "Wartung bedeutet nicht, ständig etwas umzubauen. Es geht darum, ein funktionierendes System ruhig zu halten, Änderungen bewusst zu planen und im Fehlerfall schnell zu wissen, wo man suchen muss.",
+        ],
+        bullets: ["Updates planbar durchführen", "Backups vor Änderungen sichern", "Geräte und Automationen dokumentieren"],
+      },
+      {
+        id: "updates-backups",
+        title: "Updates, Backups und Versionen sauber behandeln",
+        body: [
+          "Updates sind wichtig, sollten aber nicht blind im Vorbeigehen ausgeführt werden. Bei Home Assistant, Gateways, Apps, Bridges, Netzwerkkomponenten und Visualisierungen kann ein Update Auswirkungen auf Integrationen oder Automationen haben.",
+          "Vor größeren Änderungen gehört ein Backup dazu. Ebenso wichtig ist zu wissen, wo Konfigurationen liegen, welche Geräte kritisch sind und wie ein funktionierender Zustand wiederhergestellt werden kann.",
+        ],
+      },
+      {
+        id: "dokumentation",
+        title: "Dokumentation: der unterschätzte Stabilitätsfaktor",
+        body: [
+          "Gute Dokumentation beantwortet einfache Fragen: Welche Systeme gibt es? Welche IP-Adressen, Gateways und Räume sind relevant? Welche Automationen greifen in Heizung, Licht, Beschattung oder Sicherheit ein? Wer darf was bedienen?",
+          "Ohne Dokumentation hängt das Haus oft an einer einzelnen Person. Mit Dokumentation können Eigentümer, Fachpartner und Betreuung schneller reagieren, wenn Geräte getauscht, Räume geändert oder Funktionen erweitert werden.",
+        ],
+        bullets: ["Geräteliste und Raumstruktur", "Automationen und Szenen", "Zugangsdaten und Rechte sauber verwalten"],
+      },
+      {
+        id: "fernwartung",
+        title: "Fernwartung, Fehleranalyse und Vor-Ort-Termine",
+        body: [
+          "Viele Smart-Home-Fragen lassen sich per Fernwartung klären, wenn Zugriff, Datenschutz und Rechte sauber geregelt sind. Das spart Zeit bei kleinen Anpassungen, Dashboard-Änderungen oder der Analyse von Meldungen.",
+          "Vor-Ort-Termine bleiben wichtig, wenn Funkreichweite, Netzwerk, Elektroinstallation, Taster, Sensoren oder Gerätepositionen geprüft werden müssen. Gute Betreuung kombiniert beides sinnvoll.",
+        ],
+      },
+      {
+        id: "betreuung-lohnt",
+        title: "Wann sich laufende Smart-Home-Betreuung lohnt",
+        body: [
+          "Betreuung lohnt sich besonders, wenn mehrere Systeme verbunden sind: KNX, Home Assistant, Zigbee, Matter, WLAN, PV, Wallbox, Heizung, Multiroom-Audio oder Zutrittskontrolle. Je mehr Schnittstellen beteiligt sind, desto wichtiger wird eine klare Zuständigkeit.",
+          "Auch nach Sanierung, Neubau oder einer größeren Nachrüstung ist Betreuung hilfreich. In den ersten Monaten zeigt sich oft, welche Szenen nachjustiert werden sollten und welche Bedienung im Alltag wirklich passt.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Braucht ein Smart Home regelmäßige Wartung?", answer: "Ja, besonders wenn mehrere Systeme, Automationen, Gateways oder Home Assistant genutzt werden. Updates, Backups und Dokumentation halten das System langfristig stabil." },
+      { question: "Was gehört zur Smart-Home-Betreuung?", answer: "Typisch sind Updates, Backups, Fehleranalyse, Dokumentation, Anpassung von Automationen, Geräteprüfung, Fernwartung und Beratung bei Erweiterungen." },
+      { question: "Kann Home Assistant gewartet werden?", answer: "Ja. Home Assistant sollte regelmäßig gesichert, aktualisiert und dokumentiert werden, damit Integrationen, Dashboards und Automationen nachvollziehbar bleiben." },
+      { question: "Ist Fernwartung für Smart Home sinnvoll?", answer: "Ja, für viele Anpassungen und Analysen. Voraussetzung sind ein sicher geregelter Zugriff, klare Rechte und ein Datenschutzkonzept." },
+      { question: "Wann sollte man professionelle Hilfe für Smart Home Probleme holen?", answer: "Wenn Funktionen unzuverlässig werden, mehrere Systeme betroffen sind, Updates Probleme machen oder niemand mehr genau weiß, wie das System aufgebaut ist." },
+    ],
+    serviceLinks: [
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "Smart-Home-Planung", href: "/smart-home-planung" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Nienburg", href: "/smart-home-nienburg" },
+    ],
+    guideLinks: [
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Datenschutz", href: "/ratgeber/smart-home-datenschutz-cloud-lokal" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "KNX im Neubau planen", href: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler" },
+      { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+    ],
+    finalCta:
+      "Heimlogik betreut Smart-Home-Systeme langfristig - mit Updates, Backups, Dokumentation und klarer Hilfe, wenn Technik nicht mehr ruhig läuft.",
+  },
+  {
+    slug: "smart-home-raum-fuer-raum-planen",
+    path: "/ratgeber/smart-home-raum-fuer-raum-planen",
+    title: "Smart Home Raum für Raum planen - welche Funktionen in welchem Bereich sinnvoll sind",
+    metaTitle: "Smart Home Raum für Raum planen: Funktionen & Checkliste",
+    metaDescription:
+      "Smart Home Raum für Raum planen: Küche, Bad, Schlafzimmer, Wohnzimmer, Flur, Garten, Technikraum, Licht, Heizung, Sensoren und Bedienung.",
+    category: "Planung & Beratung",
+    excerpt:
+      "Eine praktische Raum-für-Raum-Checkliste für Smart-Home-Funktionen im Einfamilienhaus - von Licht und Heizung bis Sicherheit und Audio.",
+    intro:
+      "Smart Home wird besser, wenn es nicht bei Gerätelisten beginnt, sondern bei Räumen und Alltagssituationen. Küche, Wohnzimmer, Bad, Schlafzimmer, Flur, Garten und Technikraum brauchen unterschiedliche Funktionen. Wer Raum für Raum plant, erkennt schneller, was wirklich nützt und was nur nach Technik klingt.",
+    image: "/images/ratgeber/smart-home-raum-fuer-raum-planung.svg",
+    imageAlt:
+      "Grafik zur Smart-Home-Raumplanung mit Küche, Wohnzimmer, Bad, Schlafzimmer, Flur, Garten, Technikraum und passenden Funktionen",
+    graphicTitle: "Smart Home Raum für Raum planen",
+    localNote:
+      "Bei Neubau, Sanierung und Nachrüstung in Hannover und Umgebung hilft eine Raum-für-Raum-Planung, Elektroplanung, Netzwerk, Licht, Sensorik und Bedienung früh zusammenzubringen.",
+    sections: [
+      {
+        id: "prinzip",
+        title: "Warum Raumplanung besser ist als Gerätelisten",
+        body: [
+          "Gerätelisten wirken konkret, führen aber schnell zu Insellösungen. Raumplanung fragt zuerst: Was passiert hier täglich? Wer nutzt den Raum? Welche Funktionen sollen automatisch laufen und welche brauchen eine einfache manuelle Bedienung?",
+          "So entstehen klare Prioritäten. Ein Flur braucht vielleicht sehr gutes Bewegungslicht, ein Wohnzimmer klare Szenen, ein Bad angenehmes Nachtlicht und ein Technikraum saubere Netzwerk- und Gateway-Struktur.",
+        ],
+        bullets: ["Alltag vor Geräteauswahl", "Räume nach Nutzung bewerten", "Bedienung pro Raum festlegen"],
+      },
+      {
+        id: "wohnen-kueche",
+        title: "Wohnzimmer, Küche und Essbereich",
+        body: [
+          "In Wohnbereichen geht es häufig um Lichtstimmung, Beschattung, Audio, TV-Integration und einfache Szenen. Wichtig ist, dass Gäste und Familie die Grundfunktionen ohne App verstehen.",
+          "In Küche und Essbereich sind Arbeitslicht, Präsenz, Dunstabzug, Beschattung und Szenen für Kochen, Essen und Abendbetrieb wichtiger als viele einzelne Effekte. Gute Planung trennt Funktionslicht und Stimmung sauber.",
+        ],
+      },
+      {
+        id: "bad-schlafzimmer",
+        title: "Bad, Schlafzimmer und Kinderzimmer",
+        body: [
+          "Im Bad helfen Präsenzmelder, Nachtlicht, Lüftungslogik, angenehme Lichttemperaturen und eine einfache Übersteuerung. Gerade nachts sollte Smart Home beruhigen, nicht blenden oder überfordern.",
+          "Schlafzimmer und Kinderzimmer brauchen zurückhaltende Automationen. Beschattung, Heizung, Fensterkontakte und wenige klare Szenen sind oft sinnvoller als ständige App-Bedienung.",
+        ],
+        bullets: ["Nachtlicht statt Vollbeleuchtung", "Beschattung und Temperatur ruhig steuern", "Kinderzimmer einfach bedienbar halten"],
+      },
+      {
+        id: "flur-technik-aussen",
+        title: "Flur, Technikraum, Garage und Außenbereich",
+        body: [
+          "Flure profitieren stark von Bewegungs- und Präsenzlicht. Technikraum, Hauswirtschaftsraum und Garage brauchen robuste Sensorik, gute Netzwerkstruktur und klare Positionen für Gateways, Switches oder Verteilungen.",
+          "Im Außenbereich zählen wetterfeste Installation, Wegebeleuchtung, Kamerablickwinkel, Gartenbewässerung, Garagentor, Außensteckdosen und Funk- beziehungsweise WLAN-Abdeckung.",
+        ],
+      },
+      {
+        id: "checkliste",
+        title: "Checkliste für die Smart-Home-Raumplanung",
+        body: [
+          "Pro Raum sollten Funktionen, Bedienpunkte, Sensoren, Lichtkreise, Beschattung, Heizung, Netzwerkbedarf, Steckdosen, spätere Erweiterungen und Datenschutzfragen notiert werden. Danach wird entschieden, welche Technik dazu passt.",
+          "Besonders im Neubau sollte diese Liste vor der Elektroplanung entstehen. Im Bestand hilft sie, Nachrüstung zu priorisieren und nicht an zu vielen Stellen gleichzeitig zu beginnen.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Wie plant man Smart Home Raum für Raum?", answer: "Man startet mit Alltagssituationen pro Raum: Licht, Heizung, Beschattung, Sensorik, Bedienung, Netzwerk und spätere Erweiterungen. Erst danach werden Geräte gewählt." },
+      { question: "Welche Smart-Home-Funktionen sind im Wohnzimmer sinnvoll?", answer: "Typisch sind Licht- und Beschattungsszenen, Audio, TV-Integration, Raumtemperatur und einfache Bedienung über Taster, App oder Dashboard." },
+      { question: "Was sollte man im Bad smart planen?", answer: "Sinnvoll sind Präsenzlicht, Nachtlicht, Lüftungslogik, Heizung, Feuchtigkeitssensorik und eine manuelle Übersteuerung." },
+      { question: "Warum ist Raumplanung im Neubau wichtig?", answer: "Weil Elektroplanung, Lichtkreise, Taster, Sensoren, Netzwerk und Verteiler früh festgelegt werden. Spätere Änderungen sind meist teurer." },
+      { question: "Kann man Raum-für-Raum auch im Bestand nachrüsten?", answer: "Ja. Im Bestand hilft Raumplanung besonders, sinnvolle Startbereiche zu wählen und Funk, Netzwerk und Bedienung realistisch einzuschätzen." },
+    ],
+    serviceLinks: [
+      { label: "Smart Home Planung für Neubau", href: "/smart-home-planung" },
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      { label: "Licht, Rollläden & Beschattung", href: "/licht-rollladen-beschattung" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+    ],
+    guideLinks: [
+      { label: "Smart Home im Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
+      { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
+      { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
+      { label: "Smart Home im Garten", href: "/ratgeber/smart-home-garten-aussenbereich-bewaesserung-licht" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik plant Smart Home Raum für Raum - damit Funktionen, Bedienung, Netzwerk und Elektrostruktur zum Alltag im Haus passen.",
+  },
+  {
+    slug: "smart-home-systemintegrator-hannover-knx-home-assistant",
+    path: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant",
+    title: "Smart Home Systemintegrator in Hannover - was ein Fachpartner für KNX, Home Assistant und Gebäudeautomation leistet",
+    metaTitle: "Smart Home Systemintegrator Hannover: KNX & Home Assistant",
+    metaDescription:
+      "Smart Home Systemintegrator Hannover finden: Aufgaben, Vorteile, KNX, Home Assistant, Planung, Nachrüstung, Schnittstellen und regionale Betreuung.",
+    category: "KNX, Home Assistant & Systeme",
+    excerpt:
+      "Was ein Smart-Home-Systemintegrator macht, wann sich Fachplanung lohnt und warum KNX, Home Assistant, Netzwerk und Bedienung zusammen gedacht werden sollten.",
+    intro:
+      "Ein Smart-Home-Systemintegrator sorgt dafür, dass einzelne Geräte, Gewerke und Schnittstellen nicht nebeneinander arbeiten, sondern ein verständliches Gesamtsystem bilden. Gerade bei KNX, Home Assistant, Netzwerk, Heizung, PV, Licht, Beschattung und Sicherheit ist diese Rolle entscheidend.",
+    image: "/images/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant.svg",
+    imageAlt:
+      "Grafik zu Smart-Home-Systemintegration in Hannover mit KNX, Home Assistant, Netzwerk, Licht, Heizung, PV, Sicherheit und regionaler Betreuung",
+    graphicTitle: "Smart Home Systemintegration Hannover",
+    localNote:
+      "Heimlogik arbeitet für Smart-Home-Projekte in Hannover, Nienburg, Wunstorf, Neustadt am Rübenberge, Leese und der Region - von Planung und Nachrüstung bis Systemintegration und Betreuung.",
+    sections: [
+      {
+        id: "aufgabe",
+        title: "Was macht ein Smart-Home-Systemintegrator?",
+        body: [
+          "Ein Systemintegrator verbindet Planung, Technik und Alltag. Er prüft, welche Systeme vorhanden sind, welche Funktionen gewünscht werden und wie Licht, Heizung, Beschattung, Sicherheit, Audio, Netzwerk und Energie sinnvoll zusammenspielen.",
+          "Der Fokus liegt nicht auf möglichst vielen Geräten, sondern auf einem stabilen Aufbau: passende Schnittstellen, klare Bedienung, dokumentierte Automationen und eine technische Struktur, die später erweitert werden kann.",
+        ],
+        bullets: ["Systeme sinnvoll verbinden", "Schnittstellen prüfen", "Bedienung und Dokumentation mitdenken"],
+      },
+      {
+        id: "knx-home-assistant",
+        title: "KNX, Home Assistant und Netzwerk zusammen denken",
+        body: [
+          "KNX eignet sich als robuste Gebäudebasis für Licht, Beschattung, Taster, Präsenzmelder und Grundfunktionen. Home Assistant kann als Integrationsplattform weitere Systeme, Dashboards, Energie, Audio und Automationen verbinden.",
+          "Das Netzwerk ist dabei keine Nebensache. Ohne stabiles LAN, WLAN, Access Points, Switches und saubere Adressstruktur wirken selbst gute Geräte unzuverlässig.",
+        ],
+      },
+      {
+        id: "wann-lohnt",
+        title: "Wann sich ein Fachpartner lohnt",
+        body: [
+          "Ein Fachpartner lohnt sich, wenn mehrere Räume, Gewerke oder Hersteller beteiligt sind. Typische Fälle sind Neubau, Sanierung, Nachrüstung im Bestand, Home-Assistant-Integration, KNX-Planung, PV- und Wallbox-Einbindung oder ein vorhandenes Smart Home mit App-Chaos.",
+          "Auch bei gehobenen Einfamilienhäusern ist die Integration wichtig, weil Komfortfunktionen später nur dann ruhig wirken, wenn die Grundstruktur sauber geplant wurde.",
+        ],
+        bullets: ["Neubau und Sanierung", "bestehende Systeme ordnen", "mehrere Gewerke koordinieren"],
+      },
+      {
+        id: "ablauf",
+        title: "Typischer Ablauf einer Systemintegration",
+        body: [
+          "Am Anfang steht eine Bestandsaufnahme: Objekt, Netzwerk, Elektroinstallation, vorhandene Geräte, gewünschte Funktionen, Bedienung, Datenschutz und Budgetrahmen. Danach entstehen Systemvorschlag, Prioritäten und Umsetzungsplan.",
+          "Bei der Umsetzung werden Geräte eingebunden, Automationen erstellt, Dashboards strukturiert, Nutzerrechte vergeben und Funktionen getestet. Eine Übergabe mit Dokumentation ist wichtig, damit das System nicht zur Blackbox wird.",
+        ],
+      },
+      {
+        id: "regional",
+        title: "Warum regionale Betreuung hilfreich ist",
+        body: [
+          "Viele Smart-Home-Fragen lassen sich remote lösen. Trotzdem ist regionale Nähe hilfreich, wenn Funkabdeckung, Netzwerk, Schaltschrank, Taster, Sensorpositionen oder bestehende Installationen vor Ort geprüft werden müssen.",
+          "Für Hannover und Umgebung kann ein regionaler Systemintegrator Planung, Installation, Nachjustierung und langfristige Betreuung enger verbinden als eine reine Online-Lösung.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Was ist ein Smart-Home-Systemintegrator?", answer: "Ein Systemintegrator verbindet verschiedene Smart-Home-Systeme, Geräte und Gewerke zu einer einheitlichen Lösung mit klarer Bedienung, Automationen und Dokumentation." },
+      { question: "Wann braucht man einen Smart-Home-Fachpartner?", answer: "Wenn mehrere Räume, Systeme oder Gewerke beteiligt sind, KNX oder Home Assistant eingebunden werden soll oder eine vorhandene Lösung unübersichtlich geworden ist." },
+      { question: "Kann ein Systemintegrator KNX und Home Assistant verbinden?", answer: "Ja. KNX kann die robuste Gebäudebasis liefern, während Home Assistant Visualisierung, Energie, Audio und weitere Integrationen ergänzt." },
+      { question: "Arbeitet Heimlogik als Smart-Home-Systemintegrator in Hannover?", answer: "Ja. Heimlogik unterstützt Projekte in Hannover und Umgebung bei Planung, Systemintegration, Nachrüstung, Home Assistant, KNX und langfristiger Betreuung." },
+      { question: "Was kostet Smart-Home-Systemintegration?", answer: "Das hängt von Objekt, Umfang, vorhandenen Systemen, Schnittstellen, Automationen und Dokumentation ab. Eine Bestandsaufnahme ist der sinnvollste erste Schritt." },
+    ],
+    serviceLinks: [
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "Smart-Home-Planung", href: "/smart-home-planung" },
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Neustadt am Rübenberge", href: "/smart-home-neustadt-am-ruebenberge" },
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+    ],
+    guideLinks: [
+      { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "KNX im Neubau planen", href: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik ist Ihr Smart-Home-Systemintegrator für Hannover und Umgebung - für KNX, Home Assistant, Netzwerk, Automationen und langfristig verständliche Gebäudetechnik.",
   },
 ];
 
