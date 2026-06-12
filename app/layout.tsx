@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SiteShell } from "@/components/SiteShell";
 import { siteConfig } from "@/site.config";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de">
       <body className={`${inter.className} min-h-screen bg-paper antialiased`}>
         <SiteShell>{children}</SiteShell>
+        <Analytics />
       </body>
     </html>
   );
