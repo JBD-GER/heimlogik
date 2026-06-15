@@ -22,10 +22,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: article.metaDescription,
     alternates: { canonical: article.path },
     openGraph: {
+      type: "article",
       title: article.metaTitle,
       description: article.metaDescription,
       url: article.path,
       images: [article.image],
+      ...(article.publishedAt ? { publishedTime: article.publishedAt } : {}),
+      ...(article.updatedAt ? { modifiedTime: article.updatedAt } : {}),
     },
   };
 }

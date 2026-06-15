@@ -9,6 +9,8 @@ import { articleSchema, type GuideArticle } from "@/lib/ratgeber";
 import { siteConfig } from "@/site.config";
 
 export function RatgeberArticlePage({ article }: { article: GuideArticle }) {
+  const publishedDate = article.publishedAt ? formatArticleDate(article.publishedAt) : null;
+
   return (
     <>
       <FAQSchema faqs={article.faqs} />
@@ -35,7 +37,10 @@ export function RatgeberArticlePage({ article }: { article: GuideArticle }) {
                   Ratgeber ansehen
                 </Link>
               </div>
-              <p className="mt-5 text-sm leading-6 text-slate-500">Autor: {siteConfig.companyName}</p>
+              <p className="mt-5 text-sm leading-6 text-slate-500">
+                Autor: {siteConfig.companyName}
+                {publishedDate ? <> · Veröffentlicht am {publishedDate}</> : null}
+              </p>
             </div>
             <figure className="overflow-hidden rounded-md border border-slate-200 bg-paper shadow-sm">
               <Image
@@ -152,6 +157,14 @@ export function RatgeberArticlePage({ article }: { article: GuideArticle }) {
       <CTASection title="Jetzt Smart-Home-Beratung für Hannover & Umgebung anfragen" primary="Projekt einschätzen lassen" />
     </>
   );
+}
+
+function formatArticleDate(date: string) {
+  return new Intl.DateTimeFormat("de-DE", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(`${date}T00:00:00+02:00`));
 }
 
 function LinkModules({ article }: { article: GuideArticle }) {

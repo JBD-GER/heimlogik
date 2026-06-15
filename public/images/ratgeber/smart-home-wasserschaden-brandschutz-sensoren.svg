@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home Schutz vor Wasser und Brandrisiken</title>
+  <desc id="desc">Smart-Home-Schutz mit Wassersensoren, Rauchmeldern, Leckage-Erkennung, Abschaltungen, Benachrichtigungen und Home Assistant.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="#0b1220">Schutzsensorik im Smart Home</text>
+  <rect x="180" y="200" width="385" height="330" rx="22" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+  <rect x="715" y="200" width="385" height="330" rx="22" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+  <path d="M372 275c55 74 96 126 96 178 0 55-43 94-96 94s-96-39-96-94c0-52 41-104 96-178z" fill="#fff" stroke="#0b1220" stroke-width="6"/>
+  <path d="M893 285c42 36 64 74 64 114 0 61-47 110-105 110s-105-49-105-110c0-58 48-90 70-139 16 34 24 57 76 25z" fill="#fff" stroke="#0b1220" stroke-width="6" stroke-linejoin="round"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#0b1220">
+    <text x="372" y="250" font-size="22" font-weight="700">Wasser</text>
+    <text x="372" y="585" font-size="16" font-weight="700">Leckage früh erkennen</text>
+    <text x="893" y="250" font-size="22" font-weight="700">Rauch</text>
+    <text x="893" y="585" font-size="16" font-weight="700">Meldungen klar planen</text>
+  </g>
+  <rect x="510" y="330" width="260" height="104" rx="22" fill="#0b1220"/>
+  <text x="640" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#fff">Alarmwege</text>
+  <text x="640" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#bbf7d0">Sensor / Licht / App / Hilfe</text>
+  <g stroke="#22c55e" stroke-width="5" stroke-dasharray="9 10" fill="none" stroke-linecap="round">
+    <path d="M565 365H468"/>
+    <path d="M715 365h132"/>
+    <path d="M565 402c-64 40-118 78-193 120"/>
+    <path d="M715 402c78 42 126 77 178 120"/>
+  </g>
+  <g fill="#ecfdf5" stroke="#22c55e" stroke-width="4" font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="245" y="620" width="170" height="58" rx="15"/>
+    <rect x="455" y="620" width="170" height="58" rx="15"/>
+    <rect x="665" y="620" width="170" height="58" rx="15"/>
+    <rect x="875" y="620" width="170" height="58" rx="15"/>
+    <text x="330" y="655" font-size="14" font-weight="700" fill="#0b1220">Sensoren</text>
+    <text x="540" y="655" font-size="14" font-weight="700" fill="#0b1220">Abschaltung</text>
+    <text x="750" y="655" font-size="14" font-weight="700" fill="#0b1220">Home</text>
+    <text x="960" y="655" font-size="14" font-weight="700" fill="#0b1220">Benachrichtigung</text>
+  </g>
+</svg>

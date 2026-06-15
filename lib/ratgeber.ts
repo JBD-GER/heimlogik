@@ -24,6 +24,8 @@ export type GuideArticle = {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  publishedAt?: string;
+  updatedAt?: string;
   category: string;
   excerpt: string;
   intro: string;
@@ -441,6 +443,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
       { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Sanierung planen", href: "/ratgeber/smart-home-sanierung-renovierung-planen" },
       { label: "Smart Home Systemintegrator Hannover", href: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant" },
       { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
@@ -782,6 +785,7 @@ export const guideArticles: GuideArticle[] = [
     guideLinks: [
       { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
       { label: "Smart Home Zutrittskontrolle", href: "/ratgeber/smart-home-zutrittskontrolle-tuerschloss-fingerprint-code" },
+      { label: "Wasserschaden & Brandschutz", href: "/ratgeber/smart-home-wasserschaden-brandschutz-sensoren" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Smart Home für Senioren", href: "/ratgeber/smart-home-fuer-senioren" },
       { label: "Smart Home für Ferienwohnung", href: "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb" },
@@ -1149,6 +1153,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home im Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
       { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
       { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
+      { label: "Smart Home Raumklima", href: "/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit" },
       { label: "KNX oder Home Assistant", href: "/ratgeber/knx-oder-home-assistant" },
     ],
     finalCta:
@@ -1328,6 +1333,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Energiemanagement mit PV und Wallbox", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
       { label: "Smart Home Bedienung", href: "/ratgeber/smart-home-bedienung-app-sprachsteuerung-touchpanel-taster" },
+      { label: "Smart Home Raumklima", href: "/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit" },
       { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
       { label: "Smart Home Systemintegrator Hannover", href: "/ratgeber/smart-home-systemintegrator-hannover-knx-home-assistant" },
     ],
@@ -1594,6 +1600,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home im Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
       { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
       { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Sanierung planen", href: "/ratgeber/smart-home-sanierung-renovierung-planen" },
       { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
     ],
@@ -1775,6 +1782,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "PV, Wallbox und Energiemanagement", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
       { label: "Smarte Heizungssteuerung", href: "/ratgeber/smarte-heizkoerperthermostate-heizungssteuerung" },
       { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Raumklima", href: "/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Smart Home Neubau planen", href: "/ratgeber/smart-home-neubau-planung" },
       { label: "Was kostet ein Smart Home?", href: "/ratgeber/was-kostet-ein-smart-home" },
@@ -2050,6 +2058,7 @@ export const guideArticles: GuideArticle[] = [
       { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
       { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
       { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Wasserschaden & Brandschutz", href: "/ratgeber/smart-home-wasserschaden-brandschutz-sensoren" },
       { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
       { label: "PV, Wallbox und Energiemanagement", href: "/ratgeber/smart-home-photovoltaik-wallbox-energiemanagement" },
     ],
@@ -2328,6 +2337,287 @@ export const guideArticles: GuideArticle[] = [
     finalCta:
       "Heimlogik ist Ihr Smart-Home-Systemintegrator für Hannover und Umgebung - für KNX, Home Assistant, Netzwerk, Automationen und langfristig verständliche Gebäudetechnik.",
   },
+  {
+    slug: "smart-home-sanierung-renovierung-planen",
+    path: "/ratgeber/smart-home-sanierung-renovierung-planen",
+    title: "Smart Home bei Sanierung und Renovierung planen - Elektro, Netzwerk und Automationen richtig vorbereiten",
+    metaTitle: "Smart Home Sanierung planen: Elektro, Netzwerk & KNX",
+    metaDescription:
+      "Smart Home bei Sanierung planen: Elektro, Netzwerk, KNX, Home Assistant, Licht, Beschattung, Heizung und spätere Nachrüstung sinnvoll vorbereiten.",
+    publishedAt: "2026-06-15",
+    updatedAt: "2026-06-15",
+    category: "Nachrüstung & Bestandsimmobilien",
+    excerpt:
+      "Wie Eigentümer eine Renovierung nutzen, um Smart Home, Netzwerk, Licht, Beschattung und spätere Erweiterungen ohne unnötige Umbauten vorzubereiten.",
+    intro:
+      "Eine Sanierung ist der beste Moment, um Smart Home nicht nur nachzurüsten, sondern sauber vorzubereiten. Wenn ohnehin Wände, Decken, Verteilungen oder Böden angefasst werden, lassen sich Leitungen, Netzwerk, Taster, Sensoren und Reserven deutlich besser planen als nach dem fertigen Innenausbau.",
+    image: "/images/ratgeber/smart-home-sanierung-renovierung-elektro-netzwerk.svg",
+    imageAlt:
+      "Grafik zur Smart-Home-Sanierung mit Elektroplanung, Netzwerk, KNX, Home Assistant, Licht, Heizung und Reserven",
+    graphicTitle: "Smart Home in Sanierung und Renovierung",
+    localNote:
+      "Bei Sanierungen in Hannover, Nienburg, Wunstorf, Leese und Umgebung lohnt sich eine frühe Smart-Home-Planung besonders, weil Elektroarbeiten, Netzwerk und spätere Bedienung dann gemeinsam entschieden werden können.",
+    sections: [
+      {
+        id: "sanierung-als-chance",
+        title: "Warum Sanierung eine besondere Chance ist",
+        body: [
+          "Im bewohnten Bestand wird Smart Home oft mit Funkgeräten nachgerüstet. Das kann sinnvoll sein, stößt aber an Grenzen, wenn viele Lichtkreise, Rollläden, Präsenzmelder, Netzwerkdosen oder zentrale Funktionen gewünscht sind.",
+          "Während einer Sanierung können Leitungswege, Unterverteilungen, Netzwerkpunkte und Sensorpositionen wesentlich freier geplant werden. Dadurch entstehen robuste Grundlagen, die später nicht sichtbar nachgebessert werden müssen.",
+        ],
+        bullets: ["Leitungen legen, solange Wände offen sind", "Netzwerk und WLAN professionell vorbereiten", "Taster, Sensoren und Reserven früh festlegen"],
+      },
+      {
+        id: "elektro-netzwerk",
+        title: "Elektroplanung und Netzwerk gemeinsam betrachten",
+        body: [
+          "Smart Home braucht nicht nur Strom, sondern Struktur. Lichtkreise, Beschattung, Steckdosen, Türkommunikation, Kameras, Access Points, Technikraum und Netzwerkdosen sollten zusammen gedacht werden.",
+          "Ein häufiger Fehler ist, WLAN erst nach dem Einzug zu lösen. Besser sind feste LAN-Leitungen, sinnvoll platzierte Access Points, ein sauberer Technikbereich und genug Reserven für Gateways, Switches und spätere Erweiterungen.",
+        ],
+      },
+      {
+        id: "knx-funk-home-assistant",
+        title: "KNX, Funk oder Home Assistant bei der Sanierung?",
+        body: [
+          "Bei größerer Sanierung kann KNX für feste Gebäudefunktionen wie Licht, Beschattung, Taster und Präsenzmelder sehr sinnvoll sein. Funklösungen bleiben interessant für Bereiche, in denen ein Kabel unverhältnismäßig wäre.",
+          "Home Assistant kann beide Welten zusammenführen: kabelgebundene Gebäudetechnik, Funkgeräte, Energie, Audio, Dashboards und Automationen. Entscheidend ist, dass die Aufgaben sauber getrennt werden und nicht jedes Gerät eine eigene Insel bleibt.",
+        ],
+        bullets: ["KNX für robuste Grundfunktionen", "Funk für flexible Nachrüstung", "Home Assistant als Integrationsplattform"],
+      },
+      {
+        id: "raeume-priorisieren",
+        title: "Räume und Funktionen priorisieren",
+        body: [
+          "Nicht jeder Raum braucht die gleiche Smart-Home-Tiefe. Flure profitieren von Präsenzlicht, Wohnzimmer von Szenen und Beschattung, Bäder von Nachtlicht und Feuchtesensorik, Technikräume von Netzwerk und Monitoring.",
+          "Eine gute Sanierungsplanung arbeitet deshalb Raum für Raum. Erst werden Alltag, Bedienung und Komfort festgelegt, danach Technik, Verkabelung und Automationen.",
+        ],
+      },
+      {
+        id: "checkliste",
+        title: "Checkliste vor Handwerkerangeboten",
+        body: [
+          "Vor Elektro- und Ausbauangeboten sollten Lichtkreise, Tasterpositionen, Rollläden, Netzwerkpunkte, Access Points, Kamerapositionen, Türkommunikation, Heizungszonen, Technikraum und spätere Erweiterungen geklärt sein.",
+          "So vermeiden Eigentümer Nachträge, sichtbare Kompromisse und doppelte Arbeit. Smart Home muss nicht sofort vollständig umgesetzt werden, sollte aber so vorbereitet sein, dass spätere Erweiterungen möglich bleiben.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Wann sollte Smart Home bei einer Sanierung geplant werden?", answer: "Am besten vor Elektroplanung und Handwerkerangeboten. Dann lassen sich Leitungen, Netzwerk, Taster, Sensoren und Reserven noch sinnvoll berücksichtigen." },
+      { question: "Lohnt sich KNX bei einer Sanierung?", answer: "Ja, wenn ohnehin größere Elektroarbeiten stattfinden und feste Funktionen wie Licht, Beschattung und Taster langfristig robust laufen sollen." },
+      { question: "Kann man Smart Home bei Renovierung auch nur vorbereiten?", answer: "Ja. Leitungen, Netzwerk, Dosen, Technikraum und Reserven können vorbereitet werden, auch wenn einzelne Automationen erst später umgesetzt werden." },
+      { question: "Was ist bei WLAN und Netzwerk in der Sanierung wichtig?", answer: "Wichtig sind feste LAN-Leitungen, sinnvolle Access-Point-Positionen, ein sauberer Technikbereich und genug Anschlüsse für Gateways, Kameras oder Mediengeräte." },
+      { question: "Welche Smart-Home-Funktionen sollte man zuerst planen?", answer: "Zuerst sollten Licht, Beschattung, Heizung, Netzwerk, Bedienung, Sensorik und Sicherheitsfunktionen pro Raum priorisiert werden." },
+    ],
+    serviceLinks: [
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      { label: "Smart Home Planung für Neubau", href: "/smart-home-planung" },
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Neustadt am Rübenberge", href: "/smart-home-neustadt-am-ruebenberge" },
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+    ],
+    guideLinks: [
+      { label: "Smart Home nachrüsten", href: "/ratgeber/smart-home-nachruesten-ohne-waende-aufzureissen" },
+      { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "KNX im Neubau planen", href: "/ratgeber/knx-planung-neubau-elektro-taster-verteiler" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+      { label: "Smart Home Lichtsteuerung", href: "/ratgeber/smart-home-lichtsteuerung-szenen-dali-praesenzmelder" },
+      { label: "Smart Home Fehler vermeiden", href: "/ratgeber/smart-home-fehler-vermeiden" },
+    ],
+    finalCta:
+      "Heimlogik hilft bei Smart-Home-Planung in Sanierung und Renovierung - mit klarer Struktur für Elektro, Netzwerk, Bedienung und spätere Erweiterungen.",
+  },
+  {
+    slug: "smart-home-raumklima-lueftung-co2-feuchtigkeit",
+    path: "/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit",
+    title: "Smart Home Raumklima - Lüftung, CO2, Feuchtigkeit und Temperatur sinnvoll automatisieren",
+    metaTitle: "Smart Home Raumklima: CO2, Lüftung & Feuchtigkeit",
+    metaDescription:
+      "Smart Home Raumklima planen: CO2-Sensoren, Luftfeuchtigkeit, Lüftung, Temperatur, Bad, Schlafzimmer, Home Assistant und sinnvolle Automationen.",
+    publishedAt: "2026-06-15",
+    updatedAt: "2026-06-15",
+    category: "Heizung, Energie & Komfort",
+    excerpt:
+      "Wie Sensoren und Automationen helfen, Raumklima verständlich zu überwachen - ohne blinde Heizungslogik oder nervige App-Meldungen.",
+    intro:
+      "Gutes Raumklima ist mehr als eine angenehme Temperatur. CO2, Luftfeuchtigkeit, Lüftung, Beschattung und Heizung wirken zusammen. Smart Home kann diese Werte sichtbar machen und Routinen unterstützen, wenn Sensoren, Automationen und Bedienung sinnvoll geplant werden.",
+    image: "/images/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit.svg",
+    imageAlt:
+      "Grafik zum Smart-Home-Raumklima mit CO2, Feuchtigkeit, Temperatur, Lüftung, Heizung und Home Assistant",
+    graphicTitle: "Smart Home Raumklima",
+    localNote:
+      "In Einfamilienhäusern rund um Hannover und Nienburg ist Raumklima besonders spannend, wenn Heizung, Beschattung, Fensterkontakte, Lüftung und Home Assistant bereits vernetzt werden sollen.",
+    sections: [
+      {
+        id: "raumklima-werte",
+        title: "Welche Werte wirklich wichtig sind",
+        body: [
+          "Temperatur allein erklärt das Raumklima nur teilweise. CO2-Werte zeigen, wann Lüften sinnvoll ist. Luftfeuchtigkeit hilft, Bad, Schlafzimmer, Keller oder Hauswirtschaftsraum besser einzuschätzen. Fensterkontakte und Außentemperatur liefern zusätzlichen Kontext.",
+          "Smart Home sollte diese Werte nicht nur sammeln, sondern verständlich nutzen: für Hinweise, einfache Automationen und bessere Entscheidungen bei Heizung, Lüftung und Beschattung.",
+        ],
+        bullets: ["Temperatur je Raum", "CO2 als Lüftungshinweis", "Feuchtigkeit für Bad, Keller und Schlafräume"],
+      },
+      {
+        id: "sensoren",
+        title: "Sensoren für CO2, Feuchtigkeit und Temperatur",
+        body: [
+          "CO2-Sensoren sind besonders für Schlafzimmer, Wohnzimmer, Büro und Kinderzimmer interessant. Feuchtigkeitssensoren helfen im Bad, Keller, Hauswirtschaftsraum oder an Stellen mit möglichem Kondensat.",
+          "Wichtig ist die richtige Position. Sensoren direkt am Fenster, über Heizkörpern oder in Zugluft liefern oft unruhige Werte. Auch Batterielaufzeit, Funkreichweite und Updateintervalle sollten berücksichtigt werden.",
+        ],
+      },
+      {
+        id: "automation",
+        title: "Sinnvolle Automationen statt Dauerbenachrichtigung",
+        body: [
+          "Eine gute Raumklima-Automation meldet nicht jede kleine Abweichung. Sie unterscheidet, ob jemand zuhause ist, ob ein Fenster offen steht, ob gerade geduscht wurde oder ob Beschattung die Temperatur stabil halten kann.",
+          "In Häusern mit Lüftungsanlage können Hinweise oder Steuerimpulse sinnvoll sein. Bei klassischem Fensterlüften reichen oft klare Hinweise, Dashboards und ruhige Routinen statt ständiger Push-Meldungen.",
+        ],
+        bullets: ["Badlüftung nach Feuchtigkeit steuern", "CO2-Hinweise zeitlich sinnvoll begrenzen", "Beschattung gegen sommerliche Überhitzung nutzen"],
+      },
+      {
+        id: "heizung-beschattung",
+        title: "Heizung, Beschattung und Lüftung verbinden",
+        body: [
+          "Fensterkontakte können verhindern, dass Heizkörper bei geöffnetem Fenster weiterheizen. Beschattung kann Räume im Sommer entlasten. Temperatur- und Feuchtedaten helfen, Komfort und Energieverbrauch besser auszubalancieren.",
+          "Trotzdem sollte Smart Home die Heizungsanlage nicht hektisch regeln. Besonders bei Fußbodenheizung und Wärmepumpe sind ruhige Strategien wichtiger als schnelle Schaltbefehle.",
+        ],
+      },
+      {
+        id: "home-assistant",
+        title: "Home Assistant als Raumklima-Zentrale",
+        body: [
+          "Home Assistant eignet sich gut, um Sensorwerte aus verschiedenen Systemen zusammenzuführen, Dashboards zu bauen und Automationen nachvollziehbar zu dokumentieren.",
+          "Damit es alltagstauglich bleibt, sollten Räume, Sensoren, Schwellenwerte und Benachrichtigungen sauber benannt werden. Sonst entsteht aus nützlichen Klimadaten schnell ein unübersichtliches Zahlen-Dashboard.",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Welche Sensoren braucht man für Smart-Home-Raumklima?", answer: "Typisch sind Temperatur-, Luftfeuchtigkeits-, CO2- und Fensterkontakte. Je nach Haus können Außentemperatur, Lüftungsanlage und Beschattung ergänzt werden." },
+      { question: "Sind CO2-Sensoren im Smart Home sinnvoll?", answer: "Ja, besonders in Schlafzimmer, Büro, Wohnzimmer und Kinderzimmer. Sie helfen, Lüftungsbedarf sichtbar zu machen und Benachrichtigungen sinnvoll zu steuern." },
+      { question: "Kann Smart Home Schimmel verhindern?", answer: "Smart Home kann Feuchtigkeit, Temperatur und Lüftungsverhalten sichtbar machen und Hinweise geben. Es ersetzt aber keine bauliche Prüfung bei echten Feuchteproblemen." },
+      { question: "Kann Home Assistant Lüftung und Raumklima steuern?", answer: "Ja, wenn passende Sensoren und Schnittstellen vorhanden sind. Home Assistant kann Werte sammeln, Dashboards anzeigen und Automationen auslösen." },
+      { question: "Wie vermeidet man nervige Raumklima-Meldungen?", answer: "Durch sinnvolle Schwellenwerte, Zeitfenster, Anwesenheit, Raumlogik und wenige gut verständliche Hinweise statt permanenter Benachrichtigungen." },
+    ],
+    serviceLinks: [
+      { label: "Energiemanagement & Heizung", href: "/energiemanagement-heizung" },
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Nienburg", href: "/smart-home-nienburg" },
+    ],
+    guideLinks: [
+      { label: "Smarte Heizkörperthermostate", href: "/ratgeber/smarte-heizkoerperthermostate-heizungssteuerung" },
+      { label: "Wärmepumpe smart steuern", href: "/ratgeber/waermepumpe-smart-home-steuern-pv-heizung" },
+      { label: "Smart Home Rollladensteuerung", href: "/ratgeber/smart-home-rollladensteuerung-beschattung" },
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Raum für Raum planen", href: "/ratgeber/smart-home-raum-fuer-raum-planen" },
+      { label: "Smart Home Netzwerk planen", href: "/ratgeber/smart-home-netzwerk-wlan-lan-access-points-technikraum" },
+    ],
+    finalCta:
+      "Heimlogik plant Raumklima im Smart Home verständlich - mit passenden Sensoren, ruhigen Automationen und sinnvoller Verbindung von Heizung, Lüftung und Beschattung.",
+  },
+  {
+    slug: "smart-home-wasserschaden-brandschutz-sensoren",
+    path: "/ratgeber/smart-home-wasserschaden-brandschutz-sensoren",
+    title: "Smart Home gegen Wasserschaden und Brandrisiken - Sensoren, Rauchmelder und Abschaltungen richtig planen",
+    metaTitle: "Smart Home Schutz: Wasser, Rauchmelder & Sensoren",
+    metaDescription:
+      "Smart Home Schutz planen: Wassersensoren, Rauchmelder, Leckage, Abschaltung, Push-Meldungen, Kameras, Home Assistant und sinnvolle Grenzen.",
+    publishedAt: "2026-06-15",
+    updatedAt: "2026-06-15",
+    category: "Audio, Licht & Sicherheit",
+    excerpt:
+      "Wie Wassersensoren, Rauchmelder, smarte Steckdosen und Benachrichtigungen helfen können - und warum sie professionelle Schutzkonzepte nicht ersetzen.",
+    intro:
+      "Smart Home kann bei Wasser, Rauch, ungewöhnlichen Verbräuchen oder kritischen Geräten früh Hinweise geben. Entscheidend ist aber eine nüchterne Planung: Sensoren müssen richtig platziert sein, Meldungen müssen ankommen und sicherheitsrelevante Funktionen brauchen klare Grenzen.",
+    image: "/images/ratgeber/smart-home-wasserschaden-brandschutz-sensoren.svg",
+    imageAlt:
+      "Grafik zu Smart Home Schutz vor Wasserschaden und Brandrisiken mit Sensoren, Rauchmeldern, Abschaltung und Benachrichtigungen",
+    graphicTitle: "Smart Home Schutz vor Wasser und Brandrisiken",
+    localNote:
+      "Für Häuser und Ferienimmobilien in Hannover, Nienburg, Wunstorf und Umgebung ist Schutzsensorik besonders interessant, wenn Eigentümer nicht immer vor Ort sind und trotzdem früh informiert werden möchten.",
+    sections: [
+      {
+        id: "realistische-rolle",
+        title: "Was Smart Home beim Schutz leisten kann",
+        body: [
+          "Smart Home kann Hinweise geben, Routinen auslösen und bestimmte Geräte abschalten. Wassersensoren melden Feuchtigkeit, Rauchmelder können in Szenen eingebunden werden, smarte Steckdosen können auffällige Verbraucher sichtbar machen.",
+          "Es ist aber wichtig, die Rolle richtig einzuordnen. Smart-Home-Sensorik ersetzt keine vorgeschriebenen Rauchwarnmelder, keine Elektroprüfung und keine fachgerechte Wasserinstallation. Sie ergänzt diese Grundlagen.",
+        ],
+        bullets: ["Frühe Hinweise erhalten", "kritische Bereiche überwachen", "Grenzen von Smart-Home-Schutz kennen"],
+      },
+      {
+        id: "wassersensoren",
+        title: "Wassersensoren und Leckage-Erkennung",
+        body: [
+          "Sinnvolle Orte für Wassersensoren sind Hauswirtschaftsraum, Küche, Waschmaschine, Spülmaschine, Heizungsraum, Keller, Technikraum und Bereiche mit Wasserfiltern oder Enthärtungsanlagen.",
+          "Bei höherem Anspruch können Sensoren mit einer Absperrung oder einem Leckage-System kombiniert werden. Dann muss aber besonders sorgfältig geplant werden, wann automatisch geschlossen wird und wie Notfälle oder Fehlalarme behandelt werden.",
+        ],
+      },
+      {
+        id: "rauch-waerme",
+        title: "Rauchmelder, Wärmemelder und Benachrichtigungen",
+        body: [
+          "Rauchwarnmelder gehören unabhängig vom Smart Home korrekt geplant und installiert. Eine Smart-Home-Anbindung kann zusätzlich Meldungen, Lichtsignale oder Hinweise auslösen, wenn ein kompatibles System vorhanden ist.",
+          "Gerade bei Abwesenheit ist wichtig, dass Meldungen zuverlässig ankommen. Push-Nachrichten allein sind nicht immer genug, wenn Smartphone, Internet oder Cloud-Dienst gerade nicht erreichbar sind.",
+        ],
+        bullets: ["Rauchwarnmelder normgerecht behandeln", "Benachrichtigungen nicht überschätzen", "Licht- und Anwesenheitsszenen ergänzen"],
+      },
+      {
+        id: "geraete-steckdosen",
+        title: "Kritische Geräte und smarte Steckdosen",
+        body: [
+          "Smarte Steckdosen können Verbrauch sichtbar machen und bestimmte Geräte bei Abwesenheit abschalten. Das ist etwa für Bügelstation, Kaffeemaschine oder Werkstattverbraucher interessant, sofern Gerät und Steckdose dafür geeignet sind.",
+          "Nicht jedes Gerät sollte einfach hart abgeschaltet werden. Kühlgeräte, Server, Heizungssteuerungen oder sicherheitsrelevante Technik brauchen andere Strategien und klare Ausnahmen.",
+        ],
+      },
+      {
+        id: "home-assistant-logik",
+        title: "Home Assistant, KNX und klare Alarmwege",
+        body: [
+          "Home Assistant kann Sensoren, Steckdosen, Kameras, Licht und Benachrichtigungen zusammenführen. KNX kann stabile Grundfunktionen und Tasterlogik liefern. Gemeinsam entsteht eine nachvollziehbare Schutzlogik.",
+          "Wichtig sind einfache Alarmwege: Wer bekommt welche Meldung? Was passiert nachts? Was passiert im Urlaub? Was darf automatisch abschalten und was braucht manuelle Bestätigung?",
+        ],
+      },
+    ],
+    faqs: [
+      { question: "Wo sind Wassersensoren im Smart Home sinnvoll?", answer: "Sinnvoll sind Waschmaschine, Spülmaschine, Küche, Keller, Heizungsraum, Technikraum, Wasserfilter, Enthärtungsanlage und Bereiche mit erhöhtem Leckage-Risiko." },
+      { question: "Kann Smart Home einen Wasserschaden verhindern?", answer: "Es kann früh warnen und bei passenden Systemen Abschaltungen auslösen. Eine fachgerechte Installation und regelmäßige Prüfung ersetzt es nicht." },
+      { question: "Sollte man Rauchmelder ins Smart Home einbinden?", answer: "Eine Einbindung kann zusätzliche Meldungen und Szenen ermöglichen. Vorgeschriebene Rauchwarnmelder müssen trotzdem unabhängig korrekt geplant und betrieben werden." },
+      { question: "Sind smarte Steckdosen für Brandschutz sinnvoll?", answer: "Sie können helfen, bestimmte Verbraucher sichtbar zu machen oder bei Abwesenheit abzuschalten. Die elektrische Eignung von Gerät und Steckdose muss aber passen." },
+      { question: "Wie plant man Alarmmeldungen im Smart Home?", answer: "Man legt fest, wer welche Meldung erhält, welche Wege genutzt werden, welche Aktionen automatisch laufen und welche Ausnahmen für Nacht, Urlaub oder Fehlalarm gelten." },
+    ],
+    serviceLinks: [
+      { label: "Smart Home Sicherheit", href: "/smart-home-sicherheit" },
+      { label: "Smart Home Installation Hannover", href: "/smart-home-installation" },
+      { label: "KNX & Home Assistant Integration", href: "/knx-home-assistant-systemintegration" },
+      { label: "Smart Home Nachrüstung Hannover", href: "/smart-home-nachruesten" },
+      contactLink,
+    ],
+    locationLinks: [
+      { label: "Smart Home Hannover", href: "/smart-home-hannover" },
+      { label: "Smart Home Wunstorf", href: "/smart-home-wunstorf" },
+      { label: "Smart Home Nienburg", href: "/smart-home-nienburg" },
+    ],
+    guideLinks: [
+      { label: "Smart Home Sicherheit", href: "/ratgeber/smart-home-sicherheit-kameras-sensoren-alarm" },
+      { label: "Smart Home Ferienwohnung", href: "/ratgeber/smart-home-ferienhaus-ferienwohnung-airbnb" },
+      { label: "Smart Home Datenschutz", href: "/ratgeber/smart-home-datenschutz-cloud-lokal" },
+      { label: "Smart Home Wartung", href: "/ratgeber/smart-home-wartung-betreuung-updates-backups" },
+      { label: "Home Assistant einrichten lassen", href: "/ratgeber/home-assistant-professionell-einrichten-lassen" },
+      { label: "Smart Home Raumklima", href: "/ratgeber/smart-home-raumklima-lueftung-co2-feuchtigkeit" },
+    ],
+    finalCta:
+      "Heimlogik plant Schutzsensorik im Smart Home realistisch - mit sinnvollen Sensoren, klaren Alarmwegen und sauberer Integration in Home Assistant, KNX und Alltag.",
+  },
 ];
 
 export const guideArticleMap: Record<string, GuideArticle> = Object.fromEntries(
@@ -2345,6 +2635,9 @@ export function articleSchema(article: GuideArticle) {
     headline: article.title,
     description: article.metaDescription,
     image: `${siteConfig.siteUrl}${article.image}`,
+    articleSection: article.category,
+    ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+    ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
     author: {
       "@type": "Organization",
       name: siteConfig.companyName,
@@ -2378,6 +2671,8 @@ export function guideCollectionSchema() {
       "@type": "Article",
       headline: article.title,
       url: `${siteConfig.siteUrl}${article.path}`,
+      ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+      ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
     })),
   };
 }

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Home Raumklima</title>
+  <desc id="desc">Smart-Home-Raumklima mit CO2, Luftfeuchtigkeit, Temperatur, Lüftung, Heizung, Beschattung und Home Assistant.</desc>
+  <rect width="1280" height="760" fill="#f8fafc"/>
+  <rect x="70" y="70" width="1140" height="620" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="640" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0b1220">Smart Home Raumklima</text>
+  <rect x="170" y="185" width="940" height="385" rx="24" fill="#ecfeff" stroke="#06b6d4" stroke-width="4"/>
+  <path d="M275 455V318l145-98 145 98v137z" fill="#fff" stroke="#0b1220" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="395" y="382" width="50" height="73" rx="6" fill="#0b1220"/>
+  <path d="M615 282c72-48 161-48 232 0M640 360c49-34 110-34 160 0M678 434c27-17 57-17 84 0" fill="none" stroke="#22c55e" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">
+    <circle cx="810" cy="275" r="58" fill="#ecfdf5" stroke="#22c55e" stroke-width="5"/>
+    <circle cx="935" cy="405" r="58" fill="#fff7ed" stroke="#f97316" stroke-width="5"/>
+    <circle cx="690" cy="405" r="58" fill="#eef2ff" stroke="#6366f1" stroke-width="5"/>
+    <text x="810" y="268" font-size="24" fill="#0b1220">CO2</text>
+    <text x="810" y="292" font-size="13" fill="#0b1220">Lüftung</text>
+    <text x="935" y="398" font-size="24" fill="#0b1220">%</text>
+    <text x="935" y="422" font-size="13" fill="#0b1220">Feuchte</text>
+    <text x="690" y="398" font-size="24" fill="#0b1220">°C</text>
+    <text x="690" y="422" font-size="13" fill="#0b1220">Temperatur</text>
+  </g>
+  <rect x="458" y="590" width="364" height="68" rx="18" fill="#0b1220"/>
+  <text x="640" y="618" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Sensoren verständlich nutzen</text>
+  <text x="640" y="644" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#bbf7d0">Heizung / Lüftung / Beschattung</text>
+  <g stroke="#06b6d4" stroke-width="4" stroke-dasharray="8 10" fill="none" stroke-linecap="round">
+    <path d="M420 455c75 60 145 86 220 135"/>
+    <path d="M810 333c-42 78-92 126-170 257"/>
+    <path d="M935 463c-80 52-155 86-295 127"/>
+  </g>
+</svg>

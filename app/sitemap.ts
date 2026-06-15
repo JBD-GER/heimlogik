@@ -4,6 +4,7 @@ import { guideArticles } from "@/lib/ratgeber";
 import { siteConfig } from "@/site.config";
 
 const baseUrl = siteConfig.siteUrl.replace(/\/$/, "");
+const guideArticleByPath = new Map(guideArticles.map((article) => [article.path, article]));
 
 const staticRoutes = [
   "/",
@@ -32,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return uniqueRoutes.map((route) => ({
     url: `${baseUrl}${route === "/" ? "" : route}`,
-    lastModified: new Date(),
+    lastModified: guideArticleByPath.get(route)?.updatedAt ?? new Date(),
     changeFrequency: route === "/" ? "weekly" : "monthly",
     priority: route === "/" ? 1 : route.startsWith("/smart-home-") ? 0.8 : 0.7,
   }));
