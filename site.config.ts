@@ -3,7 +3,7 @@ export const siteConfig = {
   legalCompanyName: "Flaaq Holding GmbH",
   claim: "Smart Home Planung & Installation",
   alternativeClaim: "Planung. Integration. Programmierung. Betreuung.",
-  phone: "05761 8429666",
+  phone: "0511-9012188-1",
   email: "smart@heimlogik.de",
   city: "Leese",
   serviceArea:

@@ -38,7 +38,7 @@ export default function LeistungenPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold text-slate-800">
               <a href="/kontakt" className="rounded-md bg-accent px-4 py-3 text-ink">Leistung besprechen</a>
-              <a href="tel:057618429666" className="rounded-md border border-slate-300 px-4 py-3">05761 8429666</a>
+              <a href="tel:+4951190121881" className="rounded-md border border-slate-300 px-4 py-3">0511-9012188-1</a>
             </div>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

@@ -76,8 +76,8 @@ export default function FachpartnerPage() {
               <a href="/kontakt" className="rounded-md bg-accent px-4 py-3 text-ink">
                 Zusammenarbeit besprechen
               </a>
-              <a href="tel:057618429666" className="rounded-md border border-slate-300 px-4 py-3">
-                05761 8429666
+              <a href="tel:+4951190121881" className="rounded-md border border-slate-300 px-4 py-3">
+                0511-9012188-1
               </a>
             </div>
           </div>

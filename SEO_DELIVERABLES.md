@@ -58,7 +58,7 @@ Alle Haupt- und Landingpages haben einen eigenen Hero mit lokalem Bezug, sichtba
 
 ## 6. CTA-Texte je Seite
 
-- Standard: Projekt-Check vereinbaren, Beratung anfragen, 05761 8429666
+- Standard: Projekt-Check vereinbaren, Beratung anfragen, 0511-9012188-1
 - KNX/Home Assistant: KNX- und Home Assistant-Projekt besprechen
 - Nachrüstung: Nachrüst-Check vereinbaren
 - Thermostate: Thermostat-Check anfragen
