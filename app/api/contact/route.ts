@@ -4,7 +4,12 @@ import { absoluteUrl } from "@/lib/utils";
 import { siteConfig } from "@/site.config";
 
 export async function POST(request: Request) {
-  const formData = await request.formData();
+  let formData: FormData;
+  try {
+    formData = await request.formData();
+  } catch {
+    return NextResponse.json({ message: "Die Formulardaten konnten nicht gelesen werden." }, { status: 400 });
+  }
   const raw = Object.fromEntries(formData.entries());
   const parsed = contactSchema.safeParse(raw);
 
@@ -21,37 +26,56 @@ export async function POST(request: Request) {
 
   const data = parsed.data;
 
-  if (data.website) {
-    return NextResponse.json({ message: "Vielen Dank. Ihre Anfrage wurde übermittelt." });
-  }
-
   const resendApiKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL || siteConfig.email;
   const fromEmail = process.env.RESEND_FROM_EMAIL || siteConfig.email;
 
-  if (resendApiKey) {
-    const { Resend } = await import("resend");
-    const resend = new Resend(resendApiKey);
-    await Promise.all([
-      resend.emails.send({
-        from: `${siteConfig.companyName} <${fromEmail}>`,
-        to: contactEmail,
-        subject: `Neue Smart-Home-Anfrage: ${data.service} von ${data.name}`,
-        html: adminEmailHtml(data),
-        text: adminEmailText(data),
-        replyTo: data.email,
-      }),
-      resend.emails.send({
-        from: `${siteConfig.companyName} <${fromEmail}>`,
-        to: data.email,
-        subject: "Ihre Anfrage bei Heimlogik ist angekommen",
-        html: customerEmailHtml(data),
-        text: customerEmailText(data),
-        replyTo: siteConfig.email,
-      }),
-    ]);
-  } else {
-    console.info("Neue Heimlogik Kontaktanfrage im Demo-Modus", data);
+  if (!resendApiKey) {
+    return NextResponse.json(
+      { message: `Der E-Mail-Versand ist derzeit nicht verfügbar. Bitte schreiben Sie direkt an ${contactEmail}.` },
+      { status: 503 },
+    );
+  }
+
+  const { Resend } = await import("resend");
+  const resend = new Resend(resendApiKey);
+
+  try {
+    const { data: email, error } = await resend.emails.send({
+      from: `${siteConfig.companyName} <${fromEmail}>`,
+      to: contactEmail,
+      subject: `Neue Smart-Home-Anfrage: ${data.service} von ${data.name}`,
+      html: adminEmailHtml(data),
+      text: adminEmailText(data),
+      replyTo: data.email,
+    });
+    if (error || !email?.id) {
+      throw new Error("Contact email was not accepted.");
+    }
+  } catch {
+    console.error("Heimlogik: Kontaktanfrage konnte nicht per E-Mail versendet werden.");
+    return NextResponse.json(
+      { message: `Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an ${contactEmail}.` },
+      { status: 502 },
+    );
+  }
+
+  // Erst nach erfolgreichem Versand der Anfrage eine Bestätigung senden.
+  // Ein Fehler der Bestätigung darf keine erneute Anfrage auslösen.
+  try {
+    const { data: email, error } = await resend.emails.send({
+      from: `${siteConfig.companyName} <${fromEmail}>`,
+      to: data.email,
+      subject: "Ihre Anfrage bei Heimlogik ist angekommen",
+      html: customerEmailHtml(data),
+      text: customerEmailText(data),
+      replyTo: siteConfig.email,
+    });
+    if (error || !email?.id) {
+      throw new Error("Confirmation email was not accepted.");
+    }
+  } catch {
+    console.error("Heimlogik: Eingangsbestätigung konnte nicht per E-Mail versendet werden.");
   }
 
   return NextResponse.json({
